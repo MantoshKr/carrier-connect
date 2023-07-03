@@ -10,6 +10,8 @@
    font-size: 27px;
    font-weight: 700;
     color: #079926;
+    margin: 10px 0;
+    padding: 10px ;
 }  
 
 
@@ -53,8 +55,8 @@
 
 .signup-btn {
     color: #ffffff;
-    width: 100%;
-    padding: 10px;
+    width: 50%;
+    padding: 8px;
     border-radius: 20px;
     font-size: 15px;
     margin: 10px 0;
@@ -88,8 +90,8 @@
 
   .google-btn {
     color: #080808;
-    width: 100%;
-    padding: 8px;
+    width: 90%;
+    padding: 6px;
     border-radius: 20px;
     font-size: 15px;
     margin: 10px 0;
@@ -137,12 +139,11 @@
   }
 
   img{
-    width:60px;
+    width:55px;
     margin-top: -50px; 
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    width:60px;
   }
 
   #terms{

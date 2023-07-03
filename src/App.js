@@ -3,6 +3,7 @@ import Home from "./pages/Home/Home";
 import { AuthContextProvider } from "./context/AuthContext";
 import Signup from "./pages/Signup/Signup";
 import Login from "./pages/Login/Login";
+import Navbar from "./components/Navbar/Navbar";
 
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
    <BrowserRouter>
     
    <AuthContextProvider>
+   <Navbar/>
     <Routes>
       <Route path="/" element={<Home />}/>
       <Route path="/Login" element={<Login />}/>
