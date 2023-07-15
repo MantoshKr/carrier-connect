@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { UserAuth } from '../../context/AuthContext';
 import "../Signup/Signup.css"
 import { ImGoogle } from 'react-icons/im';
-import userImage from '../../assets/user.png'
+import userImage from '../../assets/images/user.png'
 
 
 
