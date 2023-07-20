@@ -39,7 +39,7 @@ return (
 
                 <div className='sign-up-form' >
 
-                    <img src={userImage} alt="user" />
+                    <img src={userImage} alt="user" className='userlogo' />
                     <h1>Sign in</h1>
                     <p>Stay updated on your professional world</p>
                     

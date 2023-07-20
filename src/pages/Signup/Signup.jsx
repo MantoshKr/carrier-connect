@@ -48,7 +48,7 @@ const Signup = () => {
 
                 <div className='sign-up-form' >
 
-                    <img src={userImage} alt="user" />
+                    <img src={userImage} alt="user" className='userlogo' />
                     <h1>Create a new account</h1>
                     <p>It's quick and easy.</p>
 
