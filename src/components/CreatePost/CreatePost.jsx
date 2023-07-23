@@ -1,63 +1,64 @@
-import React from 'react'
-import user1 from '../../assets/images/user1.jpg'
-import './CreatePost.css'
-import camera from '../../assets/images/camera.png'
-import video from '../../assets/images/video.png'
-import event from '../../assets/images/event.png'
-import { useRef } from 'react'
-import { db } from '../../firebase'
-import firebase from 'firebase'
-import { UserAuth } from '../../context/AuthContext'
-
-
-
-
+import user1 from "../../assets/images/user1.jpg";
+import "./CreatePost.css";
+// import camera from '../../assets/images/camera.png';
+// import video from '../../assets/images/video.png';
+// import event from '../../assets/images/event.png';
+import arrow from "../../assets/images/down-arrow.png";
+import { FaCalendar, FaCamera, FaVideo } from "react-icons/fa";
 
 const CreatePost = () => {
-const inputRef = useRef(null);
-const {user} = UserAuth();
-
-const sendPost = (e) => {
-    e.preventDefault();
-
-    if(!inputRef.current.value) return;
-
-    db.collection('posts').add({
-        message: inputRef.current.value,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-        username: user.displayName,
-        profilePic: user.photoURL, 
-        email: user.email,
-    })
-
-}
-
   return (
-    <div className='main-content'>
-    <div className='create-post'>
-        <div className='create-post-input'>
-            <img src={user1} alt='' />
-            {/* <textarea rows='2' placeholder='Create a post' /> */}
-            <form>
-                <input type='text' ref={inputRef} placeholder={`what's on your mind` } className='textarea2' />
-            </form>
-            <button hidden type='submit' onClick={sendPost}>submit</button>
-        </div>
-        <div className='create-post-links'>
-        <li>
-            <img src={camera} alt='' className='photoicon'/>Photo
-        </li>
-        <li>
-            <img src={video} alt='' />Video
-        </li>
-        <li>
-            <img src={event} alt='' />Event
-        </li>
+    <div className="main-content">
+      <div className="create-post">
+        <div className="create-post-input">
+          <img src={user1} alt="" />
+          {/* <textarea rows='2' placeholder='Create a post' /> */}
+          <form>
+            <input
+              type="text"
+              placeholder={`what's on your mind`}
+              className="textarea2"
+            />
+          </form>
 
+          {/* <button hidden type='submit' >submit</button> */}
         </div>
+        <div className="create-post-links">
+          <li>
+            {/* <img src={camera} alt='' className='photoicon' />Photo */}
+            <span>
+              <FaCamera style={{ color: "green", fontSize: "18px" }} />{" "}
+            </span>{" "}
+            <span>Photo</span>
+          </li>
+          <li>
+            {/* <img src={video} alt='' className='videoicon'/>Video */}
+            <span>
+              <FaVideo style={{ color: "green", fontSize: "18px" }} />{" "}
+            </span>{" "}
+            <span>Video</span>
+          </li>
+          <li>
+            {/* <img src={event} alt='' className='eventicon'/>Event */}
+            <span>
+              <FaCalendar style={{ color: "green", fontSize: "18px" }} />{" "}
+            </span>{" "}
+            <span>Event</span>
+          </li>
+          <li>Post</li>
+        </div>
+      </div>
+      <div className="sort-by">
+        <hr />
+        <p>
+          Sort by:{" "}
+          <span>
+            top <img src={arrow} alt="" />{" "}
+          </span>
+        </p>
+      </div>
     </div>
-    </div>
-  )
-}
+  );
+};
 
-export default CreatePost
+export default CreatePost;

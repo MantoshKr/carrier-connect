@@ -1,7 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { UserAuth } from '../../context/AuthContext';
 import "../Signup/Signup.css"
 import { ImGoogle } from 'react-icons/im';
 import userImage from '../../assets/images/user.png'
@@ -13,14 +12,14 @@ const Login = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const Navigate = useNavigate();
-  const { user ,logIn } = UserAuth();
+
    
   
   
   const handleSubmit = async (e) => {
       e.preventDefault('')
       try {
-          await logIn(email,password)
+          
           Navigate('/')
       } catch (error) {
           console.log(error)

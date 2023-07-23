@@ -56,7 +56,7 @@ list-style: none;
     width:0;
     height: 2px;
     position: absolute;
-    background:#045be6;
+    background:green;
     bottom: -15px;
     transition: width 0.3s;
     }
@@ -69,10 +69,17 @@ list-style: none;
 width: 100%;
 }
 
-    
+/* width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;     */
+
+
 .nav-profile-img{
     width:40px;
+    height: 40px;
     border-radius: 50%;
+    object-fit: cover;
     display: block;
     cursor: pointer;
     position: relative;
@@ -121,5 +128,5 @@ width: 100%;
     border: none;
 }
 
-/* -----------navbar end----------------- */
+
 
