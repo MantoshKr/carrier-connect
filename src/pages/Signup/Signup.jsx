@@ -4,6 +4,9 @@ import { UserAuth } from '../../context/AuthContext';
 import './Signup.css'
 import { ImGoogle } from 'react-icons/im';
 import userImage from '../../assets/images/user.png'
+import user2 from '../../assets/images/user2.png'
+import { FaUpload } from 'react-icons/fa';
+
 
 
 
@@ -16,6 +19,7 @@ const Signup = () => {
     const Navigate = useNavigate();
     const { user, signUp } = UserAuth();
     const [name, setName] = useState();
+    const [img, setImg] = useState(null);
 
 
 
@@ -41,7 +45,7 @@ const Signup = () => {
     return (
         <>
             <div className='main'>
-                <p className='carrier-connect'>CarrierConnect</p>
+                {/* <p className='carrier-connect'>CarrierConnect</p> */}
                 {/* <img src={logo} alt="logo" className="ccLogo" /> */}
 
 
@@ -59,8 +63,31 @@ const Signup = () => {
 
 
                     <form onSubmit={handleSubmit}>
+                        <div className='top'>
+                            <img
+                                src={
+                                    img
+                                        ? URL.createObjectURL(img)
+                                        : user2
+                                }
+                                alt=""
+                                className="profileImg"
+                            />
 
-
+                            <div className="uploadImg">
+                                <label htmlFor="file">
+                                    Image: <FaUpload className="icon" />
+                                    <input
+                                        type="file"
+                                        name="file"
+                                        id="file"
+                                        accept=".png,.jpeg,.jpg"
+                                        style={{ display: "none" }}
+                                        onChange={(e) => setImg(e.target.files[0])}
+                                    />
+                                </label>
+                            </div>
+                        </div>
 
                         <input
                             onChange={(e) => {
