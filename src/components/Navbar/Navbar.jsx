@@ -14,9 +14,58 @@ import { FaUser } from 'react-icons/fa'
 import { BiSolidBriefcase } from 'react-icons/bi'
 import { IoMdChatboxes } from 'react-icons/io'
 import { MdNotificationsActive } from 'react-icons/md'
+import styled from 'styled-components'
 
 
+const HoverableBiSolidBriefcase = styled(BiSolidBriefcase)`
+  color: #5e5e5e;
+  font-size: 22px;
+  transition: color 0.3s;
 
+  &:hover {
+    color: #000000;
+  }
+`;
+
+const HoverableAiFillHome = styled(AiFillHome)`
+  color: #5e5e5e;
+  font-size: 22px;
+  transition: color 0.3s;
+
+  &:hover {
+    color: black;
+  }
+`;
+
+const HoverableFaUser = styled(FaUser)`
+  color: #5e5e5e;
+  font-size: 21px;
+  transition: color 0.3s;
+
+  &:hover {
+    color: black;
+  }
+`;
+
+const HoverableIoMdChatboxes = styled(IoMdChatboxes)`
+  color: #5e5e5e;
+  font-size: 22px;
+  transition: color 0.3s;
+
+  &:hover {
+    color: black;
+  }
+`;
+
+const HoverableMdNotificationsActive = styled(MdNotificationsActive)`
+  color: #5e5e5e;
+  font-size: 22px;
+  transition: color 0.3s;
+
+  &:hover {
+    color: black;
+  }
+`;
 
 const Navbar = () => {
   return (
@@ -38,35 +87,40 @@ const Navbar = () => {
             <li>
               <Link to='' className='icons active-link'>
                 {/* <img src={home} alt='' /> */}
-                <AiFillHome style={{ color: 'green', fontSize: '22px' }}  />
+                {/* <AiFillHome style={{ color: '#5e5e5e', fontSize: '22px' }}  /> */}
+                <HoverableAiFillHome />
                 <span>Home</span>
               </Link>
             </li>
             <li>
             <Link to='' className='icons'>
                 {/* <img src={network} alt='' /> */}
-                <FaUser style={{ color: 'green', fontSize: '21px' }}  />
+                {/* <FaUser style={{ color: '#5e5e5e', fontSize: '21px' }}  /> */}
+                <HoverableFaUser />
                 <span>My Network</span>
               </Link>
             </li>
             <li>
             <Link to=''  className='icons'>
                 {/* <img src={job} alt='' /> */}
-                <BiSolidBriefcase style={{ color: 'green', fontSize: '22px' }}  />
+                {/* <BiSolidBriefcase style={{ color: '#5e5e5e', fontSize: '22px' }}  /> */}
+                <HoverableBiSolidBriefcase />
                 <span>Jobs</span>
               </Link>
             </li>
             <li>
             <Link to=''  className='icons'>
                 {/* <img src={message} alt='' /> */}
-                <IoMdChatboxes style={{ color: 'green', fontSize: '22px' }}  />
+                {/* <IoMdChatboxes style={{ color: '#5e5e5e', fontSize: '22px' }}  /> */}
+                <HoverableIoMdChatboxes />
                 <span>Messaging</span>
               </Link>
             </li>
             <li>
             <Link to=''  className='icons'>
                 {/* <img src={notification} alt='' /> */}
-                <MdNotificationsActive style={{ color: 'green', fontSize: '22px' }}  />
+                {/* <MdNotificationsActive style={{ color: '#5e5e5e', fontSize: '22px' }}  /> */}
+                <HoverableMdNotificationsActive />
                 <span>Notification</span>
               </Link>
             </li>

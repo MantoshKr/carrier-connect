@@ -43,7 +43,7 @@ const Signup = () => {
       uploadTask.on(
         "state_changed",
         (snapshot) => {
-          // Track image upload progress if needed
+          
           const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
           console.log("Upload progress:", progress);
         },

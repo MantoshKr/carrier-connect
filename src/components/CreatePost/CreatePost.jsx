@@ -5,6 +5,12 @@ import "./CreatePost.css";
 // import event from '../../assets/images/event.png';
 import arrow from "../../assets/images/down-arrow.png";
 import { FaCalendar, FaCamera, FaVideo } from "react-icons/fa";
+import { HiPhoto } from "react-icons/hi2";
+import { ImPlay } from "react-icons/im";
+import { BsCalendarDate } from "react-icons/bs";
+import { RiArticleFill } from "react-icons/ri";
+
+
 
 const CreatePost = () => {
   return (
@@ -27,25 +33,31 @@ const CreatePost = () => {
           <li>
             {/* <img src={camera} alt='' className='photoicon' />Photo */}
             <span>
-              <FaCamera style={{ color: "green", fontSize: "18px" }} />{" "}
+              <HiPhoto style={{ color: '#378FE9' , fontSize: "18px" }} />{" "}
             </span>{" "}
             <span>Photo</span>
           </li>
           <li>
             {/* <img src={video} alt='' className='videoicon'/>Video */}
             <span>
-              <FaVideo style={{ color: "green", fontSize: "18px" }} />{" "}
+              <ImPlay style={{ color: "green", fontSize: "18px" }} />{" "}
             </span>{" "}
             <span>Video</span>
           </li>
           <li>
             {/* <img src={event} alt='' className='eventicon'/>Event */}
             <span>
-              <FaCalendar style={{ color: "green", fontSize: "18px" }} />{" "}
+              <BsCalendarDate style={{ color: "#C37D16", fontSize: "18px" }} />{" "}
             </span>{" "}
             <span>Event</span>
           </li>
-          <li>Post</li>
+          {/* <li>Post</li> */}
+          <li>
+            <span>
+              <RiArticleFill style={{ color: "red", fontSize: "18px" }} />{" "}
+            </span>{" "}
+            <span>Write article</span>
+          </li>
         </div>
       </div>
       <div className="sort-by">
