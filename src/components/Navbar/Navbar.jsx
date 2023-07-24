@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './Navbar.css'
 import CarrierConnect from '../../assets/images/carrier-connect-logo.png'
 import { Link } from 'react-router-dom'
@@ -15,6 +15,9 @@ import { BiSolidBriefcase } from 'react-icons/bi'
 import { IoMdChatboxes } from 'react-icons/io'
 import { MdNotificationsActive } from 'react-icons/md'
 import styled from 'styled-components'
+import { AuthContext } from '../../context/AuthContext'
+
+
 
 
 const HoverableBiSolidBriefcase = styled(BiSolidBriefcase)`
@@ -68,6 +71,8 @@ const HoverableMdNotificationsActive = styled(MdNotificationsActive)`
 `;
 
 const Navbar = () => {
+  const { currentUser } = useContext(AuthContext);
+
   return (
     <div className='container'>
       <div className='navbar'>
@@ -128,7 +133,7 @@ const Navbar = () => {
         </div>
         <div className='navbar-right'>
         <div className='online'>
-          <img src={user1} alt='' className='nav-profile-img' />
+          <img src={currentUser.photoURL} alt='' className='nav-profile-img' />
            </div>
         </div>
       </div>
