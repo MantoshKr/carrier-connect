@@ -40,11 +40,21 @@ const CreatePost = () => {
 
       const uploadTask = uploadBytesResumable(storageRef, img);
 
+      // uploadTask.on(
+      //   (error) => {
+      //     setError(true);
+      //   },
+
       uploadTask.on(
+        "state_changed",
+        (snapshot) => {
+          const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          console.log("Upload progress:", progress);
+        },
         (error) => {
           setError(true);
+          console.log("Error during image upload:", error.message);
         },
-
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
             await addDoc(collection(db, "posts"), {
