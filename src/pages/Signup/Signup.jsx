@@ -30,11 +30,26 @@ const Signup = () => {
 
       const storageRef = ref(storage, "usersImages/" + displayName);
 
+      console.log("Storage reference:", storageRef);
+      
+
       const uploadTask = uploadBytesResumable(storageRef, img);
 
+      console.log("Image upload task:", uploadTask);
+
+      // uploadTask.on(
+      //   (error) => {
+      //     setError(true);
       uploadTask.on(
+        "state_changed",
+        (snapshot) => {
+          // Track image upload progress if needed
+          const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          console.log("Upload progress:", progress);
+        },
         (error) => {
           setError(true);
+          console.log("Error during image upload:", error.message);
         },
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
@@ -53,7 +68,6 @@ const Signup = () => {
 
             await setDoc(doc(db, "usersPosts", res.user.uid), { messages: [] });
             console.log("User created successfully:", res.user);
-            // console.log(res.user);
           });
         }
       );
@@ -62,7 +76,6 @@ const Signup = () => {
       console.log("Error:", error.message);
     }
 
-    
     navigate("/");
   };
   return (
