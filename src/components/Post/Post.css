@@ -1,0 +1,87 @@
+.Post-author{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.Post-author img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+
+.postimg{
+    width:100%;
+}
+
+.Post-author h1{
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.post-author label{
+    display: block;
+    margin-bottom: -2px;
+}
+
+.post p{
+    font-size:14px;
+    margin-top: 15px;
+}
+
+.post-stats{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap:wrap;
+    align-items: center;
+    font-size: 12px;
+    border-bottom:1px solid #ccc;
+    padding-bottom:6px;
+}
+
+.post-stats div{
+    display: flex;
+    align-items: center;
+}
+
+.poststatsicon{
+    width:15px;
+    margin-right:-8px;
+}
+
+.liked-users{
+    margin-left: 10px;
+}
+
+.post-activity{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.post-activity div{
+    display: flex;
+    align-items: center;
+}
+
+.post-activity-user-icon{
+    width: 22px;
+    border-radius: 50%;
+}
+
+.post-activity-arrow-icon{
+    width:12px;
+    margin-left: 5px;
+
+}
+
+.post-activity-link-icon{
+    width:18px;
+    margin-right: 8px;
+}
