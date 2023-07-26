@@ -133,7 +133,8 @@ const Navbar = () => {
         </div>
         <div className='navbar-right'>
         <div className='online'>
-          <img src={currentUser.photoURL} alt='' className='nav-profile-img' />
+          {/* <img src={currentUser.photoURL} alt='' className='nav-profile-img' /> */}
+          {currentUser && <img src={currentUser.photoURL} alt=""  className="nav-profile-img"/>}
            </div>
         </div>
       </div>

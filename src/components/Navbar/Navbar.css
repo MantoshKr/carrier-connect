@@ -1,19 +1,4 @@
-*{
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-    font-family: 'poppins', sans-serif;
-}
 
-.container{
-    background: #f0f2f5;
-    color:#5f5f5f
-}
-
-.Link{
-    text-decoration: none;
-    color: #5f5f5f;
-}
 
 .navbar{
     display:flex;

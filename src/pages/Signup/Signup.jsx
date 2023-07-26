@@ -31,7 +31,6 @@ const Signup = () => {
       const storageRef = ref(storage, "usersImages/" + displayName);
 
       console.log("Storage reference:", storageRef);
-      
 
       const uploadTask = uploadBytesResumable(storageRef, img);
 
@@ -43,8 +42,8 @@ const Signup = () => {
       uploadTask.on(
         "state_changed",
         (snapshot) => {
-          
-          const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          const progress =
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
           console.log("Upload progress:", progress);
         },
         (error) => {
