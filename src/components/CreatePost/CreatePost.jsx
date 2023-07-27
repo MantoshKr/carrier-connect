@@ -33,6 +33,13 @@ const CreatePost = () => {
 
   const [img, setImg] = useState(null);
 
+  console.log("currentUser:", currentUser);
+
+
+  // console.log("photoURL" , currentUser.photoURL)
+  // console.log("Name" , currentUser.displayName)
+  // console.log("createdON" , currentUser?.metadata.creationTime)
+
   const handlePost = async () => {
 
     if (img) {
