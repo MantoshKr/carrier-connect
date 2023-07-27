@@ -22,7 +22,11 @@ const Feed = () => {
   return (
     <div>
         <CreatePost />
-        <Post />
+        {posts
+          .sort((a, b) => b.data.timestamp - a.data.timestamp)
+          .map((p) => (
+            <Post key={p.id} post={p} />
+          ))}
     </div>
   )
 }
