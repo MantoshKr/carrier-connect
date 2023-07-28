@@ -15,7 +15,7 @@ const Feed = () => {
         unSub();
       };
     }, []);
-    console.log("posts",posts);
+    // console.log("posts",posts);
 
 
     

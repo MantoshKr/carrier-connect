@@ -33,7 +33,7 @@ const CreatePost = () => {
 
   const [img, setImg] = useState(null);
 
-  console.log("currentUser:", currentUser);
+  // console.log("currentUser:", currentUser);
 
 
   // console.log("photoURL" , currentUser.photoURL)

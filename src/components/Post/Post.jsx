@@ -1,8 +1,4 @@
-import React, { useContext } from "react";
 import "./Post.css";
-import user3 from "../../assets/images/user3.jpg";
-import postimg from "../../assets/images/postimg.jpg";
-import { AiFillLike } from "react-icons/ai";
 import { FcIdea } from "react-icons/fc";
 import { PiHandsClappingFill } from "react-icons/pi";
 import { AiFillCaretDown } from "react-icons/ai";
@@ -10,27 +6,31 @@ import { PiChatsThin } from "react-icons/pi";
 import { PiShareFat } from "react-icons/pi";
 import { BsSend } from "react-icons/bs";
 import { AiOutlineLike } from "react-icons/ai";
-import { AuthContext } from "../../context/AuthContext";
 
-const Post = (post) => {
+
+
+const Post = ({post}) => {
   
 
+  
 
   return (
     <>
       <div className="Post">
         <div className="Post-author">
-          <img src={user3} alt="" />
+          <img src={post.data?.photoURL} alt="" />
           
           
           <div>
-            <h1>Liam Anderson</h1>
-            <label>Founder of xyz </label>
-            <label> 3 hous ago</label>
+            <h1>{post.data.displayName}</h1>
+            <label>{}</label>
+            <label>
+            {new Date(post.data?.timestamp?.toDate()).toLocaleString()}
+            </label>
           </div>
         </div>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-        <img src={postimg} alt="" className="postimg" />
+        <p>{post.data.input}</p>
+        <img src={post.data?.img} alt="" className="postimg" />
 
         <div className="post-stats">
           <div>
@@ -45,7 +45,7 @@ const Post = (post) => {
         </div>
         <div className="post-activity">
         <div>
-          <img src={user3} alt="" className="post-activity-user-icon" />
+          <img src={post.data?.photoURL} alt="" className="post-activity-user-icon" />
           <AiFillCaretDown className="post-activity-arrow-icon" />
           </div>
 
