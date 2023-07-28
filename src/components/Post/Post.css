@@ -1,10 +1,10 @@
-.Post-author{
+.Post-author {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
 }
 
-.Post-author img{
+.Post-author img {
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -13,50 +13,59 @@
     margin-top: 5px;
 }
 
-.postimg{
-    width:100%;
+.postimg {
+    width: 100%;
 }
 
-.Post-author h1{
+.Post-author h1 {
     font-size: 18px;
     font-weight: 600;
 }
 
-.post-author label{
+.post-author label {
     display: block;
     margin-bottom: -2px;
 }
 
-.post p{
-    font-size:14px;
+.post p {
+    font-size: 14px;
     margin-top: 15px;
 }
 
-.post-stats{
+.post-stats {
     display: flex;
     justify-content: space-between;
-    flex-wrap:wrap;
+    flex-wrap: wrap;
     align-items: center;
     font-size: 12px;
-    border-bottom:1px solid #ccc;
-    padding-bottom:6px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 6px;
 }
 
-.post-stats div{
+.post-stats div {
     display: flex;
     align-items: center;
 }
 
-.poststatsicon{
-    width:15px;
-    margin-right:-3px;
+.poststatsicon {
+    width: 15px;
+    margin-right: -3px;
 }
 
-.liked-users{
+.postBottomRight .postCommentText {
+
+    font-size: 15px;
+    cursor: pointer;
+
+}
+
+
+
+.liked-users {
     margin-left: 10px;
 }
 
-.post-activity{
+.post-activity {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -65,23 +74,114 @@
     font-weight: 500;
 }
 
-.post-activity div{
+.post-activity div {
     display: flex;
     align-items: center;
 }
 
-.post-activity-user-icon{
+.post-activity-user-icon {
     width: 22px;
     border-radius: 50%;
 }
 
-.post-activity-arrow-icon{
-    width:12px;
+.post-activity-arrow-icon {
+    width: 12px;
     margin-left: 5px;
 
 }
 
-.post-activity-link-icon{
-    width:18px;
+.post-activity-link-icon {
+    width: 18px;
     margin-right: 8px;
+}
+
+
+.commentBox {
+    display: flex;
+    flex-direction: column;
+}
+
+.commentBox .commentInput {
+    display: flex;
+    flex: 1;
+    width: 75%;
+    background: transparent;
+    color: black;
+    border: 1px solid #011631;
+    padding: 10px 5px 0px 5px;
+    margin: 0px 0px 20px 20px;
+    outline: none;
+}
+
+.commentBox .commentPost {
+    display: flex;
+    padding: 10px 25px;
+    background-color: #011631;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0px 20px 20px 0px;
+    border: none;
+    cursor: pointer;
+}
+
+.commentBox .commentPost:disabled {
+    cursor: not-allowed;
+    background-color: #011631a4;
+}
+
+.comment {
+    width: 100%;
+    max-height: 250px;
+    overflow-y: scroll;
+}
+
+.comment .commentWrapper {
+    display: flex;
+    align-items: center;
+    border-top: 1px dashed #011631;
+    width: 90%;
+    margin: auto;
+}
+
+.comment .commentWrapper .commentProfileImg {
+    display: flex;
+    margin: 20px 7px 20px 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid #011631;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.comment .commentWrapper .commentInfo {
+    padding: 20px 0;
+    max-width: 80%;
+}
+
+.comment .commentWrapper .commentInfo .commentUsername {
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 15px;
+  
+}
+
+.comment .commentWrapper .commentInfo .commentText {
+    background-color: #5a5a5a;
+    color: white;
+    padding: 5px;
+    margin-top: 3px;
+    border-radius: 30px;
+}
+
+
+.commentInfo{
+    margin-top: 25px;
+}
+
+
+.commentPost {
+    width: 120px;
+
 }
