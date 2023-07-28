@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./DropDownMenu.css";
 import user from "../../assets/images/user.png";
 import { MdFeedback } from "react-icons/md";
@@ -6,8 +6,11 @@ import { BsFillSquareFill } from "react-icons/bs";
 import { AiFillSetting, AiOutlineLogout } from "react-icons/ai";
 import { BiSolidBriefcase, BiSolidHelpCircle, BiSolidMessageAltDetail } from "react-icons/bi";
 import { HiMiniLanguage } from "react-icons/hi2";
+import { AuthContext } from "../../context/AuthContext";
 
 const DropDownProfile = ({isMenuOpen}) => {
+  const { currentUser } = useContext(AuthContext);
+
     const profileMenuWrapStyle = {
         position: "absolute",
         top: "100%",
@@ -33,9 +36,9 @@ const DropDownProfile = ({isMenuOpen}) => {
       <div style={combinedStyle}>
         <div className="profile-menu">
           <div className="user-info">
-            <img src={user} alt="" />
+            <img src={currentUser?.photoURL} alt="" />
             <div>
-              <h3>pankaj</h3>
+              <h3>{currentUser?.displayName}</h3>
               <label>see your profile</label>
             </div>
           </div>
@@ -52,12 +55,12 @@ const DropDownProfile = ({isMenuOpen}) => {
             <span> > </span>
           </label>
           <label className="profile-menu-link">
-            <BiSolidHelpCircle style={{ color: "orange", fontSize: "17px"  }} className="feedbackicon" />
+            <BiSolidHelpCircle style={{ color: "green", fontSize: "17px"  }} className="feedbackicon" />
             <p>Help</p>
             <span> > </span>
           </label>
           <label className="profile-menu-link">
-            <HiMiniLanguage style={{ color: "skyblue", fontSize: "17px"  }} className="feedbackicon" />
+            <HiMiniLanguage style={{ color: "green", fontSize: "17px"  }} className="feedbackicon" />
             <p>Language</p>
             <span> > </span>
           </label>
@@ -67,7 +70,7 @@ const DropDownProfile = ({isMenuOpen}) => {
           <h3>Manage</h3>
 
           <label className="profile-menu-link">
-            <BiSolidMessageAltDetail style={{ color: "skyblue", fontSize: "17px"  }} className="feedbackicon" />
+            <BiSolidMessageAltDetail style={{ color: "green", fontSize: "17px"  }} className="feedbackicon" />
             <p>Posts & Activity</p>
             <span> > </span>
           </label>
