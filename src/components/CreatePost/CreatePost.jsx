@@ -40,9 +40,13 @@ const CreatePost = () => {
   // console.log("Name" , currentUser.displayName)
   // console.log("createdON" , currentUser?.metadata.creationTime)
 
+  const userId = currentUser ? currentUser.uid : null;
+
   const handlePost = async () => {
 
     if (img) {
+      
+
       const storageRef = ref(storage, "Posts/" + uuid());
 
       const uploadTask = uploadBytesResumable(storageRef, img);
@@ -155,8 +159,8 @@ const CreatePost = () => {
 
         {img && (
           <div className="closeImgContainer">
-            <img src={URL.createObjectURL(img)} alt=""  />
-            <IoClose className="closeImg" onClick={removeImage} />
+            <img src={URL.createObjectURL(img)} alt=""  className="selectedimg" />
+            <IoClose style={{ color: "#bb0000f2", fontSize: "20px"  }} className="closeImg" onClick={removeImage} />
           </div>
         )}
 

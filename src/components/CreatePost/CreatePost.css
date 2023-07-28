@@ -34,9 +34,35 @@
 }
 
 .inputfile{
-    width:20px;
-    height:auto;
+    width:100%;
 }
+
+
+.closeImgContainer {
+    padding: 0 20px 10px 20px;
+    position: relative;
+  }
+  
+  .closeImgContainer .selectedimg {
+    width: 100%;
+    object-fit: contain;
+  }
+  
+  .closeImgContainer .closeImg {
+    position: absolute;
+    top: 0;
+    right: 20px;
+    background-color: white;
+    padding: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+
+
+
+
+
 
 ::placeholder{
     font-weight: 500;

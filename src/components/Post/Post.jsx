@@ -28,7 +28,9 @@ const Post = ({ post }) => {
   const [commentOpen, setCommentOpen] = useState(false);
   const [commentBoxVisible, setCommentBoxVisible] = useState(false);
   const [input, setInput] = useState("");
+  const [loading, setLoading] = useState(true); 
 
+  
   useEffect(() => {
     const unSub = onSnapshot(
       collection(db, "posts", post.id, "likes"),
@@ -41,7 +43,7 @@ const Post = ({ post }) => {
 
   useEffect(() => {
     setLiked(likes.findIndex((like) => like.id === currentUser?.uid) !== -1);
-  }, [likes, currentUser.uid]);
+  }, [likes, currentUser]); //[likes, currentUser.uid])
 
   const likePost = async () => {
     if (liked) {
@@ -86,6 +88,16 @@ const Post = ({ post }) => {
     setInput("");
   };
 
+  // if (!currentUser || !currentUser.uid) {
+  //   // Handle the error or show a message to the user
+  //   console.error("User not authenticated or uid is undefined");
+  //   return null; // Render a fallback UI or nothing
+  // }
+  
+  // const userPhotoURL = currentUser.photoURL || "";
+  // const displayName = currentUser.displayName || "";
+  // const uid = currentUser.uid || "";
+  
   return (
     <>
       <div className="Post">
@@ -175,50 +187,48 @@ const Post = ({ post }) => {
             <BsSend className="post-activity-link-icon" />
             <span>Send</span>
           </div>
-
-          
         </div>
 
         {commentBoxVisible && (
-            <form onSubmit={handleComment} className="commentBox">
-              <textarea
-                type="text"
-                placeholder="Write a comment ..."
-                className="commentInput"
-                rows={1}
-                style={{ resize: "none" }}
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-              />
-              <button type="submit" disabled={!input} className="commentPost">
-                Comment
-              </button>
-            </form>
-          )}
+          <form onSubmit={handleComment} className="commentBox">
+            <textarea
+              type="text"
+              placeholder="Write a comment ..."
+              className="commentInput"
+              rows={1}
+              style={{ resize: "none" }}
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+            />
+            <button type="submit" disabled={!input} className="commentPost">
+              Comment
+            </button>
+          </form>
+        )}
 
-          {commentOpen > 0 && (
-            <div className="comment">
-              {comments
-                .sort((a, b) => b.data.timestamp - a.data.timestamp)
-                .map((c) => (
-                  <div>
-                    <div className="commentWrapper">
-                      <img
-                        className="commentProfileImg"
-                        src={c.data.photoURL}
-                        alt=""
-                      />
-                      <div className="commentInfo">
-                        <span className="commentUsername">
-                          @{c.data.displayName.replace(/\s+/g, "").toLowerCase()}
-                        </span>
-                        <p className="commentText">{c.data.comment}</p>
-                      </div>
+        {commentOpen > 0 && (
+          <div className="comment">
+            {comments
+              .sort((a, b) => b.data.timestamp - a.data.timestamp)
+              .map((c) => (
+                <div>
+                  <div className="commentWrapper">
+                    <img
+                      className="commentProfileImg"
+                      src={c.data.photoURL}
+                      alt=""
+                    />
+                    <div className="commentInfo">
+                      <span className="commentUsername">
+                        @{c.data.displayName.replace(/\s+/g, "").toLowerCase()}
+                      </span>
+                      <p className="commentText">{c.data.comment}</p>
                     </div>
                   </div>
-                ))}
-            </div>
-          )}
+                </div>
+              ))}
+          </div>
+        )}
       </div>
     </>
   );
