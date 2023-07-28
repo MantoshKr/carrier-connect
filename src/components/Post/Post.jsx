@@ -6,12 +6,43 @@ import { PiChatsThin } from "react-icons/pi";
 import { PiShareFat } from "react-icons/pi";
 import { BsSend } from "react-icons/bs";
 import { AiOutlineLike } from "react-icons/ai";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../context/AuthContext";
+import { collection, deleteDoc, doc, onSnapshot, setDoc } from "firebase/firestore";
+import { db } from "../../firebase";
+import { AiFillLike } from "react-icons/ai";
 
 
 
 const Post = ({post}) => {
-  
+  const { currentUser } = useContext(AuthContext);
+  const [likes, setLikes] = useState([]);
+  const [liked, setLiked] = useState(false);
 
+  
+  useEffect(() => {
+    const unSub = onSnapshot(
+      collection(db, "posts", post.id, "likes"),
+      (snapshot) => setLikes(snapshot.docs)
+    );
+    return () => {
+      unSub();
+    };
+  }, [post.id]);
+
+  useEffect(() => {
+    setLiked(likes.findIndex((like) => like.id === currentUser?.uid) !== -1);
+  }, [likes, currentUser.uid]);
+
+  const likePost = async () => {
+    if (liked) {
+      await deleteDoc(doc(db, "posts", post.id, "likes", currentUser.uid));
+    } else {
+      await setDoc(doc(db, "posts", post.id, "likes", currentUser.uid), {
+        userId: currentUser.uid,
+      });
+    }
+  };
   
 
   return (
@@ -34,7 +65,19 @@ const Post = ({post}) => {
 
         <div className="post-stats">
           <div>
-            <AiOutlineLike className="poststatsicon" />
+            {/* <AiFillLike className="poststatsicon" /> */}
+
+            <AiFillLike
+              onClick={(e) => {
+                likePost();
+              }}
+              className="poststatsicon"
+              style={{ color: "#011631" }}
+            />
+            {likes.length > 0 && (
+              <span className="">{likes.length}</span>
+            )}
+
             <FcIdea className="poststatsicon" />
             <PiHandsClappingFill className="poststatsicon" />
             <span className="liked-users">Rahul and 50 others</span>
@@ -45,12 +88,23 @@ const Post = ({post}) => {
         </div>
         <div className="post-activity">
         <div>
-          <img src={post.data?.photoURL} alt="" className="post-activity-user-icon" />
+          <img src={currentUser?.photoURL} alt="" className="post-activity-user-icon" />
           <AiFillCaretDown className="post-activity-arrow-icon" />
           </div>
 
-        <div className="post-acitivity-link">
-          <AiOutlineLike className="post-activity-link-icon" />
+        <div className="post-acitivity-link"     onClick={(e) => {
+              likePost();
+            }}>
+          {/* <AiOutlineLike className="post-activity-link-icon" /> */}
+
+      
+          
+            {liked ? (
+              <AiFillLike style={{ color: "#011631" }} className="footerIcon" />
+            ) : (
+              <AiOutlineLike className="footerIcon" />
+            )}   
+
           <span>Like</span>
         </div>
 
