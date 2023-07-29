@@ -71,6 +71,10 @@ const Navbar = () => {
     setIsMenuOpen((prev) => !prev);
   };
 
+  const handleCloseMenu = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
     <div className="container">
       <div className="navbar">
@@ -142,7 +146,7 @@ const Navbar = () => {
           </div>
         </div>
         <div>
-        <DropDownProfile isMenuOpen={isMenuOpen}/>
+        <DropDownProfile isMenuOpen={isMenuOpen} handleCloseMenu={handleCloseMenu}/>
       </div>
       </div>
     </div>
