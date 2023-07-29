@@ -46,9 +46,20 @@ const EditProfile = () => {
       const storageRef = ref(storage, "usersImages/" + uuid());
       const uploadTask = uploadBytesResumable(storageRef, img);
 
+      // uploadTask.on(
+      //   (error) => {
+      //     setError(true);
+      //   },
+
       uploadTask.on(
+        "state_changed",
+        (snapshot) => {
+          const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          console.log("Upload progress:", progress);
+        },
         (error) => {
           setError(true);
+          console.log("Error during image upload:", error.message);
         },
 
 
@@ -82,7 +93,7 @@ const EditProfile = () => {
 
             await reauthenticateWithCredential(currentUser, credential).then(
               async () => {
-               
+                //User reauthenticate
                 await updateEmail(currentUser, data.newEmail);
               }
             );
@@ -117,7 +128,7 @@ const EditProfile = () => {
 
       await reauthenticateWithCredential(currentUser, credential).then(
         async () => {
-         
+          //User reauthenticate
           await updateEmail(currentUser, data.newEmail);
         }
       );
