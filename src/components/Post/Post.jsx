@@ -16,10 +16,13 @@ import {
   onSnapshot,
   serverTimestamp,
   setDoc,
+  updateDoc,
 } from "firebase/firestore";
 import { db } from "../../firebase";
 import { AiFillLike } from "react-icons/ai";
 import { FaTrashAlt } from "react-icons/fa";
+import EditPost from "../EditPost/EditPost";
+import { MdEdit } from "react-icons/md";
 
 const Post = ({ post }) => {
   const { currentUser } = useContext(AuthContext);
@@ -29,7 +32,8 @@ const Post = ({ post }) => {
   const [commentOpen, setCommentOpen] = useState(false);
   const [commentBoxVisible, setCommentBoxVisible] = useState(false);
   const [input, setInput] = useState("");
-  const [loading, setLoading] = useState(true);
+  const [editing, setEditing] = useState(false);
+  const [editedInput, setEditedInput] = useState(post.data.input);
 
   useEffect(() => {
     const unSub = onSnapshot(
@@ -94,6 +98,26 @@ const Post = ({ post }) => {
    
   };
 
+  const handleEdit = () => {
+    setEditing(true);
+  };
+
+  const handleSave = async (editedInput) => {
+    // Add logic to save the edited post
+    // Here, you can update the post data in the database
+    await updateDoc(doc(db, "posts", post.id), {
+      input: editedInput,
+    });
+    setEditing(false);
+  };
+
+  const handleCancel = () => {
+    // Cancel the edit and reset the editedInput to the original value
+    setEditedInput(post.data.input);
+    setEditing(false);
+  };
+
+
 
 
   return (
@@ -106,6 +130,14 @@ const Post = ({ post }) => {
             </button>
           )}
         </div>
+        <div className="postedit">
+        {currentUser?.uid === post.data.uid && !editing && (
+        <button onClick={handleEdit} className="editButton">
+          <MdEdit />
+        </button>
+      )}
+      </div>
+        
         <div className="Post-author">
           <img src={post.data?.photoURL} alt="" />
 
@@ -117,7 +149,16 @@ const Post = ({ post }) => {
             </label>
           </div>
         </div>
-        <p>{post.data.input}</p>
+        {/* <p>{post.data.input}</p> */}
+        {editing ? (
+          <EditPost
+            originalInput={post.data.input}
+            onSave={handleSave}
+            onCancel={handleCancel}
+          />
+        ) : (
+          <p>{post.data.input}</p>
+        )}
         <img src={post.data?.img} alt="" className="postimg" />
 
         <div className="post-stats">
@@ -194,6 +235,8 @@ const Post = ({ post }) => {
           </div>
         </div>
 
+     
+
         {commentBoxVisible && (
           <form onSubmit={handleComment} className="commentBox">
             <textarea
@@ -235,6 +278,7 @@ const Post = ({ post }) => {
           </div>
         )}
       </div>
+      
     </>
   );
 };
