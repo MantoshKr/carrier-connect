@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import "./DropDownMenu.css";
-import user from "../../assets/images/user.png";
-import { MdFeedback } from "react-icons/md";
+
 import { BsFillSquareFill } from "react-icons/bs";
 import { AiFillSetting, AiOutlineLogout } from "react-icons/ai";
 import { BiSolidBriefcase, BiSolidHelpCircle, BiSolidMessageAltDetail } from "react-icons/bi";
@@ -12,9 +11,11 @@ import { auth } from "../../firebase";
 import { useNavigate } from "react-router-dom";
 
 
-const DropDownProfile = ({isMenuOpen , handleCloseMenu}) => {
+
+const DropDownMenu = ({isMenuOpen , handleCloseMenu}) => {
   const { currentUser } = useContext(AuthContext);
   const navigate = useNavigate();
+
  
 
   
@@ -54,12 +55,15 @@ const DropDownProfile = ({isMenuOpen , handleCloseMenu}) => {
           }
         };
 
+     
+
+
 
   return (
     <>
-      <div style={combinedStyle}>
+      <div style={combinedStyle} >
         <div className="profile-menu">
-          <div className="user-info">
+          <div className="user-info" >
             <img src={currentUser?.photoURL} alt="" />
             <div>
               <h3>{currentUser?.displayName}</h3>
@@ -119,4 +123,4 @@ const DropDownProfile = ({isMenuOpen , handleCloseMenu}) => {
   );
 };
 
-export default DropDownProfile;
+export default DropDownMenu;

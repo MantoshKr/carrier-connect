@@ -1,7 +1,7 @@
 import "./Post.css";
 import { FcIdea } from "react-icons/fc";
 import { PiHandsClappingFill } from "react-icons/pi";
-import { AiFillCaretDown } from "react-icons/ai";
+import { AiFillCaretDown, AiOutlineDelete } from "react-icons/ai";
 import { PiChatsThin } from "react-icons/pi";
 import { PiShareFat } from "react-icons/pi";
 import { BsSend } from "react-icons/bs";
@@ -19,6 +19,7 @@ import {
 } from "firebase/firestore";
 import { db } from "../../firebase";
 import { AiFillLike } from "react-icons/ai";
+import { FaTrashAlt } from "react-icons/fa";
 
 const Post = ({ post }) => {
   const { currentUser } = useContext(AuthContext);
@@ -28,9 +29,8 @@ const Post = ({ post }) => {
   const [commentOpen, setCommentOpen] = useState(false);
   const [commentBoxVisible, setCommentBoxVisible] = useState(false);
   const [input, setInput] = useState("");
-  const [loading, setLoading] = useState(true); 
+  const [loading, setLoading] = useState(true);
 
-  
   useEffect(() => {
     const unSub = onSnapshot(
       collection(db, "posts", post.id, "likes"),
@@ -88,23 +88,28 @@ const Post = ({ post }) => {
     setInput("");
   };
 
-  // if (!currentUser || !currentUser.uid) {
-  //   // Handle the error or show a message to the user
-  //   console.error("User not authenticated or uid is undefined");
-  //   return null; // Render a fallback UI or nothing
-  // }
-  
-  // const userPhotoURL = currentUser.photoURL || "";
-  // const displayName = currentUser.displayName || "";
-  // const uid = currentUser.uid || "";
-  
+  const deletePost = async () => {
+    
+    await deleteDoc(doc(db, "posts", post.id));
+   
+  };
+
+
+
   return (
     <>
       <div className="Post">
+        <div className="postdelete">
+          {currentUser?.uid === post.data.uid && (
+            <button onClick={deletePost} className="deleteButton">
+              <FaTrashAlt />
+            </button>
+          )}
+        </div>
         <div className="Post-author">
           <img src={post.data?.photoURL} alt="" />
 
-          <div>
+          <div className="post-top">
             <h1>{post.data.displayName}</h1>
             <label>{}</label>
             <label>
