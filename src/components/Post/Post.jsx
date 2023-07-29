@@ -6,7 +6,7 @@ import { PiChatsThin } from "react-icons/pi";
 import { PiShareFat } from "react-icons/pi";
 import { BsSend } from "react-icons/bs";
 import { AiOutlineLike } from "react-icons/ai";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import {
   addDoc,
@@ -23,6 +23,8 @@ import { AiFillLike } from "react-icons/ai";
 import { FaTrashAlt } from "react-icons/fa";
 import EditPost from "../EditPost/EditPost";
 import { MdEdit } from "react-icons/md";
+import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
+import { FiRefreshCw } from "react-icons/fi";
 
 const Post = ({ post }) => {
   const { currentUser } = useContext(AuthContext);
@@ -34,6 +36,9 @@ const Post = ({ post }) => {
   const [input, setInput] = useState("");
   const [editing, setEditing] = useState(false);
   const [editedInput, setEditedInput] = useState(post.data.input);
+  const [newImageUrl, setNewImageUrl] = useState("");
+  const fileInputRef = useRef(null);
+
 
   useEffect(() => {
     const unSub = onSnapshot(
@@ -93,9 +98,7 @@ const Post = ({ post }) => {
   };
 
   const deletePost = async () => {
-    
     await deleteDoc(doc(db, "posts", post.id));
-   
   };
 
   const handleEdit = () => {
@@ -117,8 +120,48 @@ const Post = ({ post }) => {
     setEditing(false);
   };
 
+  const handleOpenFilePicker = () => {
+    fileInputRef.current.click();
+  };
 
+  // Function to handle the image selection from the file picker
+  const handleImageChange = async (e) => {
+    try {
+      const selectedFile = e.target.files[0];
+      const storage = getStorage();
+      const imageRef = ref(
+        storage,
+        `post_images/${post.id}/${selectedFile.name}`
+      );
 
+      // Upload the image file to Firebase Storage
+      const snapshot = await uploadBytes(imageRef, selectedFile);
+
+      // Get the download URL of the uploaded image
+      const downloadURL = await getDownloadURL(snapshot.ref);
+
+      // Update the newImageUrl state with the download URL
+      setNewImageUrl(downloadURL);
+    } catch (error) {
+      console.error("Error uploading image:", error);
+    }
+  };
+
+  // Effect to update the post data when a new image URL is available
+  useEffect(() => {
+    const updatePostImage = async () => {
+      if (newImageUrl) {
+        // Update the post data in Firestore with the new image URL
+        await updateDoc(doc(db, "posts", post.id), {
+          img: newImageUrl,
+        });
+        // Reset the newImageUrl state after updating the post data
+        setNewImageUrl("");
+      }
+    };
+
+    updatePostImage();
+  }, [newImageUrl, post.id]);
 
   return (
     <>
@@ -131,13 +174,14 @@ const Post = ({ post }) => {
           )}
         </div>
         <div className="postedit">
-        {currentUser?.uid === post.data.uid && !editing && (
-        <button onClick={handleEdit} className="editButton">
-          <MdEdit />
-        </button>
-      )}
-      </div>
-        
+          {currentUser?.uid === post.data.uid && !editing && (
+            <button onClick={handleEdit} className="editButton">
+              <MdEdit />
+            </button>
+          )}
+        </div>
+ 
+
         <div className="Post-author">
           <img src={post.data?.photoURL} alt="" />
 
@@ -159,7 +203,25 @@ const Post = ({ post }) => {
         ) : (
           <p>{post.data.input}</p>
         )}
-        <img src={post.data?.img} alt="" className="postimg" />
+        <div className="main-img-container">
+    <img src={post.data?.img} alt="" className="postimg" />
+    {currentUser?.uid === post.data.uid && !editing && (
+      <div className="img-update">
+        <button onClick={handleOpenFilePicker} className="changeImageButton">
+          <FiRefreshCw className="refreshicon"/> Change Image
+        </button>
+        {/* Hidden file input */}
+        <input
+          type="file"
+          accept="image/*"
+          onChange={handleImageChange}
+          ref={fileInputRef}
+          style={{ display: "none" }}
+        />
+      </div>
+    )}
+  </div>
+
 
         <div className="post-stats">
           <div>
@@ -235,8 +297,6 @@ const Post = ({ post }) => {
           </div>
         </div>
 
-     
-
         {commentBoxVisible && (
           <form onSubmit={handleComment} className="commentBox">
             <textarea
@@ -278,7 +338,6 @@ const Post = ({ post }) => {
           </div>
         )}
       </div>
-      
     </>
   );
 };
