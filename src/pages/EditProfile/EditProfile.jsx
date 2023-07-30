@@ -133,7 +133,7 @@ const EditProfile = () => {
         }
       );
     }
-    navigate("/login");
+    navigate("/");
   };
 
   // const userPhotoURL = currentUser && currentUser.photoURL ? currentUser.photoURL : "";
@@ -205,6 +205,7 @@ const EditProfile = () => {
                       style={{ fontSize: "15px"}}
                       placeholder={currentUser.displayName}
                       onChange={handleChange}
+                      required
                     />
                   </div>
 
@@ -212,10 +213,11 @@ const EditProfile = () => {
                     <label>Email</label>
                     <input
                       type="email"
-                      name="newEmail"
+                      name="newEmail" 
                       placeholder={currentUser.email}
                       onChange={handleChange}
                       style={{ fontSize: "15px"}}
+                      required
                     />
                   </div>
 
@@ -227,6 +229,7 @@ const EditProfile = () => {
                       placeholder={"+1 234 567 890"}
                       onChange={handleChange}
                       style={{ fontSize: "15px"}}
+                      required
                     />
                   </div>
 
@@ -238,6 +241,7 @@ const EditProfile = () => {
                       placeholder="headline"
                       onChange={handleChange}
                       style={{ fontSize: "15px"}}
+                      required
                     />
                   </div>
                   <div className="formInput">
@@ -248,6 +252,7 @@ const EditProfile = () => {
                       placeholder="India"
                       onChange={handleChange}
                       style={{ fontSize: "15px"}}
+                      required
                     />
                   </div>
                   <div className="formInput">
@@ -258,6 +263,7 @@ const EditProfile = () => {
                       name="company"
                       onChange={handleChange}
                       style={{ fontSize: "15px"}}
+                      required
                     />
                   </div>
                  
@@ -269,6 +275,7 @@ const EditProfile = () => {
                       placeholder="Website"
                       onChange={handleChange}
                       style={{ fontSize: "15px"}}
+                      required
                     />
                   </div>
                   <div className="formInput">
@@ -280,6 +287,7 @@ const EditProfile = () => {
                         rows="4"
                         cols="50"
                         onChange={handleChange}
+                        required
                       />
 
                   </div>
@@ -291,6 +299,7 @@ const EditProfile = () => {
                       placeholder="Skills"
                       onChange={handleChange}
                       style={{ fontSize: "15px"}}
+                      required
                     />
                   </div>
                   <div className="formInput">
@@ -301,6 +310,7 @@ const EditProfile = () => {
                       placeholder="Enter Your Password to save changes"
                       onChange={handleChange}
                       style={{ fontSize: "14px"}}
+                      required
                     />
                   </div>
                   <button type="submit" className="updateButton">

@@ -11,6 +11,7 @@ import { MdNotificationsActive } from "react-icons/md";
 import styled from "styled-components";
 import { AuthContext } from "../../context/AuthContext";
 import DropDownProfile from "../DropDownMenu/DropDownMenu";
+import user from "../../assets/images/user.png";
 
 
 const HoverableBiSolidBriefcase = styled(BiSolidBriefcase)`
@@ -135,13 +136,38 @@ const Navbar = () => {
         <div className="navbar-right">
           <div className="online">
             {/* <img src={currentUser.photoURL} alt='' className='nav-profile-img' /> */}
-            {currentUser && (
+            {/* {currentUser && (
               <img
                 src={currentUser.photoURL}
                 alt=""
                 className="nav-profile-img"
                 onClick={handleProfileClick}
               />
+            )} */}
+            {/* if user is signed in , then show   <img
+                src={currentUser.photoURL}
+                alt=""
+                className="nav-profile-img"
+                onClick={handleProfileClick}
+              />
+              
+              other wise asked him to login*/}
+            {currentUser ? (
+              <img
+                src={currentUser.photoURL}
+                alt=""
+                className="nav-profile-img"
+                onClick={handleProfileClick}
+              />
+            ) : (
+              
+                <img
+                  src={user}
+                  alt=""
+                  className="nav-profile-img"
+                  onClick={handleProfileClick}
+                />  
+              
             )}
           </div>
         </div>

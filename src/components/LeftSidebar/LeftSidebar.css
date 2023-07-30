@@ -46,6 +46,11 @@
     color: #045be6;
 }
 
+
+.sidebar-profile-info ul li:last-child{
+    list-style: none;
+}
+
 .sidebar-profile-link{
     display: flex;
     align-items: center;

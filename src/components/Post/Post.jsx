@@ -186,7 +186,7 @@ const Post = ({ post }) => {
           <img src={post.data?.photoURL} alt="" />
 
           <div className="post-top">
-            <h1>{post.data.displayName}</h1>
+            <h1>{post.data?.displayName}</h1>
             <label>{}</label>
             <label>
               {new Date(post.data?.timestamp?.toDate()).toLocaleString()}
