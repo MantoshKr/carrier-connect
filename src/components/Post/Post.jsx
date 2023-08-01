@@ -203,25 +203,31 @@ const Post = ({ post }) => {
         ) : (
           <p>{post.data.input}</p>
         )}
+       
         <div className="main-img-container">
-    <img src={post.data?.img} alt="" className="postimg" />
-    {currentUser?.uid === post.data.uid && !editing && (
-      <div className="img-update">
-        <button onClick={handleOpenFilePicker} className="changeImageButton">
-          <FiRefreshCw className="refreshicon"/> Change Image
-        </button>
-        {/* Hidden file input */}
-        <input
-          type="file"
-          accept="image/*"
-          onChange={handleImageChange}
-          ref={fileInputRef}
-          style={{ display: "none" }}
-        />
-      </div>
-    )}
-  </div>
+  {post.data?.img && ( // Check if the image URL exists in post.data
+    <>
+      <img src={post.data.img} alt="" className="postimg" />
+      {currentUser?.uid === post.data.uid && !editing && (
+        <div className="img-update">
+          <button onClick={handleOpenFilePicker} className="changeImageButton">
+            <FiRefreshCw className="refreshicon"/> Change Image
+          </button>
+          {/* Hidden file input */}
+          <input
+            type="file"
+            accept="image/*"
+            onChange={handleImageChange}
+            ref={fileInputRef}
+            style={{ display: "none" }}
+          />
+        </div>
+      )}
+    </>
+  )}
+</div>
 
+        
 
         <div className="post-stats">
           <div>
