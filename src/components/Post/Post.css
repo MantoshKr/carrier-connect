@@ -265,3 +265,53 @@
     width: 120px;
 
 }
+
+/* --------------modal css ------------------- */
+/* Styles for the modal container */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* backdrop-filter: blur(4px);  */
+  z-index: 1; 
+}
+
+/* Styles for the modal content */
+.modalContent {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  width: 300px;
+}
+
+/* Styles for the modal buttons */
+.modalContent button {
+  padding: 8px 16px;
+  margin-right: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+}
+
+/* Style the "Delete" button differently */
+.modalContent button:nth-child(1) {
+  background-color: #f44336; /* Red color for delete button */
+  color: #fff;
+}
+
+/* Style the "Cancel" button */
+.modalContent button:nth-child(2) {
+  background-color: #2196f3; /* Blue color for cancel button */
+  color: #fff;
+}
+
+/* Center the buttons */
+.modalContent button:last-child {
+  margin-right: 0;
+}

@@ -38,7 +38,8 @@ const Post = ({ post }) => {
   const [editedInput, setEditedInput] = useState(post.data.input);
   const [newImageUrl, setNewImageUrl] = useState("");
   const fileInputRef = useRef(null);
-
+  const [showModal, setShowModal] = useState(false);
+  
 
   useEffect(() => {
     const unSub = onSnapshot(
@@ -134,28 +135,27 @@ const Post = ({ post }) => {
         `post_images/${post.id}/${selectedFile.name}`
       );
 
-      // Upload the image file to Firebase Storage
+      
       const snapshot = await uploadBytes(imageRef, selectedFile);
 
-      // Get the download URL of the uploaded image
+      
       const downloadURL = await getDownloadURL(snapshot.ref);
 
-      // Update the newImageUrl state with the download URL
+ 
       setNewImageUrl(downloadURL);
     } catch (error) {
       console.error("Error uploading image:", error);
     }
   };
 
-  // Effect to update the post data when a new image URL is available
   useEffect(() => {
     const updatePostImage = async () => {
       if (newImageUrl) {
-        // Update the post data in Firestore with the new image URL
+        
         await updateDoc(doc(db, "posts", post.id), {
           img: newImageUrl,
         });
-        // Reset the newImageUrl state after updating the post data
+       
         setNewImageUrl("");
       }
     };
@@ -163,16 +163,39 @@ const Post = ({ post }) => {
     updatePostImage();
   }, [newImageUrl, post.id]);
 
+  const openModal = () => {
+   
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+   
+    setShowModal(false);
+  };
+
   return (
     <>
       <div className="Post">
         <div className="postdelete">
           {currentUser?.uid === post.data.uid && (
-            <button onClick={deletePost} className="deleteButton">
+            <button onClick={openModal} className="deleteButton">
               <FaTrashAlt />
             </button>
           )}
         </div>
+{/* ----------------modal to delete post--------------- */}
+        {showModal && (
+        <div className="modal">
+          <div className="modalContent">
+            <p>Are you sure you want to delete this post?</p>
+            <button onClick={deletePost}>Delete</button>
+            <button onClick={closeModal}>Cancel</button>
+          </div>
+        </div>
+      )}
+
+      
+
         <div className="postedit">
           {currentUser?.uid === post.data.uid && !editing && (
             <button onClick={handleEdit} className="editButton">
@@ -180,8 +203,9 @@ const Post = ({ post }) => {
             </button>
           )}
         </div>
- 
 
+      
+      
         <div className="Post-author">
           <img src={post.data?.photoURL} alt="" />
 
@@ -203,31 +227,32 @@ const Post = ({ post }) => {
         ) : (
           <p>{post.data.input}</p>
         )}
-       
-        <div className="main-img-container">
-  {post.data?.img && ( // Check if the image URL exists in post.data
-    <>
-      <img src={post.data.img} alt="" className="postimg" />
-      {currentUser?.uid === post.data.uid && !editing && (
-        <div className="img-update">
-          <button onClick={handleOpenFilePicker} className="changeImageButton">
-            <FiRefreshCw className="refreshicon"/> Change Image
-          </button>
-          {/* Hidden file input */}
-          <input
-            type="file"
-            accept="image/*"
-            onChange={handleImageChange}
-            ref={fileInputRef}
-            style={{ display: "none" }}
-          />
-        </div>
-      )}
-    </>
-  )}
-</div>
 
-        
+        <div className="main-img-container">
+          {post.data?.img && ( // Check if the image URL exists in post.data
+            <>
+              <img src={post.data.img} alt="" className="postimg" />
+              {currentUser?.uid === post.data.uid && !editing && (
+                <div className="img-update">
+                  <button
+                    onClick={handleOpenFilePicker}
+                    className="changeImageButton"
+                  >
+                    <FiRefreshCw className="refreshicon" /> Change Image
+                  </button>
+                  {/* Hidden file input */}
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={handleImageChange}
+                    ref={fileInputRef}
+                    style={{ display: "none" }}
+                  />
+                </div>
+              )}
+            </>
+          )}
+        </div>
 
         <div className="post-stats">
           <div>
