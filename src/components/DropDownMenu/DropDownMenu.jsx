@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
-import "./DropDownMenu.css";
+
+import "../Navbar/Navbar.css";
 
 import { BsFillSquareFill } from "react-icons/bs";
 import { AiFillSetting, AiOutlineLogin, AiOutlineLogout } from "react-icons/ai";
@@ -14,7 +15,7 @@ import user from "../../assets/images/user.png";
 
 
 
-const DropDownMenu = ({isMenuOpen , handleCloseMenu}) => {
+const DropDownMenu = () => {
   const { currentUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -23,24 +24,24 @@ const DropDownMenu = ({isMenuOpen , handleCloseMenu}) => {
   
 
 
-    const profileMenuWrapStyle = {
-        position: "absolute",
-        top: "100%",
-        right: "5%",
-        width: "270px",
-        maxHeight: "0",
-        overflow: "hidden",
-        transition: "max-height 0.5s",
-      };
+    // const profileMenuWrapStyle = {
+    //     position: "absolute",
+    //     top: "100%",
+    //     right: "5%",
+    //     width: "270px",
+    //     maxHeight: "0",
+    //     overflow: "hidden",
+    //     transition: "max-height 0.5s",
+    //   };
     
-      const openMenuStyle = {
-        maxHeight: "400px",
-      };
+    //   const openMenuStyle = {
+    //     maxHeight: "400px",
+    //   };
     
      
-      const combinedStyle = isMenuOpen
-        ? { ...profileMenuWrapStyle, ...openMenuStyle }
-        : profileMenuWrapStyle;
+    //   const combinedStyle = isMenuOpen
+    //     ? { ...profileMenuWrapStyle, ...openMenuStyle }
+    //     : profileMenuWrapStyle;
 
 
      
@@ -48,7 +49,7 @@ const DropDownMenu = ({isMenuOpen , handleCloseMenu}) => {
           try {
             // Sign out the user using Firebase Authentication
             await signOut(auth);
-            handleCloseMenu();
+            // handleCloseMenu();
             // After the sign-out process is complete, navigate to the Home page
             navigate('/Login');
           } catch (error) {
@@ -64,14 +65,14 @@ const DropDownMenu = ({isMenuOpen , handleCloseMenu}) => {
   return (
     <>
     {currentUser ? (
-      <div style={combinedStyle} >
+      <div className="profile-menu-wrap">
         <div className="profile-menu">
           <div className="user-info" >
             <img src={currentUser?.photoURL} alt="" />
-            <div>
+            <div className="user-info1">
               <h3>{currentUser?.displayName}</h3>
               <Link to="/editprofile" >
-              <label>Edit Profile</label>
+              <label className="edit-profile-btn">Edit Profile</label>
               </Link>
             </div>
           </div>
@@ -125,7 +126,7 @@ const DropDownMenu = ({isMenuOpen , handleCloseMenu}) => {
         </div>
       </div>
             ) : (
-              <div style={combinedStyle} >
+              <div className="profile-menu-wrap">
         <div className="profile-menu">
           <div className="user-info" >
             <img src={user} alt="" />

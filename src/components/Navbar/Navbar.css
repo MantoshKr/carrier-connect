@@ -10,6 +10,7 @@
     top: 0;
     z-index: 100;
     box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    width: 100%;
 }
 
 .logo img{
@@ -30,6 +31,8 @@ list-style: none;
     margin:5px 8px;
     padding:5px;
     position: relative;
+    text-decoration: none ;
+    color:black;
 }
 
 .icons img{
@@ -113,6 +116,145 @@ width: 100%;
     outline: none;
     border: none;
 }
+
+
+/* ---------------drop-down-menu------------------------- */
+/* 
+.profile-menu-wrap{
+    position:absolute;
+    top:100%;
+    right:5%;
+    width: 270px;
+    max-height: 0;
+    overflow:hidden;
+    transition: max-height 0.5s;
+    display:none;
+} */
+
+.profile-menu-wrap .open-menu{
+    max-height: 400px;
+   
+}
+
+.profile-menu{
+    background:#222;
+    color:#fff;
+    padding:20px;
+    margin:10px;
+}
+
+.user-info{
+    display:flex;
+    align-items:center;
+   
+}
+
+
+.user-info1{
+    display:flex;
+    flex-direction:column;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.user-info img{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    object-fit:cover;
+    margin-right:15px;
+}
+
+.user-info img:hover{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    object-fit:cover;
+    margin-right:15px;
+}
+
+.user-info h3{
+    font-weight:500;
+    margin-bottom:-7px;
+}
+
+.user-info label{
+    color:#c9dbf8;
+    font-size:13px;
+   cursor: pointer;
+
+}
+
+.user-info label:hover {
+    color: green;
+    font-size:15px;
+}
+
+.profile-menu hr{
+    border:0;
+    height: 0.5px ;
+    width: 100%;
+    background: #fff;
+    margin: 10px 0 10px;
+}
+
+
+/* .profile-menu hr:last-child{
+    border:0;
+    height: 1px ;
+    width: 100%;
+    background: #fff;
+    margin: 10px 0 10px;
+} */
+
+.profile-menu-link{
+    display: flex;
+    align-items: center;
+    color:#fff;
+    margin: 12px 0;
+    font-size: 14px;
+    cursor: pointer;
+   
+}
+
+.profile-menu-link p{
+    width: 100%;
+}
+
+.feedbackicon{
+    width: 35px;
+    margin-right: 15px;
+    border-radius: 50%;
+}
+
+.dropdown-container{
+    position: relative;
+    display: inline-block;
+}
+
+.profile-menu-wrap{
+    
+    display:none;
+    
+}
+
+
+
+.dropdown-container:hover .profile-menu-wrap{
+    display: block;
+    position:absolute;
+    top:100%;
+    right:5%;
+    width: 270px;
+    max-height: 0;
+    margin:-15px;
+    opacity: 95%;
+  }
+
+  
+
+
+
 
 
 

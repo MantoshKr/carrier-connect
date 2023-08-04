@@ -14,67 +14,67 @@ import DropDownProfile from "../DropDownMenu/DropDownMenu";
 import user from "../../assets/images/user.png";
 
 
-const HoverableBiSolidBriefcase = styled(BiSolidBriefcase)`
-  color: #5e5e5e;
-  font-size: 22px;
-  transition: color 0.3s;
+// const HoverableBiSolidBriefcase = styled(BiSolidBriefcase)`
+//   color: #5e5e5e;
+//   font-size: 22px;
+//   transition: color 0.3s;
 
-  &:hover {
-    color: #000000;
-  }
-`;
+//   &:hover {
+//     color: #000000;
+//   }
+// `;
 
-const HoverableAiFillHome = styled(AiFillHome)`
-  color: #5e5e5e;
-  font-size: 22px;
-  transition: color 0.3s;
+// const HoverableAiFillHome = styled(AiFillHome)`
+//   color: #5e5e5e;
+//   font-size: 22px;
+//   transition: color 0.3s;
 
-  &:hover {
-    color: black;
-  }
-`;
+//   &:hover {
+//     color: black;
+//   }
+// `;
 
-const HoverableFaUser = styled(FaUser)`
-  color: #5e5e5e;
-  font-size: 21px;
-  transition: color 0.3s;
+// const HoverableFaUser = styled(FaUser)`
+//   color: #5e5e5e;
+//   font-size: 21px;
+//   transition: color 0.3s;
 
-  &:hover {
-    color: black;
-  }
-`;
+//   &:hover {
+//     color: black;
+//   }
+// `;
 
-const HoverableIoMdChatboxes = styled(IoMdChatboxes)`
-  color: #5e5e5e;
-  font-size: 22px;
-  transition: color 0.3s;
+// const HoverableIoMdChatboxes = styled(IoMdChatboxes)`
+//   color: #5e5e5e;
+//   font-size: 22px;
+//   transition: color 0.3s;
 
-  &:hover {
-    color: black;
-  }
-`;
+//   &:hover {
+//     color: black;
+//   }
+// `;
 
-const HoverableMdNotificationsActive = styled(MdNotificationsActive)`
-  color: #5e5e5e;
-  font-size: 22px;
-  transition: color 0.3s;
+// const HoverableMdNotificationsActive = styled(MdNotificationsActive)`
+//   color: #5e5e5e;
+//   font-size: 22px;
+//   transition: color 0.3s;
 
-  &:hover {
-    color: black;
-  }
-`;
+//   &:hover {
+//     color: black;
+//   }
+// `;
 
 const Navbar = () => {
   const { currentUser } = useContext(AuthContext);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const handleProfileClick = () => {
-    setIsMenuOpen((prev) => !prev);
-  };
+  // const handleProfileClick = () => {
+  //   setIsMenuOpen((prev) => !prev);
+  // };
 
-  const handleCloseMenu = () => {
-    setIsMenuOpen(false);
-  };
+  // const handleCloseMenu = () => {
+  //   setIsMenuOpen(false);
+  // };
 
   return (
     <div className="container">
@@ -94,40 +94,40 @@ const Navbar = () => {
             <li>
               <Link to="" className="icons active-link">
                 {/* <img src={home} alt='' /> */}
-                {/* <AiFillHome style={{ color: '#5e5e5e', fontSize: '22px' }}  /> */}
-                <HoverableAiFillHome />
+                <AiFillHome style={{ color: '#5e5e5e', fontSize: '22px' }}  />
+                
                 <span>Home</span>
               </Link>
             </li>
             <li>
               <Link to="" className="icons">
                 {/* <img src={network} alt='' /> */}
-                {/* <FaUser style={{ color: '#5e5e5e', fontSize: '21px' }}  /> */}
-                <HoverableFaUser />
+                <FaUser style={{ color: '#5e5e5e', fontSize: '21px' }}  />
+                {/* <HoverableFaUser /> */}
                 <span>My Network</span>
               </Link>
             </li>
             <li>
               <Link to="" className="icons">
                 {/* <img src={job} alt='' /> */}
-                {/* <BiSolidBriefcase style={{ color: '#5e5e5e', fontSize: '22px' }}  /> */}
-                <HoverableBiSolidBriefcase />
+                <BiSolidBriefcase style={{ color: '#5e5e5e', fontSize: '22px' }}  />
+                {/* <HoverableBiSolidBriefcase /> */}
                 <span>Jobs</span>
               </Link>
             </li>
             <li>
               <Link to="" className="icons">
                 {/* <img src={message} alt='' /> */}
-                {/* <IoMdChatboxes style={{ color: '#5e5e5e', fontSize: '22px' }}  /> */}
-                <HoverableIoMdChatboxes />
+                <IoMdChatboxes style={{ color: '#5e5e5e', fontSize: '22px' }}  />
+                {/* <HoverableIoMdChatboxes /> */}
                 <span>Messaging</span>
               </Link>
             </li>
             <li>
               <Link to="" className="icons">
                 {/* <img src={notification} alt='' /> */}
-                {/* <MdNotificationsActive style={{ color: '#5e5e5e', fontSize: '22px' }}  /> */}
-                <HoverableMdNotificationsActive />
+                <MdNotificationsActive style={{ color: '#5e5e5e', fontSize: '22px' }}  />
+                {/* <HoverableMdNotificationsActive /> */}
                 <span>Notification</span>
               </Link>
             </li>
@@ -153,26 +153,32 @@ const Navbar = () => {
               
               other wise asked him to login*/}
             {currentUser ? (
+              <div className="dropdown-container">
               <img
                 src={currentUser.photoURL}
                 alt=""
                 className="nav-profile-img"
-                onClick={handleProfileClick}
+                // onClick={handleProfileClick}
               />
+              <DropDownProfile />
+              </div>
             ) : (
-              
+              <div className="dropdown-container">
                 <img
                   src={user}
                   alt=""
                   className="nav-profile-img"
-                  onClick={handleProfileClick}
+                  // onClick={handleProfileClick}
                 />  
+                <DropDownProfile />
+              </div>
               
             )}
           </div>
         </div>
         <div>
-        <DropDownProfile isMenuOpen={isMenuOpen} handleCloseMenu={handleCloseMenu}/>
+        {/* <DropDownProfile isMenuOpen={isMenuOpen} handleCloseMenu={handleCloseMenu}/> */}
+        {/* <DropDownProfile /> */}
       </div>
       </div>
     </div>

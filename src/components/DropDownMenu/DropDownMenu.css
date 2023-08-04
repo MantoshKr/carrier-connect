@@ -4,8 +4,9 @@
     right:5%;
     width: 270px;
     max-height: 0;
-    overflow:hidden;
-    transition: max-height 0.5s;
+    /* overflow:hidden;
+    transition: max-height 0.5s; */
+    display:none;
 }
 
 .profile-menu-wrap .open-menu{
@@ -36,7 +37,7 @@
 
 .user-info h3{
     font-weight:500;
-    /* margin-bottom:-7px; */
+    margin-bottom:-7px;
     
 }
 
