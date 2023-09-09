@@ -34,11 +34,15 @@ const Post = ({ post }) => {
   const [commentOpen, setCommentOpen] = useState(false);
   const [commentBoxVisible, setCommentBoxVisible] = useState(false);
   const [input, setInput] = useState("");
-  const [editing, setEditing] = useState(false);
-  const [editedInput, setEditedInput] = useState(post.data.input);
+  // const [editing, setEditing] = useState(false);
+  // const [editedInput, setEditedInput] = useState(post.data.input);
   const [newImageUrl, setNewImageUrl] = useState("");
   const fileInputRef = useRef(null);
   const [showModal, setShowModal] = useState(false);
+  const [editing, setEditing] = useState(false);
+  const [modalVisible, setModalVisible] = useState(false);
+  const [postText, setPostText] = useState("Your initial post text here");
+  const [editedInput, setEditedInput] = useState(postText);
   
 
   useEffect(() => {
@@ -103,22 +107,31 @@ const Post = ({ post }) => {
   };
 
   const handleEdit = () => {
-    setEditing(true);
-  };
-
-  const handleSave = async (editedInput) => {
-    // Add logic to save the edited post
-    // Here, you can update the post data in the database
-    await updateDoc(doc(db, "posts", post.id), {
-      input: editedInput,
-    });
-    setEditing(false);
-  };
-
-  const handleCancel = () => {
-    // Cancel the edit and reset the editedInput to the original value
     setEditedInput(post.data.input);
-    setEditing(false);
+    setModalVisible(true);
+  
+  };
+
+  const handleSaveModal = async (editedText) => {
+   
+    const postUpdates = {};
+  if (editedText !== post.data.input) {
+    postUpdates.input = editedText; // Update the post text
+  }
+  if (newImageUrl && newImageUrl !== post.data.img) {
+    postUpdates.img = newImageUrl; // Update the image URL
+  }
+
+  // Only update the document if there are changes
+  if (Object.keys(postUpdates).length > 0) {
+    await updateDoc(doc(db, "posts", post.id), postUpdates);
+  }
+
+    setModalVisible(false);
+  };
+
+  const handleCancelModal = () => {
+    setModalVisible(false);
   };
 
   const handleOpenFilePicker = () => {
@@ -204,6 +217,17 @@ const Post = ({ post }) => {
           )}
         </div>
 
+
+        {modalVisible && (
+        <EditPost
+        originalInput={post.data.input} 
+  editedInput={editedInput} 
+          
+          onSave={handleSaveModal}
+          onCancel={handleCancelModal}
+        />
+      )}
+
       
       
         <div className="Post-author">
@@ -221,8 +245,8 @@ const Post = ({ post }) => {
         {editing ? (
           <EditPost
             originalInput={post.data.input}
-            onSave={handleSave}
-            onCancel={handleCancel}
+            onSave={handleSaveModal}
+            onCancel={handleCancelModal}
           />
         ) : (
           <p>{post.data.input}</p>

@@ -51,7 +51,7 @@ const DropDownMenu = () => {
             await signOut(auth);
             // handleCloseMenu();
             // After the sign-out process is complete, navigate to the Home page
-            navigate('/Login');
+            navigate('/');
           } catch (error) {
             // Handle sign-out error, if any
             console.error('Error signing out:', error.message);
@@ -134,7 +134,7 @@ const DropDownMenu = () => {
           </div>
           <hr />
           
-          <Link to="/Login">
+          <Link to="/">
           <label className="profile-menu-link">
             <AiOutlineLogin style={{ color: "green", fontSize: "17px"  }} className="feedbackicon" />
             <p >Login</p>

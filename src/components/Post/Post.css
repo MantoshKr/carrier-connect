@@ -59,6 +59,7 @@
   .postimg {
     max-width: 100%;
     height: auto;
+    max-height: 90vh;;
     display: block;
   }
   
@@ -176,36 +177,36 @@
 }
 
 
+
 .commentBox {
     display: flex;
     flex-direction: column;
 }
 
-.commentBox .commentInput {
-    display: flex;
+.commentInput {
     flex: 1;
     width: 75%;
     background: transparent;
     color: black;
     border: 1px solid #011631;
-    padding: 10px 5px 0px 5px;
-    margin: 0px 0px 20px 20px;
+    padding: 10px 5px 0 5px;
+    margin: 0 0 20px 20px;
     outline: none;
 }
 
-.commentBox .commentPost {
-    display: flex;
+.commentPost {
     padding: 10px 25px;
     background-color: #011631;
     color: white;
     font-size: 14px;
     font-weight: 500;
-    margin: 0px 20px 20px 0px;
+    margin: 0 20px 20px 0;
     border: none;
     cursor: pointer;
+    margin-left:20px;
 }
 
-.commentBox .commentPost:disabled {
+.commentPost:disabled {
     cursor: not-allowed;
     background-color: #011631a4;
 }
@@ -216,7 +217,7 @@
     overflow-y: scroll;
 }
 
-.comment .commentWrapper {
+.commentWrapper {
     display: flex;
     align-items: center;
     border-top: 1px dashed #011631;
@@ -224,8 +225,7 @@
     margin: auto;
 }
 
-.comment .commentWrapper .commentProfileImg {
-    display: flex;
+.commentProfileImg {
     margin: 20px 7px 20px 10px;
     width: 30px;
     height: 30px;
@@ -235,19 +235,19 @@
     cursor: pointer;
 }
 
-.comment .commentWrapper .commentInfo {
+.commentInfo {
     padding: 20px 0;
     max-width: 80%;
+    margin-top: 25px;
 }
 
-.comment .commentWrapper .commentInfo .commentUsername {
+.commentUsername {
     font-weight: 600;
     cursor: pointer;
     font-size: 15px;
-  
 }
 
-.comment .commentWrapper .commentInfo .commentText {
+.commentText {
     background-color: #5a5a5a;
     color: white;
     padding: 5px;
@@ -255,16 +255,10 @@
     border-radius: 30px;
 }
 
-
-.commentInfo{
-    margin-top: 25px;
-}
-
-
 .commentPost {
     width: 120px;
-
 }
+
 
 /* --------------modal css ------------------- */
 /* Styles for the modal container */

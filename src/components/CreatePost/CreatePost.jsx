@@ -1,10 +1,5 @@
-import user1 from "../../assets/images/user1.jpg";
 import "./CreatePost.css";
-// import camera from '../../assets/images/camera.png';
-// import video from '../../assets/images/video.png';
-// import event from '../../assets/images/event.png';
 import arrow from "../../assets/images/down-arrow.png";
-// import { FaCalendar, FaCamera, FaVideo } from "react-icons/fa";
 import { HiPhoto } from "react-icons/hi2";
 import { ImPlay } from "react-icons/im";
 import { BsCalendarDate } from "react-icons/bs";
@@ -29,14 +24,8 @@ const CreatePost = () => {
   const [error, setError] = useState(false);
   const { currentUser } = useContext(AuthContext);
   const [input, setInput] = useState("");
-
   const [img, setImg] = useState(null);
-
-  // console.log("currentUser:", currentUser);
-
-  // console.log("photoURL" , currentUser.photoURL)
-  // console.log("Name" , currentUser.displayName)
-  // console.log("createdON" , currentUser?.metadata.creationTime)
+  const [isTextAreaEmpty, setIsTextAreaEmpty] = useState(true);
 
   const userId = currentUser ? currentUser.uid : null;
 
@@ -45,11 +34,6 @@ const CreatePost = () => {
       const storageRef = ref(storage, "Posts/" + uuid());
 
       const uploadTask = uploadBytesResumable(storageRef, img);
-
-      // uploadTask.on(
-      //   (error) => {
-      //     setError(true);
-      //   },
 
       uploadTask.on(
         "state_changed",
@@ -112,16 +96,21 @@ const CreatePost = () => {
     setInput("");
     setImg(null);
   };
+
   const handleKey = (e) => {
-    e.code === "Enter" && handlePost();
+    if (e.code === "Enter") {
+      if (!input.trim()) {
+        alert("Please enter some text before submitting.");
+      } else {
+        handlePost();
+      }
+    }
   };
 
   const removeImage = () => {
     setImg(null);
   };
-  // console.log(currentUser);
 
-  // const userPhotoURL = currentUser?.photoURL || "";
   const userPhotoURL =
     currentUser && currentUser.photoURL ? currentUser.photoURL : "";
 
@@ -130,31 +119,23 @@ const CreatePost = () => {
       <div className="create-post">
         <div className="create-post-input">
           <div className="photoURLimg">
-            {/* <img src={currentUser.photoURL} alt="" /> */}
             {currentUser && (
               <img src={currentUser.photoURL} alt="" className="photoURLimg" />
             )}
           </div>
           <textarea
-            rows={2}
+            rows={1}
             type="text"
             style={{ resize: "none", overflow: "hidden" }}
-            // placeholder={"Start a post " + currentUser.displayName }
             placeholder={"Start a post "}
             value={input}
             className="textarea2"
-            onChange={(e) => setInput(e.target.value)}
+            onChange={(e) => {
+              setInput(e.target.value);
+              setIsTextAreaEmpty(e.target.value === "");
+            }}
             onKeyDown={handleKey}
           />
-          {/* <form>
-            <input
-              type="text"
-              placeholder={`create a post`}
-              className="textarea2"
-            />
-          </form> */}
-
-          {/* <button hidden type='submit' >submit</button> */}
         </div>
 
         {img && (
@@ -174,7 +155,6 @@ const CreatePost = () => {
 
         <div className="create-post-links">
           <label htmlFor="file" className="inputfile">
-            {/* <img src={camera} alt='' className='photoicon' />Photo */}
             <span>
               <HiPhoto style={{ color: "#378FE9", fontSize: "18px" }} />{" "}
             </span>{" "}
@@ -188,20 +168,18 @@ const CreatePost = () => {
             />
           </label>
           <label>
-            {/* <img src={video} alt='' className='videoicon'/>Video */}
             <span>
               <ImPlay style={{ color: "green", fontSize: "18px" }} />{" "}
             </span>{" "}
             <span>Video</span>
           </label>
           <label>
-            {/* <img src={event} alt='' className='eventicon'/>Event */}
             <span>
               <BsCalendarDate style={{ color: "#C37D16", fontSize: "18px" }} />{" "}
             </span>{" "}
             <span>Event</span>
           </label>
-          {/* <label>Post</label> */}
+
           <label>
             <span>
               <RiArticleFill style={{ color: "red", fontSize: "18px" }} />{" "}

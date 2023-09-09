@@ -14,75 +14,25 @@ import DropDownProfile from "../DropDownMenu/DropDownMenu";
 import user from "../../assets/images/user.png";
 
 
-// const HoverableBiSolidBriefcase = styled(BiSolidBriefcase)`
-//   color: #5e5e5e;
-//   font-size: 22px;
-//   transition: color 0.3s;
 
-//   &:hover {
-//     color: #000000;
-//   }
-// `;
-
-// const HoverableAiFillHome = styled(AiFillHome)`
-//   color: #5e5e5e;
-//   font-size: 22px;
-//   transition: color 0.3s;
-
-//   &:hover {
-//     color: black;
-//   }
-// `;
-
-// const HoverableFaUser = styled(FaUser)`
-//   color: #5e5e5e;
-//   font-size: 21px;
-//   transition: color 0.3s;
-
-//   &:hover {
-//     color: black;
-//   }
-// `;
-
-// const HoverableIoMdChatboxes = styled(IoMdChatboxes)`
-//   color: #5e5e5e;
-//   font-size: 22px;
-//   transition: color 0.3s;
-
-//   &:hover {
-//     color: black;
-//   }
-// `;
-
-// const HoverableMdNotificationsActive = styled(MdNotificationsActive)`
-//   color: #5e5e5e;
-//   font-size: 22px;
-//   transition: color 0.3s;
-
-//   &:hover {
-//     color: black;
-//   }
-// `;
 
 const Navbar = () => {
   const { currentUser } = useContext(AuthContext);
-  // const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // const handleProfileClick = () => {
-  //   setIsMenuOpen((prev) => !prev);
-  // };
-
-  // const handleCloseMenu = () => {
-  //   setIsMenuOpen(false);
-  // };
 
   return (
     <div className="container">
       <div className="navbar">
         <div className="navbar-left">
-          <Link to="/" className="logo">
+        {currentUser ? (
+          <Link to="/home" className="logo">
             <img src={CarrierConnect} alt="" />
           </Link>
+        ) : (
+          <Link to="/signup" className="logo">
+            <img src={CarrierConnect} alt="" />
+          </Link>
+        )}
 
           <div className="search-box">
             <img src={searchicon} alt="" />
@@ -92,42 +42,42 @@ const Navbar = () => {
         <div className="navbar-center">
           <ul>
             <li>
-              <Link to="" className="icons active-link">
-                {/* <img src={home} alt='' /> */}
+              <Link to="/home" className="icons active-link">
+               
                 <AiFillHome style={{ color: '#5e5e5e', fontSize: '22px' }}  />
                 
                 <span>Home</span>
               </Link>
             </li>
             <li>
-              <Link to="" className="icons">
-                {/* <img src={network} alt='' /> */}
+              <Link to="/home" className="icons">
+            
                 <FaUser style={{ color: '#5e5e5e', fontSize: '21px' }}  />
-                {/* <HoverableFaUser /> */}
+                
                 <span>My Network</span>
               </Link>
             </li>
             <li>
-              <Link to="" className="icons">
-                {/* <img src={job} alt='' /> */}
+              <Link to="/home" className="icons">
+               
                 <BiSolidBriefcase style={{ color: '#5e5e5e', fontSize: '22px' }}  />
-                {/* <HoverableBiSolidBriefcase /> */}
+                
                 <span>Jobs</span>
               </Link>
             </li>
             <li>
-              <Link to="" className="icons">
-                {/* <img src={message} alt='' /> */}
+              <Link to="/home" className="icons">
+                
                 <IoMdChatboxes style={{ color: '#5e5e5e', fontSize: '22px' }}  />
-                {/* <HoverableIoMdChatboxes /> */}
+                
                 <span>Messaging</span>
               </Link>
             </li>
             <li>
-              <Link to="" className="icons">
-                {/* <img src={notification} alt='' /> */}
+              <Link to="/home" className="icons">
+              
                 <MdNotificationsActive style={{ color: '#5e5e5e', fontSize: '22px' }}  />
-                {/* <HoverableMdNotificationsActive /> */}
+              
                 <span>Notification</span>
               </Link>
             </li>
@@ -135,30 +85,14 @@ const Navbar = () => {
         </div>
         <div className="navbar-right">
           <div className="online">
-            {/* <img src={currentUser.photoURL} alt='' className='nav-profile-img' /> */}
-            {/* {currentUser && (
-              <img
-                src={currentUser.photoURL}
-                alt=""
-                className="nav-profile-img"
-                onClick={handleProfileClick}
-              />
-            )} */}
-            {/* if user is signed in , then show   <img
-                src={currentUser.photoURL}
-                alt=""
-                className="nav-profile-img"
-                onClick={handleProfileClick}
-              />
-              
-              other wise asked him to login*/}
+           
             {currentUser ? (
               <div className="dropdown-container">
               <img
                 src={currentUser.photoURL}
                 alt=""
                 className="nav-profile-img"
-                // onClick={handleProfileClick}
+              
               />
               <DropDownProfile />
               </div>
@@ -168,7 +102,7 @@ const Navbar = () => {
                   src={user}
                   alt=""
                   className="nav-profile-img"
-                  // onClick={handleProfileClick}
+                 
                 />  
                 <DropDownProfile />
               </div>
@@ -177,8 +111,7 @@ const Navbar = () => {
           </div>
         </div>
         <div>
-        {/* <DropDownProfile isMenuOpen={isMenuOpen} handleCloseMenu={handleCloseMenu}/> */}
-        {/* <DropDownProfile /> */}
+       
       </div>
       </div>
     </div>

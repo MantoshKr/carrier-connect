@@ -14,12 +14,18 @@ const Signup = () => {
   const navigate = useNavigate();
   const [img, setImg] = useState(null);
   const [error, setError] = useState(false);
+  const [agreedToTerms, setAgreedToTerms] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // const displayName = e.target[0].value;
-    // const email = e.target[1].value;
-    // const password = e.target[2].value;
+
+
+    if (!agreedToTerms) {
+      alert("Please agree to the terms and conditions to sign up.");
+      return; // Prevent form submission
+    }
+
+
     const displayName = document.getElementById("displayName").value;
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
@@ -36,9 +42,10 @@ const Signup = () => {
 
       console.log("Image upload task:", uploadTask);
 
-      // uploadTask.on(
-      //   (error) => {
-      //     setError(true);
+
+      
+    // alert("Creating user. Please wait...");
+
       uploadTask.on(
         "state_changed",
         (snapshot) => {
@@ -67,6 +74,7 @@ const Signup = () => {
 
             await setDoc(doc(db, "usersPosts", res.user.uid), { messages: [] });
             console.log("User created successfully:", res.user);
+             window.location.reload();
           });
         }
       );
@@ -75,13 +83,15 @@ const Signup = () => {
       console.log("Error:", error.message);
     }
 
-    navigate("/");
+
+    // localStorage.setItem("userSignedUp", "true");
+    navigate("/home");
+   
   };
   return (
     <>
       <div className="main">
-        {/* <p className='carrier-connect'>CarrierConnect</p> */}
-        {/* <img src={logo} alt="logo" className="ccLogo" /> */}
+   
 
         <div className="sign-up-form">
           <img src={userImage} alt="user" className="userlogo" />
@@ -143,7 +153,11 @@ const Signup = () => {
             <p id="terms">
               {" "}
               <span>
-                <input type="checkbox" className="checkbox" />{" "}
+                <input
+                  type="checkbox"
+                  className="checkbox"
+                  onChange={(e) => setAgreedToTerms(e.target.checked)}
+                />{" "}
               </span>{" "}
               By clicking Agree & Join, you agree to the CarrierConnect User
               Agreement, Privacy Policy, and Cookie Policy.
@@ -170,7 +184,7 @@ const Signup = () => {
             </button>
           </div>
 
-          <Link to="/Login">
+          <Link to="/">
             <p id="login">Already on Carrier Connect? </p>
           </Link>
         </div>
