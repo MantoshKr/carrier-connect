@@ -5,6 +5,7 @@ import Signup from "./pages/Signup/Signup";
 import Login from "./pages/Login/Login";
 import Navbar from "./components/Navbar/Navbar";
 import EditProfile from "./pages/EditProfile/EditProfile";
+import UsersPage from "./pages/UsersPage/UsersPage";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
       <Route path="/" element={<Login />}/>
       <Route path="/Signup" element={<Signup />}/>
       <Route path="/editprofile" element={<EditProfile/>}/>
+      <Route path="/userspage" element={<UsersPage />}/>
     </Routes>
     </AuthContextProvider>
   
