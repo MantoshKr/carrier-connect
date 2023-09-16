@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import "./Navbar.css";
-import CarrierConnect from "../../assets/images/carrier-connect-logo.png";
+import CarrierConnect from "../../assets/images/cclogo1.png";
 import { Link } from "react-router-dom";
 import searchicon from "../../assets/images/searchicon.png";
 import { AiFillHome } from "react-icons/ai";

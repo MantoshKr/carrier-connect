@@ -101,7 +101,7 @@ const Welcome = () => {
                     <div className="flex flex-start text-green-600 font-bold text-lg">
                       Forgot password?
                     </div>
-                    <button className="w-full py-4 rounded-full font-semibold  dark:bg-green-600 dark:text-white hover:bg-green-700">
+                    <button className="w-full py-4 text-lg rounded-full font-semibold  dark:bg-green-600 dark:text-white hover:bg-green-700">
                       Sign in
                     </button>
                   </form>
