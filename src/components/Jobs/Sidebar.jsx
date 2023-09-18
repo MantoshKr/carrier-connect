@@ -11,8 +11,8 @@ import { PiNotePencilBold } from "react-icons/pi";
 
 const Sidebar = () => {
   return (
-    <div>
-      <div className="lg:flex gap-10 2xl:px-60 lg:px-40  ">
+    
+      
         <div>
           <div className="max-h-fit p-3  space-y-2 w-80 bg-white text-gray-900 font-bold shadow-md rounded-lg">
             <div className="flex items-center p-2 space-x-4">
@@ -91,8 +91,8 @@ const Sidebar = () => {
             <span className="text-green-600 ">post a free job</span>
           </button>
         </div>
-      </div>
-    </div>
+   
+   
   );
 };
 
