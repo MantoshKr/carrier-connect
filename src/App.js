@@ -9,6 +9,8 @@ import UsersPage from "./pages/UsersPage/UsersPage";
 import StartPage from "./pages/StartPage/StartPage";
 import { UserProvider } from "./context/UserContext";
 import TryPremium from "./pages/TryPremium";
+import JobsPage from "./pages/JobsPage";
+
 
 function App() {
   return (
@@ -47,6 +49,7 @@ function App() {
                 }
               />
               <Route path="/trypremium" element={<TryPremium />} />
+              <Route path="/jobspage" element={<JobsPage />} />
               <Route path="/" element={<StartPage />} />
             </Routes>
           </UserProvider>
