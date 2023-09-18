@@ -17,7 +17,7 @@ const BottomSection = () => {
               ></iframe>
             </div>
         
-          <div className="lg:pr-10  bg-gray-200 py-80 pl-36 w-[70%] flex justify-center items-center">
+          <div className="lg:pr-10  bg-sky-50 py-80 pl-36 w-[70%] flex justify-center items-center">
           <div>
             <button
               href="/"

@@ -22,7 +22,7 @@ const Footer = () => {
                   <li>
                     <p
                       href="#"
-                      className="text-gray-400 transition hover:text-sky-600 hover:underline"
+                      className="text-gray-600 transition hover:text-sky-600 hover:underline"
                     >
                       Sign Up
                     </p>
@@ -31,7 +31,7 @@ const Footer = () => {
                   <li>
                     <p
                       href="#"
-                      className="text-gray-400 transition hover:text-sky-600 hover:underline"
+                      className="text-gray-600 transition hover:text-sky-600 hover:underline"
                     >
                       Help Center
                     </p>
@@ -40,7 +40,7 @@ const Footer = () => {
                   <li>
                     <p
                       href="#"
-                      className="text-gray-400 transition hover:text-sky-600 hover:underline"
+                      className="text-gray-600 transition hover:text-sky-600 hover:underline"
                     >
                       About
                     </p>
@@ -48,7 +48,7 @@ const Footer = () => {
                   <li>
                     <p
                       href="#"
-                      className="text-gray-400 transition hover:text-sky-600 hover:underline"
+                      className="text-gray-600 transition hover:text-sky-600 hover:underline"
                     >
                       Press
                     </p>
@@ -56,7 +56,7 @@ const Footer = () => {
                   <li>
                     <p
                       href="#"
-                      className="text-gray-400 transition hover:text-sky-600 hover:underline"
+                      className="text-gray-600 transition hover:text-sky-600 hover:underline"
                     >
                       Blog
                     </p>
@@ -64,7 +64,7 @@ const Footer = () => {
                   <li>
                     <p
                       href="#"
-                      className="text-gray-400 transition hover:text-sky-600 hover:underline"
+                      className="text-gray-600 transition hover:text-sky-600 hover:underline"
                     >
                       Careers
                     </p>
@@ -72,7 +72,7 @@ const Footer = () => {
                   <li>
                     <p
                       href="#"
-                      className="text-gray-400 transition hover:text-sky-600 hover:underline"
+                      className="text-gray-600 transition hover:text-sky-600 hover:underline"
                     >
                       Developers
                     </p>
@@ -89,7 +89,7 @@ const Footer = () => {
                   <li>
                     <p
                       href="#"
-                      className="text-gray-400 transition hover:text-sky-600 hover:underline"
+                      className="text-gray-600 transition hover:text-sky-600 hover:underline"
                     >
                       Learning
                     </p>
@@ -98,7 +98,7 @@ const Footer = () => {
                   <li>
                     <p
                       href="#"
-                      className="text-gray-400 transition hover:text-sky-600 hover:underline"
+                      className="text-gray-600 transition hover:text-sky-600 hover:underline"
                     >
                       Jobs
                     </p>
@@ -107,7 +107,7 @@ const Footer = () => {
                   <li>
                     <p
                       href="#"
-                      className="text-gray-400 transition hover:text-sky-600 hover:underline"
+                      className="text-gray-600 transition hover:text-sky-600 hover:underline"
                     >
                       Salary
                     </p>
@@ -115,7 +115,7 @@ const Footer = () => {
                   <li>
                     <p
                       href="#"
-                      className="text-gray-400 transition hover:text-sky-600 hover:underline"
+                      className="text-gray-600 transition hover:text-sky-600 hover:underline"
                     >
                       Mobile
                     </p>
@@ -123,7 +123,7 @@ const Footer = () => {
                   <li>
                     <p
                       href="#"
-                      className="text-gray-400 transition hover:text-sky-600 hover:underline"
+                      className="text-gray-600 transition hover:text-sky-600 hover:underline"
                     >
                       Services
                     </p>
@@ -131,7 +131,7 @@ const Footer = () => {
                   <li>
                     <p
                       href="#"
-                      className="text-gray-400 transition hover:text-sky-600 hover:underline"
+                      className="text-gray-600 transition hover:text-sky-600 hover:underline"
                     >
                       Products
                     </p>
@@ -148,7 +148,7 @@ const Footer = () => {
                   <li>
                     <p
                       href="#"
-                      className="text-gray-400 transition hover:text-sky-600 hover:underline"
+                      className="text-gray-600 transition hover:text-sky-600 hover:underline"
                     >
                       Talent
                     </p>
@@ -157,7 +157,7 @@ const Footer = () => {
                   <li>
                     <p
                       href="#"
-                      className="text-gray-400 transition hover:text-sky-600 hover:underline"
+                      className="text-gray-600 transition hover:text-sky-600 hover:underline"
                     >
                       Marketing
                     </p>
@@ -166,7 +166,7 @@ const Footer = () => {
                   <li>
                     <p
                       href="#"
-                      className="text-gray-400 transition hover:text-sky-600 hover:underline"
+                      className="text-gray-600 transition hover:text-sky-600 hover:underline"
                     >
                       Sales
                     </p>
@@ -174,7 +174,7 @@ const Footer = () => {
                   <li>
                     <p
                       href="#"
-                      className="text-gray-400 transition hover:text-sky-600 hover:underline"
+                      className="text-gray-600 transition hover:text-sky-600 hover:underline"
                     >
                       Learning
                     </p>
@@ -189,7 +189,7 @@ const Footer = () => {
                   <li>
                     <p
                       href="#"
-                      className="text-gray-400 transition hover:text-sky-600 hover:underline"
+                      className="text-gray-600 transition hover:text-sky-600 hover:underline"
                     >
                       Members
                     </p>
@@ -198,7 +198,7 @@ const Footer = () => {
                   <li>
                     <p
                       href="#"
-                      className="text-gray-400 transition hover:text-sky-600 hover:underline"
+                      className="text-gray-600 transition hover:text-sky-600 hover:underline"
                     >
                       Jobs
                     </p>
@@ -207,7 +207,7 @@ const Footer = () => {
                   <li>
                     <p
                       href="#"
-                      className="text-gray-400 transition hover:text-sky-600 hover:underline"
+                      className="text-gray-600 transition hover:text-sky-600 hover:underline"
                     >
                       Companies
                     </p>
@@ -215,7 +215,7 @@ const Footer = () => {
                   <li>
                     <p
                       href="#"
-                      className="text-gray-400 transition hover:text-sky-600 hover:underline"
+                      className="text-gray-600 transition hover:text-sky-600 hover:underline"
                     >
                       Featured
                     </p>
@@ -223,7 +223,7 @@ const Footer = () => {
                   <li>
                     <p
                       href="#"
-                      className="text-gray-400 transition hover:text-sky-600 hover:underline"
+                      className="text-gray-600 transition hover:text-sky-600 hover:underline"
                     >
                       Learning
                     </p>
@@ -231,7 +231,7 @@ const Footer = () => {
                   <li>
                     <p
                       href="#"
-                      className="text-gray-400 transition hover:text-sky-600 hover:underline"
+                      className="text-gray-600 transition hover:text-sky-600 hover:underline"
                     >
                       Posts
                     </p>
@@ -239,7 +239,7 @@ const Footer = () => {
                   <li>
                     <p
                       href="#"
-                      className="text-gray-400 transition hover:text-sky-600 hover:underline"
+                      className="text-gray-600 transition hover:text-sky-600 hover:underline"
                     >
                       Articles
                     </p>
@@ -247,7 +247,7 @@ const Footer = () => {
                   <li>
                     <p
                       href="#"
-                      className="text-gray-400 transition hover:text-sky-600 hover:underline"
+                      className="text-gray-600 transition hover:text-sky-600 hover:underline"
                     >
                       Schools
                     </p>
@@ -255,7 +255,7 @@ const Footer = () => {
                   <li>
                     <p
                       href="#"
-                      className="text-gray-400 transition hover:text-sky-600 hover:underline"
+                      className="text-gray-600 transition hover:text-sky-600 hover:underline"
                     >
                       News
                     </p>
@@ -263,7 +263,7 @@ const Footer = () => {
                   <li>
                     <p
                       href="#"
-                      className="text-gray-400 transition hover:text-sky-600 hover:underline"
+                      className="text-gray-600 transition hover:text-sky-600 hover:underline"
                     >
                       News Letters
                     </p>
@@ -271,7 +271,7 @@ const Footer = () => {
                   <li>
                     <p
                       href="#"
-                      className="text-gray-400 transition hover:text-sky-600 hover:underline"
+                      className="text-gray-600 transition hover:text-sky-600 hover:underline"
                     >
                       Services
                     </p>
@@ -279,7 +279,7 @@ const Footer = () => {
                   <li>
                     <p
                       href="#"
-                      className="text-gray-400 transition hover:text-sky-600 hover:underline"
+                      className="text-gray-600 transition hover:text-sky-600 hover:underline"
                     >
                       Products
                     </p>
@@ -287,7 +287,7 @@ const Footer = () => {
                   <li>
                     <p
                       href="#"
-                      className="text-gray-400 transition hover:text-sky-600 hover:underline"
+                      className="text-gray-600 transition hover:text-sky-600 hover:underline"
                     >
                       Advice
                     </p>
@@ -295,7 +295,7 @@ const Footer = () => {
                   <li>
                     <p
                       href="#"
-                      className="text-gray-400 transition hover:text-sky-600 hover:underline"
+                      className="text-gray-600 transition hover:text-sky-600 hover:underline"
                     >
                       People Search
                     </p>
