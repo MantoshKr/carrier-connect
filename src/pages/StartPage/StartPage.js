@@ -2,6 +2,7 @@ import React from 'react'
 import Welcome from '../../components/Start/Welcome'
 import ExploreArticles from '../../components/Start/ExploreArticles'
 import ConnectPeople from '../../components/Start/ConnectPeople'
+import BottomSection from '../../components/Start/BottomSection'
 
 const StartPage = () => {
   return (
@@ -9,6 +10,7 @@ const StartPage = () => {
         <Welcome />
         <ExploreArticles />
         <ConnectPeople />
+        <BottomSection />
     </div>
   )
 }

@@ -17,7 +17,7 @@ const ConnectPeople = () => {
             </h5>
             <p className="mb-6 text-gray-600 text-3xl">
               With the Open To Work feature, you can privately tell recruiters
-              or publicly share with the LinkedIn community that you are looking
+              or publicly share with the Connect's community that you are looking
               for new job opportunities.
             </p>
           </div>
