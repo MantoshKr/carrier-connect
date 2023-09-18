@@ -56,7 +56,7 @@ const LeftSidebar = () => {
       setUserData(null);
     }
   }, [clickedUserId]);
-  console.log("userDatadddddddddddd", userData);
+  console.log("userData", userData);
 
   return (
     <div className="left-sidebar">
