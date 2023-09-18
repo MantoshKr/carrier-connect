@@ -8,7 +8,7 @@ import carrierconnectlogo from '../../assets/images/carrier-connect-logo.png'
 const RightSidebar = () => {
   return (
     <div className='right-sidebar'>
-    <div className='sidebar-news'>
+    <div className='sidebar-news border'>
       <AiOutlineExclamationCircle className='AiOutlineExclamationCircle'/>
       <h3>Trending News</h3>
       <label>React Native Dominates Mobile App Development: Cross-Platform Success</label>
@@ -29,10 +29,10 @@ const RightSidebar = () => {
       <label className='read-more-link'>Read More</label>
     </div>
 
-<div className='sidebar-ad'>
+<div className='sidebar-ad border'>
   <label>Ad  &middot;  &middot; </label>
   <p className='ad1'>Discover the Power of Data Science</p>
-  <div>
+  <div className='flex justify-center'>
     <img src={datascience} alt=''/>
     <img src={trading} alt=''/>
   </div>
@@ -40,7 +40,7 @@ const RightSidebar = () => {
   <div className='ad-link'>Learn More</div>
 </div>
 
-<div className='sidebar-useful-links'>
+<div className='sidebar-useful-links border  '>
   <p>About</p>
   <p>Accessibility</p>
   <p>Help Center</p>

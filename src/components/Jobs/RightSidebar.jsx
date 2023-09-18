@@ -8,7 +8,7 @@ const RightSidebar = () => {
   return (
   
         
-        <div className='max-w-container'>
+        <div className=''>
           <div className="overflow-hidden rounded-xl bg-white text-slate-500 shadow-lg shadow-slate-200 mb-6 ">
             
             <div className="p-6">

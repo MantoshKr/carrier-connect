@@ -10,6 +10,7 @@ import StartPage from "./pages/StartPage/StartPage";
 import { UserProvider } from "./context/UserContext";
 import TryPremium from "./pages/TryPremium";
 import JobsPage from "./pages/JobsPage";
+import NetworkPage from "./pages/NetworkPage";
 
 
 function App() {
@@ -48,8 +49,18 @@ function App() {
                   </>
                 }
               />
+               <Route
+                path="/networkpage"
+                element={
+                  <>
+                    <Navbar />
+                    <NetworkPage />
+                  </>
+                }
+              />
               <Route path="/trypremium" element={<TryPremium />} />
               <Route path="/jobspage" element={<JobsPage />} />
+              
               <Route path="/" element={<StartPage />} />
             </Routes>
           </UserProvider>

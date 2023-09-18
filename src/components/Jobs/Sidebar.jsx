@@ -14,7 +14,7 @@ const Sidebar = () => {
     
       
         <div>
-          <div className="max-h-fit p-3  space-y-2 w-80 bg-white text-gray-900 font-bold shadow-md rounded-lg">
+          <div className="max-h-fit p-3  space-y-2  bg-white text-gray-900 font-bold shadow-md rounded-lg">
             <div className="flex items-center p-2 space-x-4">
               <img
                 src="https://source.unsplash.com/100x100/?portrait"
