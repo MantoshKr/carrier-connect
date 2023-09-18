@@ -1,4 +1,5 @@
 import React from 'react'
+import { IoChevronDownOutline } from 'react-icons/io5'
 
 const ExploreArticles = () => {
   return (
@@ -90,11 +91,11 @@ const ExploreArticles = () => {
             </p>
 
             <p
-              className="inline-block rounded-full p-[2px] bg-blue-900  hover:text-white focus:outline-none focus:ring active:text-opacity-75 cursor-pointer m-2 "
+              className="inline-block rounded-full p-[2px]  text-green-600 bg-green-600  hover:text-white focus:outline-none focus:ring active:text-opacity-75 cursor-pointer m-2 "
               href="/download"
             >
-              <span className="block rounded-full bg-white px-8 py-3 text-lg font-medium hover:bg-transparent">
-                Show all
+              <span className="rounded-full font-bold bg-white hover:text-white text-green-600 px-8 py-3 text-lg  hover:bg-transparent flex items-center">
+                Show all <span><IoChevronDownOutline /></span>
               </span>
             </p>
           </div>
@@ -182,7 +183,7 @@ const ExploreArticles = () => {
             </p>
 
             <p
-              className="inline-block rounded-full p-[2px] bg-blue-900  hover:text-white focus:outline-none focus:ring active:text-opacity-75 cursor-pointer m-2 "
+              className="inline-block rounded-full p-[2px] bg-black  hover:text-white focus:outline-none focus:ring active:text-opacity-75 cursor-pointer m-2 "
               href="/download"
             >
               <span className="block rounded-full bg-white px-8 py-3 text-lg font-medium hover:bg-transparent">
@@ -191,11 +192,11 @@ const ExploreArticles = () => {
             </p>
 
             <p
-              className="inline-block rounded-full p-[2px] bg-blue-900  hover:text-white focus:outline-none focus:ring active:text-opacity-75 cursor-pointer m-2 "
+              className="inline-block rounded-full p-[2px] bg-green-600  hover:text-white  focus:outline-none focus:ring active:text-opacity-75 cursor-pointer m-2 "
               href="/download"
             >
-              <span className="block rounded-full bg-white px-8 py-3 text-lg font-medium hover:bg-transparent">
-                Show more
+              <span className="rounded-full text-green-600 hover:text-white bg-white px-8 py-3 text-lg font-bold hover:bg-transparent flex items-center">
+                Show more <span><IoChevronDownOutline /></span>
               </span>
             </p>
           </div>

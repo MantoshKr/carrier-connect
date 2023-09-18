@@ -4,33 +4,34 @@ const BottomSection = () => {
   return (
     <div>
     {/* story section  */}
-      <section className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full bg-gray-50 lg:max-w-screen md:px-24 lg:px-8 lg:py-20 xl:py-30">
-        <div className="grid gap-10 lg:grid-cols-2 items-center">
-          <div>
-            <div class="min-h-screen flex items-center justify-center p-10">
+      <section className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full bg-white lg:max-w-screen md:px-24 lg:px-8 lg:py-20 xl:py-30">
+        <div className="gap-10 flex justify-end relative">
+        <div className="min-h-screen flex items-center justify-center p-10 absolute w-[50%] left-0 -top-32">
               <iframe
               title="video"
-                class="aspect-video w-full rounded-lg shadow-lg shadow-yellow-800/70"
+                class="aspect-video w-[90%] rounded-lg shadow-lg shadow-yellow-800/70"
                 src="https://www.youtube.com/embed/IlYUUN8rL_Y?autoplay=0&mute=1"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen
               ></iframe>
             </div>
-          </div>
-          <div className="lg:pr-10">
+        
+          <div className="lg:pr-10  bg-gray-200 py-80 pl-36 w-[70%] flex justify-center items-center">
+          <div>
             <button
               href="/"
               aria-label="Go Home"
               title="Logo"
               className="inline-block mb-5"
             ></button>
-            <h5 className="mb-4 text-5xl text-red-900 leading-none">
+            <h5 className="mb-4 text-5xl text-red-700 leading-none">
               Connect to chase my dream
             </h5>
-            <p className="mb-6 text-gray-600 text-3xl">
-              Check out Gayatri’s story of finding a new job on CarrierConnect
+            <p className="mb-6 text-gray-600 text-4xl">
+              Check out Gayatri’s story of  <br /> finding a new job on CarrierConnect
             </p>
+            </div>
           </div>
         </div>
       </section>
