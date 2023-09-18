@@ -3,7 +3,8 @@ import React from "react";
 const BottomSection = () => {
   return (
     <div>
-      <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full bg-gray-50 lg:max-w-screen md:px-24 lg:px-8 lg:py-20 xl:py-80">
+    {/* story section  */}
+      <section className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full bg-gray-50 lg:max-w-screen md:px-24 lg:px-8 lg:py-20 xl:py-30">
         <div className="grid gap-10 lg:grid-cols-2 items-center">
           <div>
             <div class="min-h-screen flex items-center justify-center p-10">
@@ -32,8 +33,10 @@ const BottomSection = () => {
             </p>
           </div>
         </div>
-      </div>
+      </section>
    
+
+   {/* community section */}
       <section className="relative bg-[url(https://scrumorg-website-prod.s3.amazonaws.com/drupal/inline-images/2022-07/community_400x_0.png)] bg-cover bg-center bg-no-repeat">
         <div className="absolute inset-0 bg-white/75 sm:bg-transparent sm:from-white/95 sm:to-white/25 ltr:sm:bg-gradient-to-r rtl:sm:bg-gradient-to-l"></div>
 

@@ -9,7 +9,7 @@ const ConnectPeople = () => {
         <div className="grid gap-10 lg:grid-cols-2">
           <div className="lg:pr-10 items-center flex justify-between">
           <div>
-            <a href="/" className="inline-block mb-5"></a>
+            <button href="/" className="inline-block mb-5"></button>
             <h5 className="mb-4 text-5xl text-red-900 leading-none">
               Let the right people know
               <br className="hidden md:block" />
@@ -72,9 +72,9 @@ const ConnectPeople = () => {
                 Learn the skills you need to succeed
               </h5>
 
-              {/* button */}
+             
 
-              <a
+              <button
                 className="group flex items-center justify-between gap-4 mt-8 rounded-lg border border-current px-5 py-3 text-indigo-600 transition-colors hover:bg-indigo-600 focus:outline-none focus:ring active:bg-indigo-500 hover:text-white"
                 href="/download"
               >
@@ -83,7 +83,7 @@ const ConnectPeople = () => {
                 </span>
 
                 <IoIosArrowDropdownCircle className="text-xl " />
-              </a>
+              </button>
             </div>
           </div>
         </div>

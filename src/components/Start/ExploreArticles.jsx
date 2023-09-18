@@ -13,7 +13,7 @@ const ExploreArticles = () => {
               <br className="hidden md:block" />
               articles{" "}
             </h2>
-            <a
+            <button
               href="/"
               aria-label=""
               className="inline-flex items-center text-lg 2xl:ml-36  transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
@@ -21,7 +21,7 @@ const ExploreArticles = () => {
               We’re unlocking community knowledge in a new way. <br /> Experts
               add insights directly into each article, started with the help of
               AI.
-            </a>
+            </button>
           </div>
           <div className="lg:w-1/2 ">
             <p
@@ -109,11 +109,11 @@ const ExploreArticles = () => {
               <br className="hidden md:block" />
               internship for you
             </h2>
-            <a
+            <button
               href="/"
               aria-label=""
               className="inline-flex items-center text-lg transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
-            ></a>
+            ></button>
           </div>
           <div className="lg:w-1/2 ">
             <p
@@ -212,11 +212,11 @@ const ExploreArticles = () => {
               <br className="hidden md:block" />
               see
             </h2>
-            <a
+            <button
               href="/"
               aria-label=""
               className="inline-flex items-center text-lg transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
-            ></a>
+            ></button>
           </div>
           <div className="lg:w-1/2 ">
             <p
