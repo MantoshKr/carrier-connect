@@ -4,6 +4,7 @@ import Post from "../Post/Post";
 import { collection, onSnapshot,  } from "firebase/firestore";
 import { db } from "../../firebase";
 import { useUser } from "../../context/UserContext";
+import UserProfile from "../UserProfile/UserProfile";
 
 
 const Feed = () => {
@@ -45,7 +46,7 @@ const Feed = () => {
 
   return (
     <div>
-      <CreatePost />
+      {clickedUserId ? <UserProfile /> : <CreatePost />}
       {filteredPosts
         .sort((a, b) => b.data.timestamp - a.data.timestamp)
         .map((p) => (

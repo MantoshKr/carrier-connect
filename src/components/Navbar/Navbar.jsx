@@ -12,27 +12,29 @@ import styled from "styled-components";
 import { AuthContext } from "../../context/AuthContext";
 import DropDownProfile from "../DropDownMenu/DropDownMenu";
 import user from "../../assets/images/user.png";
-
-
-
+import { useUser } from "../../context/UserContext";
 
 const Navbar = () => {
   const { currentUser } = useContext(AuthContext);
+  const { setClickedUserId } = useUser();
 
+  const handleHomeClick = () => {
+    setClickedUserId(null);
+  };
 
   return (
     <div className="container">
       <div className="navbar">
         <div className="navbar-left">
-        {currentUser ? (
-          <Link to="/home" className="logo">
-            <img src={CarrierConnect} alt="" />
-          </Link>
-        ) : (
-          <Link to="/signup" className="logo">
-            <img src={CarrierConnect} alt="" />
-          </Link>
-        )}
+          {currentUser ? (
+            <Link to="/home" onClick={handleHomeClick} className="logo">
+              <img src={CarrierConnect} alt="" />
+            </Link>
+          ) : (
+            <Link to="/signup" className="logo">
+              <img src={CarrierConnect} alt="" />
+            </Link>
+          )}
 
           <div className="search-box">
             <img src={searchicon} alt="" />
@@ -43,41 +45,40 @@ const Navbar = () => {
           <ul>
             <li>
               <Link to="/home" className="icons active-link">
-               
-                <AiFillHome style={{ color: '#5e5e5e', fontSize: '22px' }}  />
-                
+                <AiFillHome style={{ color: "#5e5e5e", fontSize: "22px" }} />
+
                 <span>Home</span>
               </Link>
             </li>
             <li>
-              <Link to="/home" className="icons">
-            
-                <FaUser style={{ color: '#5e5e5e', fontSize: '21px' }}  />
-                
+              <Link to="/networkpage" className="icons">
+                <FaUser style={{ color: "#5e5e5e", fontSize: "21px" }} />
+
                 <span>My Network</span>
               </Link>
             </li>
             <li>
-              <Link to="/home" className="icons">
-               
-                <BiSolidBriefcase style={{ color: '#5e5e5e', fontSize: '22px' }}  />
-                
+              <Link to="/jobspage" className="icons">
+                <BiSolidBriefcase
+                  style={{ color: "#5e5e5e", fontSize: "22px" }}
+                />
+
                 <span>Jobs</span>
               </Link>
             </li>
             <li>
               <Link to="/home" className="icons">
-                
-                <IoMdChatboxes style={{ color: '#5e5e5e', fontSize: '22px' }}  />
-                
+                <IoMdChatboxes style={{ color: "#5e5e5e", fontSize: "22px" }} />
+
                 <span>Messaging</span>
               </Link>
             </li>
             <li>
               <Link to="/home" className="icons">
-              
-                <MdNotificationsActive style={{ color: '#5e5e5e', fontSize: '22px' }}  />
-              
+                <MdNotificationsActive
+                  style={{ color: "#5e5e5e", fontSize: "22px" }}
+                />
+
                 <span>Notification</span>
               </Link>
             </li>
@@ -85,34 +86,24 @@ const Navbar = () => {
         </div>
         <div className="navbar-right">
           <div className="online">
-           
             {currentUser ? (
               <div className="dropdown-container">
-              <img
-                src={currentUser.photoURL}
-                alt=""
-                className="nav-profile-img"
-              
-              />
-              <DropDownProfile />
+                <img
+                  src={currentUser.photoURL}
+                  alt=""
+                  className="nav-profile-img"
+                />
+                <DropDownProfile />
               </div>
             ) : (
               <div className="dropdown-container">
-                <img
-                  src={user}
-                  alt=""
-                  className="nav-profile-img"
-                 
-                />  
+                <img src={user} alt="" className="nav-profile-img" />
                 <DropDownProfile />
               </div>
-              
             )}
           </div>
         </div>
-        <div>
-       
-      </div>
+        <div></div>
       </div>
     </div>
   );

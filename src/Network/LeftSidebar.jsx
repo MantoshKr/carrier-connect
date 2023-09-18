@@ -92,16 +92,8 @@ const LeftSidebar = () => {
         </div>
       </div>
 
-      <button
-        type="button"
-        className="px-8 py-3 text-lg font-semibold rounded-full border mt-4 border-green-600  hover:bg-green-100 flex  gap-2 ml-10"
-      >
-        <span className="text-2xl text-green-600">
-          <PiNotePencilBold />
-        </span>{" "}
-        <span className="text-green-600 ">post a free job</span>
-      </button>
-      <div className="max-w-container">
+      
+      <div className="max-w-container mt-4">
       <RightSidebar />
       </div>
     </div>

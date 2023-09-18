@@ -35,7 +35,7 @@ const LeftSidebar = () => {
 
   useEffect(() => {
     if (clickedUserId) {
-      const userDocRef = doc(db, "users", clickedUserId); // Assuming your users are stored in a "users" collection
+      const userDocRef = doc(db, "users", clickedUserId); 
 
       // Fetch user data from Firebase
       getDoc(userDocRef)
