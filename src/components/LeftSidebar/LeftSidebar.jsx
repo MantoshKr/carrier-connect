@@ -7,12 +7,17 @@ import { AiOutlineFieldTime } from "react-icons/ai";
 import { MdGroups } from "react-icons/md";
 import { FaHashtag } from "react-icons/fa";
 import { AuthContext } from "../../context/AuthContext";
-import { doc, onSnapshot } from "firebase/firestore";
+import { doc, getDoc, onSnapshot } from "firebase/firestore";
 import { db } from "../../firebase";
+import { useUser } from "../../context/UserContext";
 
 const LeftSidebar = () => {
   const [getUserInfo, setGetUserInfo] = useState({});
   const { currentUser } = useContext(AuthContext);
+  const [userData, setUserData] = useState(null);
+  const { clickedUserId } = useUser();
+
+  console.log("clickedUserIdddd", clickedUserId);
 
   useEffect(() => {
     const getInfo = () => {
@@ -28,13 +33,47 @@ const LeftSidebar = () => {
 
   console.log(getUserInfo);
 
+  useEffect(() => {
+    if (clickedUserId) {
+      const userDocRef = doc(db, "users", clickedUserId); // Assuming your users are stored in a "users" collection
+
+      // Fetch user data from Firebase
+      getDoc(userDocRef)
+        .then((docSnapshot) => {
+          if (docSnapshot.exists()) {
+            // Set the user data in state
+            setUserData(docSnapshot.data());
+          } else {
+            console.log("User not found");
+            setUserData(null); // Handle the case when the user is not found
+          }
+        })
+        .catch((error) => {
+          console.error("Error fetching user data:", error);
+        });
+    } else {
+      // Clear user data when no user is clicked
+      setUserData(null);
+    }
+  }, [clickedUserId]);
+  console.log("userDatadddddddddddd", userData);
+
   return (
     <div className="left-sidebar">
       <div className="sidebar-profile-box">
         <img src={sidebarprofileback} alt="" width="100%" />
         <div className="sidebar-profile-info">
-          <img src={currentUser?.photoURL} alt="" />
-           <h1>{currentUser?.displayName?.toUpperCase()}</h1>
+        {clickedUserId ? (
+            <img src={userData?.photoURL} alt="" />
+          ) : (
+            <img src={currentUser?.photoURL} alt="" />
+          )}
+           
+          {clickedUserId ? (
+            <h1>{userData?.displayName?.toUpperCase()}</h1>
+          ) : (
+            <h1>{currentUser?.displayName?.toUpperCase()}</h1>
+          )}
           <h3>{getUserInfo?.headline}</h3>
           <ul>
             <li>
