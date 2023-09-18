@@ -17,7 +17,7 @@ import RightSidebar from "../components/RightSidebar/RightSidebar";
 
 const LeftSidebar = () => {
   return (
-    <div className="max-w-[17%] w-[17%] ml-28 mb-10 mt-10">
+    <div className="  mb-10 mt-10">
       <div className="max-h-fit p-3  space-y-2  bg-white text-gray-900 font-bold shadow-md rounded-lg">
         <div className="flex items-center p-2 space-x-4">
           <img
