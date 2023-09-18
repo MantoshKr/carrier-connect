@@ -8,45 +8,47 @@ import EditProfile from "./pages/EditProfile/EditProfile";
 import UsersPage from "./pages/UsersPage/UsersPage";
 import StartPage from "./pages/StartPage/StartPage";
 import { UserProvider } from "./context/UserContext";
+import TryPremium from "./pages/TryPremium";
 
 function App() {
   return (
     <>
       <BrowserRouter>
         <AuthContextProvider>
-        <UserProvider>
-          <Routes>
-            <Route
-              path="/home"
-              element={
-                <>
-                  <Navbar />
-                  <Home />
-                </>
-              }
-            />
-            <Route path="/Login" element={<Login />} />
-            <Route path="/Signup" element={<Signup />} />
-            <Route
-              path="/editprofile"
-              element={
-                <>
-                  <Navbar />
-                  <EditProfile />
-                </>
-              }
-            />
-            <Route
-              path="/userspage"
-              element={
-                <>
-                  <Navbar />
-                  <UsersPage />
-                </>
-              }
-            />
-            <Route path="/" element={<StartPage />} />
-          </Routes>
+          <UserProvider>
+            <Routes>
+              <Route
+                path="/home"
+                element={
+                  <>
+                    <Navbar />
+                    <Home />
+                  </>
+                }
+              />
+              <Route path="/Login" element={<Login />} />
+              <Route path="/Signup" element={<Signup />} />
+              <Route
+                path="/editprofile"
+                element={
+                  <>
+                    <Navbar />
+                    <EditProfile />
+                  </>
+                }
+              />
+              <Route
+                path="/userspage"
+                element={
+                  <>
+                    <Navbar />
+                    <UsersPage />
+                  </>
+                }
+              />
+              <Route path="/trypremium" element={<TryPremium />} />
+              <Route path="/" element={<StartPage />} />
+            </Routes>
           </UserProvider>
         </AuthContextProvider>
       </BrowserRouter>
