@@ -86,7 +86,7 @@ const Navbar = () => {
         </div>
         <div className="navbar-right">
           <div className="online">
-            {currentUser ? (
+            {currentUser.photoURL ? (
               <div className="dropdown-container">
                 <img
                   src={currentUser.photoURL}

@@ -1,329 +1,488 @@
-import React from "react";
-import { useContext } from "react";
-import { useState } from "react";
-import { AuthContext } from "../../context/AuthContext";
-import { v4 as uuid } from "uuid";
-import "./EditProfile.css";
-import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
-import { doc, serverTimestamp, setDoc } from "firebase/firestore";
-import { db, storage } from "../../firebase";
-import {
-  EmailAuthProvider,
-  reauthenticateWithCredential,
-  updateEmail,
-  updateProfile,
-} from "firebase/auth";
+import React, { useState, useRef, useEffect, useContext } from "react";
+import ReactDOM from "react-dom";
+
 import { useNavigate } from "react-router-dom";
-import user3 from "../../assets/images/user3.jpg";
+import { doc, getDoc, serverTimestamp, updateDoc } from "firebase/firestore";
+import { AuthContext } from "../../context/AuthContext";
+import { db } from "../../firebase";
 
 
-const EditProfile = () => {
-  const [img, setImg] = useState(null);
+
+export default function NewEditProfile() {
+  const [isShowing, setIsShowing] = useState(false);
+
+  const wrapperRef = useRef(null);
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
+        setIsShowing(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [wrapperRef]);
+
+  useEffect(() => {
+    let html = document.querySelector("html");
+
+    if (html) {
+      if (isShowing && html) {
+        html.style.overflowY = "hidden";
+
+        const focusableElements =
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+
+        const modal = document.querySelector("#modal"); // select the modal by it's id
+
+        const firstFocusableElement =
+          modal.querySelectorAll(focusableElements)[0]; // get first element to be focused inside modal
+
+        const focusableContent = modal.querySelectorAll(focusableElements);
+
+        const lastFocusableElement =
+          focusableContent[focusableContent.length - 1]; // get last element to be focused inside modal
+
+        document.addEventListener("keydown", function (e) {
+          if (e.keyCode === 27) {
+            setIsShowing(false);
+          }
+
+          let isTabPressed = e.key === "Tab" || e.keyCode === 9;
+
+          if (!isTabPressed) {
+            return;
+          }
+
+          if (e.shiftKey) {
+            // if shift key pressed for shift + tab combination
+            if (document.activeElement === firstFocusableElement) {
+              lastFocusableElement.focus(); // add focus for the last focusable element
+              e.preventDefault();
+            }
+          } else {
+            // if tab key is pressed
+            if (document.activeElement === lastFocusableElement) {
+              // if focused has reached to last focusable element then focus first focusable element after pressing tab
+              firstFocusableElement.focus(); // add focus for the first focusable element
+              e.preventDefault();
+            }
+          }
+        });
+
+        firstFocusableElement.focus();
+      } else {
+        html.style.overflowY = "visible";
+      }
+    }
+  }, [isShowing]);
+
   const [error, setError] = useState(false);
   const [data, setData] = useState({
-    name: "",
-    newEmail: "",
-    phone: "",
     headline: "",
-    country: "",
-    company: "",
-    website: "",
-    about: "",
+    industry: "",
+    college: "",
+    degree: "",
+    fieldofstudy: "",
+    grade: "",
+    phone: "",
+    address: "",
+    city: "",
+    state: "",
+    zip: "",
     skills: "",
-    oldPassword: "",
+    activities: "",
+    description: "",
   });
   const { currentUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const userDocRef = doc(db, "users", currentUser.uid);
+        const docSnapshot = await getDoc(userDocRef);
+        if (docSnapshot.exists()) {
+          const userData = docSnapshot.data();
+          setData(userData);
+        } else {
+          console.log("User data not found in Firestore");
+        }
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
+
+    fetchUserData();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   const handleChange = (e) => {
-    setData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    const { name, value } = e.target;
+    setData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleUpdate = async (e) => {
     e.preventDefault();
 
-    if (img) {
-      const storageRef = ref(storage, "usersImages/" + uuid());
-      const uploadTask = uploadBytesResumable(storageRef, img);
+    // await updateProfile(currentUser, {
+    //   displayName: data.name,
+    //   email: data.newEmail,
+    // });
 
-      // uploadTask.on(
-      //   (error) => {
-      //     setError(true);
-      //   },
+    await updateDoc(doc(db, "users", currentUser.uid), {
+      uid: currentUser.uid,
+      displayName: currentUser.displayName,
+      email: currentUser.email,
+      headline: data.headline,
+      industry: data.industry,
+      college: data.college,
+      degree: data.degree,
+      fieldofstudy: data.fieldofstudy,
+      grade: data.grade,
+      phone: data.phone,
+      address: data.address,
+      city: data.city,
+      state: data.state,
+      zip: data.zip,
+      skills: data.skills,
+      activities: data.activities,
+      description: data.description,
 
-      uploadTask.on(
-        "state_changed",
-        (snapshot) => {
-          const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          console.log("Upload progress:", progress);
-        },
-        (error) => {
-          setError(true);
-          console.log("Error during image upload:", error.message);
-        },
+      createdAt: serverTimestamp(),
+    });
 
+    // const credential = EmailAuthProvider.credential(
+    //   currentUser.email,
+    //   data.oldPassword
+    // );
 
-        () => {
-          getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
-            await updateProfile(currentUser, {
-              displayName: data.name,
-              email: data.newEmail,
-              photoURL: downloadURL,
-            });
+    // await reauthenticateWithCredential(currentUser, credential).then(
+    //   async () => {
+    //     //User reauthenticate
+    //     await updateEmail(currentUser, data.newEmail);
+    //   }
+    // );
 
-            await setDoc(doc(db, "users", currentUser.uid), {
-              uid: currentUser.uid,
-              photoURL: downloadURL,
-              displayName: data.name,
-              email: data.newEmail,
-              phone: data.phone,
-              headline: data.headline,
-              country: data.country,
-              company: data.company,
-              website: data.website,
-              about: data.about,
-              skills: data.skills,
-              createdAt: serverTimestamp(),
-            });
-          
-            const credential = EmailAuthProvider.credential(
-              currentUser.email,
-              data.oldPassword
-            );
-
-            await reauthenticateWithCredential(currentUser, credential).then(
-              async () => {
-                //User reauthenticate
-                await updateEmail(currentUser, data.newEmail);
-              }
-            );
-          });
-        }
-      );
-    } else {
-      await updateProfile(currentUser, {
-        displayName: data.name,
-        email: data.newEmail,
-      });
-
-      await setDoc(doc(db, "users", currentUser.uid), {
-        uid: currentUser.uid,
-
-        displayName: data.name,
-        email: data.newEmail,
-        phone: data.phone,
-        headline: data.headline,
-        country: data.country,
-        company: data.company,
-        website: data.website,
-        about: data.about,
-        skills: data.skills,
-        createdAt: serverTimestamp(),
-      });
-     
-      const credential = EmailAuthProvider.credential(
-        currentUser.email,
-        data.oldPassword
-      );
-
-      await reauthenticateWithCredential(currentUser, credential).then(
-        async () => {
-          //User reauthenticate
-          await updateEmail(currentUser, data.newEmail);
-        }
-      );
-    }
     navigate("/");
   };
 
   // const userPhotoURL = currentUser && currentUser.photoURL ? currentUser.photoURL : "";
   // console.log(data);
   // console.log(data.skills);
+
   return (
-    <div className="editProfile">
-      <div className="editProfileWrapper">
-        <div className="profileRight">
-          <div className="profileRightTop">
-            <div className="profileCover">
-              <img src={user3} alt="" className="profileCoverImg" />
-              <img
-                src={currentUser?.photoURL}
-                alt=""
-                className="profileUserImg"
-              />
+    <>
+      <button
+        onClick={() => setIsShowing(true)}
+        className="inline-flex h-10 items-center justify-center gap-2 whitespace-nowrap rounded bg-emerald-500 px-5 text-sm font-medium tracking-wide text-white transition duration-300 hover:bg-emerald-600 focus:bg-emerald-700 focus-visible:outline-none disabled:cursor-not-allowed disabled:border-emerald-300 disabled:bg-emerald-300 disabled:shadow-none"
+      >
+        <span>Open Modal</span>
+      </button>
 
-     
-            </div>
-            <div className="profileInfo">
-              <h4 className="profileInfoName">{currentUser?.displayName}</h4>
-              <span className="profileInfoDesc">{}</span>
-            </div>
-          </div>
-          <div className="editprofileRightBottom">
-            <div className="top">
-              <h1>Edit User Profile</h1>
-            </div>
-            <div className="bottom">
-              <div className="left">
-              <label htmlFor="file">
-                {/* <img
-                  src={
-                    img
-                      ? URL.createObjectURL(img)
-                      : user3
-                  }
-                  alt=""
-                /> */}
-               
-                <img
-                  src={
-                    img
-                      ? URL.createObjectURL(img)
-                      : (currentUser && currentUser.photoURL) || user3
-                  }
-                  alt=""
-                  className="profileUserImg"
-                />
-                </label>
+      {isShowing && typeof document !== "undefined"
+        ? ReactDOM.createPortal(
+            <div
+              className="fixed top-0 left-0 z-20 flex h-screen w-screen items-center justify-center bg-slate-300/20 backdrop-blur-sm "
+              aria-labelledby="header-4a content-4a"
+              aria-modal="true"
+              tabindex="-1"
+              role="dialog"
+            >
+              {/*    <!-- Modal --> */}
+              <div
+                ref={wrapperRef}
+                className="flex flex-col gap-4 overflow-hidden rounded bg-white p-0 text-slate-500 shadow-xl shadow-slate-700/10 max-h-[80vh] overflow-y-auto scrollbar "
+                id="modal"
+                role="document"
+              >
+                {/*        <!-- Modal header --> */}
+
+                {/*        <!-- Modal body --> */}
+                <section className="p-0 max-w-5xl bg-white dark:text-white">
+                  <form
+                    onSubmit={handleUpdate}
+                    novalidate=""
+                    action=""
+                    className="container flex flex-col mx-auto space-y-0"
+                  >
+
+                  <h3 className="font-bold text-lg ">
+                    Hello <span className="font-bold text-lg text-green-600 capitalize">{currentUser?.displayName} </span> , you can edit your setting below .
+                   
+                  </h3>
+                  <div> * means required field</div>
+                    <fieldset className="grid grid-cols-4 gap-6 p-6 rounded-md  f0f2f5': '#f0f2f5">
+                      <div className="space-y-2 col-span-full lg:col-span-1">
+                        <p className="font-medium">{""}</p>
+                      </div>
+                      <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
+                        <div className="col-span-full">
+                          <label for="firstname" className="text-sm">
+                            Headline*
+                          </label>
+                          <input
+                            id="Headline"
+                            name="headline"
+                            value={data.headline}
+                            type="text"
+                            placeholder=""
+                            onChange={handleChange}
+                            required
+                            className="w-full rounded-md focus:ring focus:ri focus:ri dark:border-gray-700 dark:text-gray-900"
+                          />
+                        </div>
+                      </div>
+                    </fieldset>
+
+                    <fieldset className="grid grid-cols-4 gap-6 p-6 rounded-md  f0f2f5': '#f0f2f5 ">
+                      <div className="space-y-2 col-span-full lg:col-span-1">
+                        <p className="font-medium">Current Position </p>
+                      </div>
+                      <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
+                        <div className="col-span-full">
+                          <label for="firstname" className="text-sm">
+                            Industry*
+                          </label>
+                          <input
+                            id="Headline"
+                            name="industry"
+                            value={data.industry}
+                            type="text"
+                            placeholder="Ex. Reliance"
+                            onChange={handleChange}
+                            className="w-full rounded-md focus:ring focus:ri focus:ri dark:border-gray-700 dark:text-gray-900"
+                          />
+                        </div>
+                      </div>
+                    </fieldset>
+                    <fieldset className="grid grid-cols-4 gap-6 p-6 rounded-md  f0f2f5': '#f0f2f5 ">
+                      <div className="space-y-2 col-span-full lg:col-span-1">
+                        <p className="font-medium">Education</p>
+                      </div>
+                      <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
+                        <div className="col-span-full">
+                          <label for="firstname" className="text-sm">
+                            College
+                          </label>
+                          <input
+                            id="Headline"
+                            name="college"
+                            value={data.college}
+                            type="text"
+                            placeholder="Ex. Boston University"
+                            onChange={handleChange}
+                            className="w-full rounded-md focus:ring focus:ri focus:ri dark:border-gray-700 dark:text-gray-900"
+                          />
+                        </div>
+                        <div className="col-span-full sm:col-span-3">
+                          <label for="firstname" className="text-sm">
+                            Degree
+                          </label>
+                          <input
+                            id="Headline"
+                            name="degree"
+                            value={data.degree}
+                            type="text"
+                            placeholder="Ex. Bachelor's"
+                            onChange={handleChange}
+                            className="w-full rounded-md focus:ring focus:ri focus:ri dark:border-gray-700 dark:text-gray-900"
+                          />
+                        </div>
+                        <div className="col-span-full sm:col-span-3">
+                          <label for="firstname" className="text-sm">
+                            Field of Study
+                          </label>
+                          <input
+                            id="Headline"
+                            name="fieldofstudy"
+                            value={data.fieldofstudy}
+                            type="text"
+                            placeholder="Ex. Business"
+                            onChange={handleChange}
+                            className="w-full rounded-md focus:ring focus:ri focus:ri dark:border-gray-700 dark:text-gray-900"
+                          />
+                        </div>
+                        <div className="col-span-full sm:col-span-3">
+                          <label for="firstname" className="text-sm">
+                            Grade
+                          </label>
+                          <input
+                            id="Headline"
+                            name="grade"
+                            value={data.grade}
+                            type="text"
+                            placeholder="Ex. 9.2"
+                            onChange={handleChange}
+                            className="w-full rounded-md focus:ring focus:ri focus:ri dark:border-gray-700 dark:text-gray-900"
+                          />
+                        </div>
+                      </div>
+                    </fieldset>
+
+                    <fieldset className="grid grid-cols-4 gap-6 p-6 rounded-md  f0f2f5': '#f0f2f5 ">
+                      <div className="space-y-2 col-span-full lg:col-span-1">
+                        <p className="font-medium">Personal Inormation</p>
+                        <p className="text-xs"></p>
+                      </div>
+                      <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
+                        <div className="col-span-full sm:col-span-3">
+                          <label for="address" className="text-sm">
+                            Phone number
+                          </label>
+                          <input
+                            id="address"
+                            name="phone"
+                            value={data.phone}
+                            type="text"
+                            placeholder=""
+                            onChange={handleChange}
+                            className="w-full rounded-md focus:ring focus:ri focus:ri dark:border-gray-700 dark:text-gray-900"
+                          />
+                        </div>
+
+                        <div className="col-span-full">
+                          <label for="address" className="text-sm">
+                            Address
+                          </label>
+                          <input
+                            id="address"
+                            name="address"
+                            value={data.address}
+                            type="text"
+                            placeholder=""
+                            onChange={handleChange}
+                            className="w-full rounded-md focus:ring focus:ri focus:ri dark:border-gray-700 dark:text-gray-900"
+                          />
+                        </div>
+                        <div className="col-span-full sm:col-span-2">
+                          <label for="city" className="text-sm">
+                            City
+                          </label>
+                          <input
+                            id="city"
+                            name="city"
+                            value={data.city}
+                            type="text"
+                            placeholder=""
+                            onChange={handleChange}
+                            className="w-full rounded-md focus:ring focus:ri focus:ri dark:border-gray-700 dark:text-gray-900"
+                          />
+                        </div>
+                        <div className="col-span-full sm:col-span-2">
+                          <label for="state" className="text-sm">
+                            State / Province
+                          </label>
+                          <input
+                            id="state"
+                            name="state"
+                            value={data.state}
+                            type="text"
+                            placeholder=""
+                            onChange={handleChange}
+                            className="w-full rounded-md focus:ring focus:ri focus:ri dark:border-gray-700 dark:text-gray-900"
+                          />
+                        </div>
+                        <div className="col-span-full sm:col-span-2">
+                          <label for="zip" className="text-sm">
+                            ZIP / Postal
+                          </label>
+                          <input
+                            id="zip"
+                            name="zip"
+                            value={data.zip}
+                            type="text"
+                            placeholder=""
+                            onChange={handleChange}
+                            className="w-full rounded-md focus:ring focus:ri focus:ri dark:border-gray-700 dark:text-gray-900"
+                          />
+                        </div>
+                      </div>
+                    </fieldset>
+                    <fieldset className="grid grid-cols-4 gap-6 p-6 rounded-md f0f2f5': '#f0f2f5  ">
+                      <div className="space-y-2 col-span-full lg:col-span-1">
+                        <p className="font-medium">Skills</p>
+                        <p className="text-xs">
+                          We recommend adding your top 5 used in this
+                          experience. They’ll also appear in your Skills
+                          section.
+                        </p>
+                      </div>
+                      <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
+                        <div className="col-span-full ">
+                          <label for="username" className="text-sm">
+                            Skills
+                          </label>
+                          <input
+                            id="username"
+                            name="skills"
+                            value={data.skills}
+                            type="text"
+                            placeholder="Ex. Web Development, Python, Java,..."
+                            onChange={handleChange}
+                            className="w-full rounded-md focus:ring focus:ri focus:ri dark:border-gray-700 dark:text-gray-900"
+                          />
+                        </div>
+                      </div>
+                    </fieldset>
+                    <fieldset className="grid grid-cols-4 gap-6 p-6 rounded-md f0f2f5': '#f0f2f5  ">
+                      <div className="space-y-2 col-span-full lg:col-span-1">
+                        <p className="font-medium">More</p>
+                        <p className="text-xs"></p>
+                      </div>
+                      <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
+                        <div className="col-span-full">
+                          <label for="bio" className="text-sm">
+                            Activities and societies
+                          </label>
+                          <textarea
+                            id="bio"
+                            name="activities"
+                            value={data.activities}
+                            placeholder="Ex. Alpha Phi Omega , Marching Band, ,Volleyball"
+                            onChange={handleChange}
+                            className="w-full rounded-md focus:ring focus:ri focus:ri dark:border-gray-700 dark:text-gray-900"
+                          ></textarea>
+                        </div>
+                        <div className="col-span-full">
+                          <label for="bio" className="text-sm">
+                            Description
+                          </label>
+                          <textarea
+                            id="bio"
+                            name="description"
+                            value={data.description}
+                            onChange={handleChange}
+                            placeholder=""
+                            className="w-full rounded-md focus:ring focus:ri focus:ri dark:border-gray-700 dark:text-gray-900"
+                          ></textarea>
+                        </div>
+                      </div>
+                    </fieldset>
+                    <div className="flex justify-center">
+                        <div>
+                           {""}
+                        </div>
+                        <button
+                      type="submit"
+                      class="flex w-20 rounded-full justify-center border border-indigo-600 bg-indigo-600 px-12 py-2 text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500"
+                    >
+                      save
+                    </button>
+
+                    </div>
+                    
+                  </form>
+                </section>
+                {/*        <!-- Modal actions --> */}
               </div>
-              <div className="right">
-                <form onSubmit={handleUpdate}>
-                  <div className="formInput">
-                    <label htmlFor="file"></label>
-                    <input
-                      type="file"
-                      id="file"
-                      style={{ display: "none" }}
-                      onChange={(e) => setImg(e.target.files[0])}
-                    />
-                  </div>
-                  <div className="formInput">
-                    <label>Name</label>
-                    <input
-                      type="text"
-                      name="name"
-                      style={{ fontSize: "15px"}}
-                      placeholder={currentUser.displayName}
-                      onChange={handleChange}
-                      required
-                    />
-                  </div>
-
-                  <div className="formInput">
-                    <label>Email</label>
-                    <input
-                      type="email"
-                      name="newEmail" 
-                      placeholder={currentUser.email}
-                      onChange={handleChange}
-                      style={{ fontSize: "15px"}}
-                      required
-                    />
-                  </div>
-
-                  <div className="formInput">
-                    <label>Phone</label>
-                    <input
-                      type="text"
-                      name="phone"
-                      placeholder={"+1 234 567 890"}
-                      onChange={handleChange}
-                      style={{ fontSize: "15px"}}
-                      required
-                    />
-                  </div>
-
-                  <div className="formInput">
-                    <label>Headline</label>
-                    <input
-                      type="text"
-                      name="headline"
-                      placeholder="headline"
-                      onChange={handleChange}
-                      style={{ fontSize: "15px"}}
-                      required
-                    />
-                  </div>
-                  <div className="formInput">
-                    <label>Country</label>
-                    <input
-                      type="text"
-                      name="country"
-                      placeholder="India"
-                      onChange={handleChange}
-                      style={{ fontSize: "15px"}}
-                      required
-                    />
-                  </div>
-                  <div className="formInput">
-                    <label>Company</label>
-                    <input
-                      type="text"
-                      placeholder="Company"
-                      name="company"
-                      onChange={handleChange}
-                      style={{ fontSize: "15px"}}
-                      required
-                    />
-                  </div>
-                 
-                  <div className="formInput">
-                    <label>Website</label>
-                    <input
-                      type="text"
-                      name="website"
-                      placeholder="Website"
-                      onChange={handleChange}
-                      style={{ fontSize: "15px"}}
-                      required
-                    />
-                  </div>
-                  <div className="formInput">
-                    <label>Write about yourself:</label>
-                      <textarea
-                        id="about"
-                        name="about"
-                        placeholder="Write about yourself..."
-                        rows="4"
-                        cols="50"
-                        onChange={handleChange}
-                        required
-                      />
-
-                  </div>
-                  <div className="formInput">
-                    <label>Skills</label>
-                    <input
-                      type="text"
-                      name="skills"
-                      placeholder="Skills"
-                      onChange={handleChange}
-                      style={{ fontSize: "15px"}}
-                      required
-                    />
-                  </div>
-                  <div className="formInput">
-                    <label>Password</label>
-                    <input
-                      type="password"
-                      name="oldPassword"
-                      placeholder="Enter Your Password to save changes"
-                      onChange={handleChange}
-                      style={{ fontSize: "14px"}}
-                      required
-                    />
-                  </div>
-                  <button type="submit" className="updateButton">
-                    Save & Update
-                  </button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+            </div>,
+            document.body
+          )
+        : null}
+    </>
   );
-};
-
-export default EditProfile;
+}

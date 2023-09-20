@@ -75,7 +75,7 @@ const UserProfile = () => {
             />
           ) : (
             <img
-              src={currentUser?.photoURL}
+              src={getUserInfo?.photoURL}
               loading="lazy"
               alt=""
               className="rounded-full object-cover w-20 h-20 absolute -bottom-7 left-4"
@@ -88,7 +88,7 @@ const UserProfile = () => {
             {clickedUserId ? (
               <h1>{userData?.displayName?.toUpperCase()}</h1>
             ) : (
-              <h1>{currentUser?.displayName?.toUpperCase()}</h1>
+              <h1>{getUserInfo?.displayName?.toUpperCase()}</h1>
             )}
           </h3>
           <p className="text-gray-600 text-lg duration-150 group-hover:text-gray-800">
@@ -100,7 +100,7 @@ const UserProfile = () => {
           </p>
 
           <div className="pb-10">
-            {clickedUserId === currentUser.uid ? (
+            {clickedUserId === getUserInfo.uid ? (
               <button
                 class="inline-block rounded-full border border-indigo-600 bg-indigo-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500 mr-3"
                 href="/download"
@@ -115,7 +115,7 @@ const UserProfile = () => {
                 Connect
               </button>
             )}
-            {clickedUserId === currentUser.uid ? (
+            {clickedUserId === getUserInfo.uid ? (
               <Link to="/editprofile">
                 <button class="inline-block rounded-full border border-bg-green border-green-600 px-12 py-3 text-sm font-medium text-green-600 hover:bg-green-100  focus:outline-none focus:ring active:bg-green-300 mr-2">
                   Edit Profile
@@ -140,7 +140,7 @@ const UserProfile = () => {
         </div>
       </div>
 
-      {clickedUserId === currentUser.uid &&
+      {clickedUserId === getUserInfo.uid &&
         <div>
         <div className="flex flex-col max-h-fit w-full items-center justify-center overflow-hidden bg-white rounded-lg shadow-lg text-slate-500 shadow-slate-200 sm:flex-row ">
           <div className="flex-1 p-6 sm:mx-6 sm:px-0">

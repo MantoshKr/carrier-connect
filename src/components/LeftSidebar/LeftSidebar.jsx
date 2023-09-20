@@ -56,25 +56,26 @@ const LeftSidebar = () => {
       setUserData(null);
     }
   }, [clickedUserId]);
-  console.log("userData", userData);
+  console.log("userData666666666666666", userData);
 
   return (
     <div className="left-sidebar">
       <div className="sidebar-profile-box">
-        <img src={sidebarprofileback} alt="" width="100%" />
+        <img src={getUserInfo?.bgimg} alt="" width="100%" />
         <div className="sidebar-profile-info">
         {clickedUserId ? (
             <img src={userData?.photoURL} alt="" />
           ) : (
-            <img src={currentUser?.photoURL} alt="" />
+            <img src={getUserInfo?.photoURL} alt="" />
           )}
            
           {clickedUserId ? (
-            <h1>{userData?.displayName?.toUpperCase()}</h1>
+            <h1 className="capitalize ">{userData?.displayName}</h1>
           ) : (
-            <h1>{currentUser?.displayName?.toUpperCase()}</h1>
+            <h1 className="capitalize ">{getUserInfo?.displayName}</h1>
           )}
           <h3>{getUserInfo?.headline}</h3>
+          {/* {getUserInfo.displayName} */}
           <ul>
             <li>
               Your profile views <span>234</span>

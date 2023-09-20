@@ -5,6 +5,7 @@ import { BsBriefcaseFill, BsFillPeopleFill } from "react-icons/bs";
 import { AiOutlineMenu } from "react-icons/ai";
 import { FaRegNewspaper } from "react-icons/fa";
 import { GoVideo } from "react-icons/go";
+import { Link } from "react-router-dom";
 
 const Welcome = () => {
   return (
@@ -34,18 +35,25 @@ const Welcome = () => {
                   <p className="text-sm">Jobs</p>
                 </div>
               </div>
+            
+            <Link to="/signup">
               <button
                 type="button"
                 className="px-8 py-3 text-xl font-semibold rounded-full dark:bg-gray-100 dark:text-gray-800 hover:bg-gray-200"
               >
                 Join Now
               </button>
+              </Link>
+             
+
+              <Link to="/login">
               <button
                 type="button"
                 className="px-8 py-3 text-xl font-semibold border border-green-600 rounded-full dark:bg-gray-100 dark:text-gray-800 hover:bg-green-50"
               >
                 Sign in
               </button>
+              </Link>
             </div>
             <button className="flex items-center justify-center p-2 lg:hidden">
               <AiOutlineMenu className="w-6 h-6 dark:text-gray-800" />
