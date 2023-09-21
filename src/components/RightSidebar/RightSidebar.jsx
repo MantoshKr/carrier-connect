@@ -6,6 +6,7 @@ import trading from '../../assets/images/trading.webp'
 import carrierconnectlogo from '../../assets/images/carrier-connect-logo.png'
 import { AuthContext } from '../../context/AuthContext'
 import ConnectToUser from '../ConnectToUser'
+import FollowUsers from '../FollowUsers'
 
 
 
@@ -57,6 +58,7 @@ const RightSidebar = () => {
 </div>
 
 <ConnectToUser/>
+<FollowUsers/>
 
 <div className='sidebar-useful-links border  '>
   <p>About</p>
