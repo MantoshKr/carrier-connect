@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { doc, getDoc, serverTimestamp, updateDoc } from "firebase/firestore";
 import { AuthContext } from "../../context/AuthContext";
 import { db } from "../../firebase";
+import ChangeImage from "../../components/ChangeImage";
 
 
 
@@ -176,12 +177,20 @@ export default function NewEditProfile() {
 
   return (
     <>
+<div className="flex  relative">
+    <div className="absolute left-28 top-52">
+      <ChangeImage />
+     
+    </div>
+    <p className="">{""}</p>
+  
       <button
         onClick={() => setIsShowing(true)}
-        className="inline-flex h-10 items-center justify-center gap-2 whitespace-nowrap rounded bg-emerald-500 px-5 text-sm font-medium tracking-wide text-white transition duration-300 hover:bg-emerald-600 focus:bg-emerald-700 focus-visible:outline-none disabled:cursor-not-allowed disabled:border-emerald-300 disabled:bg-emerald-300 disabled:shadow-none"
+        className="inline-flex h-10 items-center justify-center gap-2 whitespace-nowrap rounded bg-emerald-500 px-5 text-sm font-medium tracking-wide text-white transition duration-300 hover:bg-emerald-600 focus:bg-emerald-700 focus-visible:outline-none disabled:cursor-not-allowed disabled:border-emerald-300 disabled:bg-emerald-300 disabled:shadow-none ml-44 mt-20"
       >
-        <span>Open Modal</span>
+        <span>Edit Profile</span>
       </button>
+      </div>
 
       {isShowing && typeof document !== "undefined"
         ? ReactDOM.createPortal(

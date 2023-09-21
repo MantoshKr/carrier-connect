@@ -1,5 +1,7 @@
 import React from "react";
 import { RxDotFilled } from "react-icons/rx";
+import cclogo1 from "../assets/images/cclogo1.png";
+import { Link } from "react-router-dom";
 
 const plans = [
   {
@@ -48,7 +50,10 @@ const plans = [
 
 const TryPremium = () => {
   return (
-    <section className="py-24">
+    <section className="py-32 relative">
+  <Link to="/home">
+    <img src={cclogo1} alt="" className="absolute inset-0  w-20 top-5 left-20 cursor-pointer" />
+    </Link>
       <div className="max-w-screen-xl mx-auto px-4 text-gray-600 md:px-8">
         <div className="relative  mx-auto sm:text-center">
           <h3 className="text-gray-800 text-3xl right-0 font-semibold sm:text-4xl">

@@ -2,6 +2,7 @@ import React from "react";
 import cclogo from "../../assets/images/cclogo.png";
 import { BiBookmark } from "react-icons/bi";
 import { HiSearch } from "react-icons/hi";
+import { Link } from "react-router-dom";
 
 const Main = () => {
   return (
@@ -179,12 +180,14 @@ const Main = () => {
             </div>
             <p className="text-xl"></p>
           </header>
-          <a
+          <Link to="/editprofile">
+          <button
             class="inline-block rounded-full bg-white border border-green-600 px-10 py-1.5 text-xl font-bold text-green-600 hover:bg-green-100  "
-            href="/trypremium"
+            
           >
             Update Profile
-          </a>
+          </button>
+          </Link>
         </div>
       </div>
       <div>

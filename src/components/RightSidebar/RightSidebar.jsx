@@ -1,13 +1,27 @@
-import React from 'react'
+import React, { useContext} from 'react'
 import { AiOutlineExclamationCircle } from 'react-icons/ai'
 import './RightSidebar.css'
 import datascience from '../../assets/images/datascience.jpeg'
 import trading from '../../assets/images/trading.webp'
 import carrierconnectlogo from '../../assets/images/carrier-connect-logo.png'
+import { AuthContext } from '../../context/AuthContext'
+
 
 const RightSidebar = () => {
+  const { currentUser } = useContext(AuthContext);
+
   return (
     <div className='right-sidebar'>
+    <div className='sidebar-ad border'>
+  <label>Ad  &middot;  &middot; </label>
+  <p className='ad1'>Discover the Power of Data Science</p>
+  <div className='sidebaradsimg'>
+    <img src={currentUser.photoURL} alt=''/>
+    <img src={trading} alt=''/>
+  </div>
+  <p className='ad2'>Invest Smart: Stock Market Insights and Tips</p>
+  <div className='ad-link'>Learn More</div>
+</div>
     <div className='sidebar-news border'>
       <AiOutlineExclamationCircle className='AiOutlineExclamationCircle'/>
       <h3>Trending News</h3>

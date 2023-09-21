@@ -59,7 +59,12 @@ function App() {
                 }
               />
               <Route path="/trypremium" element={<TryPremium />} />
-              <Route path="/jobspage" element={<JobsPage />} />
+              <Route path="/jobspage" element={
+                  <>
+                    <Navbar />
+                    <JobsPage />
+                  </>
+                } />
               
               <Route path="/" element={<StartPage />} />
             </Routes>

@@ -44,7 +44,7 @@ const Navbar = () => {
         <div className="navbar-center">
           <ul>
             <li>
-              <Link to="/home" className="icons active-link">
+              <Link to="/home" className="icons">
                 <AiFillHome style={{ color: "#5e5e5e", fontSize: "22px" }} />
 
                 <span>Home</span>

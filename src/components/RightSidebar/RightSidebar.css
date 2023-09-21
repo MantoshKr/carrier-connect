@@ -50,13 +50,25 @@
 }
 
 .sidebar-ad img{
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     object-fit: cover;
     border-radius: 50%;
     margin: 4px;
+    margin-top:10px;
 }
 
+
+.sidebaradsimg{
+display:flex;
+justify-content: center;
+align-items:center;
+}
+
+.sidebaradsimg :first-child{
+    width:100px;
+    height:100px;
+}
 
 .sidebar-ad label{
  float: right; 
@@ -82,6 +94,12 @@
     color: #045be6;
     font-weight: 500;
     margin: 20px auto 10px;
+}
+
+.ad-link:hover{
+    background: #045be6;
+    color: #fff;
+    cursor: pointer;
 }
 
 .sidebar-useful-links{
@@ -113,4 +131,5 @@ font-weight: 500;
 .copyright-msg label{
     font-weight:bold;
 }
+
 
