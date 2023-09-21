@@ -10,6 +10,7 @@ import { AuthContext } from "../../context/AuthContext";
 import { doc, getDoc, onSnapshot } from "firebase/firestore";
 import { db } from "../../firebase";
 import { useUser } from "../../context/UserContext";
+import { Link } from "react-router-dom";
 
 const LeftSidebar = () => {
   const [getUserInfo, setGetUserInfo] = useState({});
@@ -35,7 +36,7 @@ const LeftSidebar = () => {
 
   useEffect(() => {
     if (clickedUserId) {
-      const userDocRef = doc(db, "users", clickedUserId); 
+      const userDocRef = doc(db, "users", clickedUserId);
 
       // Fetch user data from Firebase
       getDoc(userDocRef)
@@ -63,12 +64,12 @@ const LeftSidebar = () => {
       <div className="sidebar-profile-box">
         <img src={getUserInfo?.bgimg} alt="" width="100%" />
         <div className="sidebar-profile-info">
-        {clickedUserId ? (
+          {clickedUserId ? (
             <img src={userData?.photoURL} alt="" />
           ) : (
             <img src={getUserInfo?.photoURL} alt="" />
           )}
-           
+
           {clickedUserId ? (
             <h1 className="capitalize ">{userData?.displayName}</h1>
           ) : (
@@ -86,20 +87,30 @@ const LeftSidebar = () => {
             <li>
               Your connections<span>456</span>
             </li>
-            <li>
-              {getUserInfo?.skills}
-            </li>
+            <li>{getUserInfo?.skills}</li>
           </ul>
         </div>
         <div className="sidebar-profile-link">
-          <label>
-            <BsFillBookmarkFill className="BsFillBookmarkFill" />
-            My items
-          </label>
-          <label>
-            <BsTicketFill className="BsTicketFill" />
-            Try Premium
-          </label>
+          <Link to="/trypremium" className="hover:bg-[#f0f2f5] ">
+            <label className=" flex items-center cursor-pointer">
+              <BsTicketFill className="text-orange-400 text-xl" />
+              <div className="flex flex-col flex-start ml-2 p-2">
+                Access exclusive tools & insights{" "}
+                <span className="text-md font-bold underline hover:text-sky-600">
+                  Try Premium for free
+                </span>
+              </div>
+            </label>
+          </Link>
+          <hr />
+          <Link to="/myitems" className="hover:bg-[#f0f2f5] ">
+            <label>
+              <div className="p-2 flex items-center cursor-pointer">
+                <BsFillBookmarkFill className="BsFillBookmarkFill" />
+                My items
+              </div>
+            </label>
+          </Link>
         </div>
       </div>
       <div className="sidebar-activity">
@@ -128,40 +139,40 @@ const LeftSidebar = () => {
           <AiOutlineFieldTime className="icons2" />
           Python
         </label>
-    
-      <h3>GROUPS</h3>
-      <label>
-        <MdGroups className="icons4" />
-        Web Development Group
-      </label>
-      <label>
-        <MdGroups className="icons4" />
-        React and Angular Group
-      </label>
-      <label>
-        <MdGroups className="icons4" />
-        Python and game Development
-      </label>
-      <label>
-        <MdGroups className="icons4" />
-        Robotics
-      </label>
-      <h3>HASHTAG</h3>
-      <label>
-        <FaHashtag className="icons3" />
-        fontenddev
-      </label>
-      <label>
-        <FaHashtag className="icons3" />
-        ui/ux
-      </label>
-      <label>
-        <FaHashtag className="icons3" />
-        react
-      </label>
-      <div className="discover-more-link">
-        <label>Discover more</label>
-      </div>
+
+        <h3>GROUPS</h3>
+        <label>
+          <MdGroups className="icons4" />
+          Web Development Group
+        </label>
+        <label>
+          <MdGroups className="icons4" />
+          React and Angular Group
+        </label>
+        <label>
+          <MdGroups className="icons4" />
+          Python and game Development
+        </label>
+        <label>
+          <MdGroups className="icons4" />
+          Robotics
+        </label>
+        <h3>HASHTAG</h3>
+        <label>
+          <FaHashtag className="icons3" />
+          fontenddev
+        </label>
+        <label>
+          <FaHashtag className="icons3" />
+          ui/ux
+        </label>
+        <label>
+          <FaHashtag className="icons3" />
+          react
+        </label>
+        <div className="discover-more-link">
+          <label>Discover more</label>
+        </div>
       </div>
     </div>
   );
