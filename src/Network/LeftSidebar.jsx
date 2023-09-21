@@ -3,7 +3,6 @@ import React, { useContext } from "react";
 import { BsFillPeopleFill } from "react-icons/bs";
 import {
   FaAngleUp,
-  FaBell,
   FaRegCalendarAlt,
   FaRegFile,
   FaRegNewspaper,
@@ -11,9 +10,6 @@ import {
 } from "react-icons/fa";
 import { FiHash } from "react-icons/fi";
 import { HiUserGroup } from "react-icons/hi2";
-
-import { PiNotePencilBold } from "react-icons/pi";
-import RightSidebar from "../components/RightSidebar/RightSidebar";
 import { AuthContext } from "../context/AuthContext";
 
 const LeftSidebar = () => {
@@ -97,7 +93,7 @@ const LeftSidebar = () => {
 
       
       <div className="max-w-container mt-4">
-      <RightSidebar />
+      
       </div>
     </div>
   );

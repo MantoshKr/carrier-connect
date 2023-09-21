@@ -122,7 +122,7 @@ const NetworkMain = () => {
             <p className="text-xl"></p>
           </header>
           <a
-            class="inline-block rounded-full bg-orange-300 px-10 py-1.5 text-xl font-bold text-black transition hover:scale-105 hover:shadow-xl focus:outline-none focus:ring active:bg-orange-400  ml-10"
+            className="inline-block rounded-full bg-orange-300 px-10 py-1.5 text-xl font-bold text-black transition hover:scale-105 hover:shadow-xl focus:outline-none focus:ring active:bg-orange-400  ml-10"
             href="/trypremium"
           >
             Try Premium for free
@@ -144,7 +144,7 @@ const NetworkMain = () => {
               className="w-full mx-auto group sm:max-w-sm border shadow-lg rounded-xl bg-white transition hover:scale-105 hover:shadow-2xl"
               key={user.uid}
             >
-              <a key={user.uid}>
+              <div key={user.uid}>
                 <div className="relative">
                   <img
                     src={user.photoURL}
@@ -201,7 +201,7 @@ const NetworkMain = () => {
                     </button>
                   </div>
                 </div>
-              </a>
+              </div>
             </li>
           ))}
         </ul>
@@ -210,7 +210,7 @@ const NetworkMain = () => {
           <div className="flex justify-center">
             <button
               onClick={handleViewMoreClick}
-              class="inline-block rounded border border-indigo-600 px-12 py-3 text-sm font-medium text-indigo-600 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500 m-10"
+              className="inline-block rounded border border-indigo-600 px-12 py-3 text-sm font-medium text-indigo-600 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500 m-10"
             >
               view more
             </button>

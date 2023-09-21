@@ -74,13 +74,13 @@ const Welcome = () => {
                   </h1>
 
                   <form
-                    novalidate=""
+                    noValidate=""
                     action=""
                     className="self-stretch space-y-6 mt-6 2xl:mr-14 "
                   >
                     <div>
                       <label
-                        for="name"
+                        htmlFor="name"
                         className="text-lg font-bold text-gray-700 flex flex-start mb-1"
                       >
                         Email
@@ -94,7 +94,7 @@ const Welcome = () => {
                     </div>
                     <div>
                       <label
-                        for="lastname"
+                        htmlFor="lastname"
                         className="text-lg font-bold text-gray-700 flex flex-start mb-1"
                       >
                         Password

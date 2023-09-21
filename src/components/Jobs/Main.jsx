@@ -151,7 +151,7 @@ const Main = () => {
             <p className="text-xl"></p>
           </header>
           <a
-            class="inline-block rounded-full bg-orange-300 px-10 py-1.5 text-xl font-bold text-black transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-orange-400  ml-10"
+            className="inline-block rounded-full bg-orange-300 px-10 py-1.5 text-xl font-bold text-black transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-orange-400  ml-10"
             href="/trypremium"
           >
             Try Premium for free
@@ -186,7 +186,7 @@ const Main = () => {
           </header>
           <Link to="/editprofile">
           <button
-            class="inline-block rounded-full bg-white border border-green-600 px-10 py-1.5 text-xl font-bold text-green-600 hover:bg-green-100  "
+            className="inline-block rounded-full bg-white border border-green-600 px-10 py-1.5 text-xl font-bold text-green-600 hover:bg-green-100  "
             
           >
             Update Profile

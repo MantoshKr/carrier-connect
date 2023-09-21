@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { AiOutlineArrowRight, AiOutlineExclamationCircle } from 'react-icons/ai'
 import carrierconnectlogo from '../../assets/images/carrier-connect-logo.png'
-import datascience from '../../assets/images/datascience.jpeg'
 import trading from '../../assets/images/trading.webp'
+import { AuthContext } from '../../context/AuthContext'
 
 const RightSidebar = () => {
+  const { currentUser } = useContext(AuthContext);
+
   return (
   
         
@@ -35,13 +37,13 @@ const RightSidebar = () => {
             </div>
             {/* btn */}
             <div className="flex gap-2 p-2 pt-0">
-              <a
-                class="rounded-full bg-white flex  py-1.5 text-xl font-bold items-center gap-2 justify-start text-green-600 ml-4"
+              <button
+                className="rounded-full bg-white flex  py-1.5 text-xl font-bold items-center gap-2 justify-start text-green-600 ml-4 cursor-pointer"
                 href="/trypremium"
               >
                 Show more
                 <AiOutlineArrowRight />
-              </a>
+              </button>
             </div>
           </div>
           <div className="right-sidebar">
@@ -77,7 +79,7 @@ const RightSidebar = () => {
               <label>Ad &middot; &middot; </label>
               <p className="ad1">Discover the Power of Data Science</p>
               <div className="flex items-center justify-center mt-2 gap-4">
-                <img src={datascience} alt="" />
+                <img src={currentUser.photoURL} alt="" />
                 <img src={trading} alt="" />
               </div>
               <p className="ad2">

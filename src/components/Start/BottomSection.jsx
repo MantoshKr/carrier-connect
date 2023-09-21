@@ -9,11 +9,11 @@ const BottomSection = () => {
         <div className="min-h-screen flex items-center justify-center p-10 absolute w-[50%] left-0 -top-32">
               <iframe
               title="video"
-                class="aspect-video w-[90%] rounded-lg shadow-lg shadow-yellow-800/70"
+                className="aspect-video w-[90%] rounded-lg shadow-lg shadow-yellow-800/70"
                 src="https://www.youtube.com/embed/IlYUUN8rL_Y?autoplay=0&mute=1"
-                frameborder="0"
+                frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
+                allowFullScreen
               ></iframe>
             </div>
         

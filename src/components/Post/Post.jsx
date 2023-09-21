@@ -1,8 +1,7 @@
 import "./Post.css";
 import { FcIdea } from "react-icons/fc";
-import { PiChats, PiChatsBold, PiHandsClappingFill } from "react-icons/pi";
-import { AiFillCamera, AiFillCaretDown, AiOutlineDelete } from "react-icons/ai";
-import { PiChatsThin } from "react-icons/pi";
+import { PiChats,  PiHandsClappingFill } from "react-icons/pi";
+import { AiFillCamera } from "react-icons/ai";
 import { PiShareFat } from "react-icons/pi";
 import { BsSend } from "react-icons/bs";
 import { AiOutlineLike } from "react-icons/ai";
@@ -24,7 +23,6 @@ import { FaTrashAlt } from "react-icons/fa";
 import EditPost from "../EditPost/EditPost";
 import { MdEdit } from "react-icons/md";
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
-import { FiRefreshCw } from "react-icons/fi";
 import {
   IoChatboxEllipsesOutline,
   IoChatboxEllipsesSharp,
@@ -268,7 +266,7 @@ const Post = ({ post, onClickUser }) => {
           )}
           <div className="flex justify-between mb-4">
             <p>{""}</p>
-            <p>
+            <div>
               {post.data?.img && (
                 <>
                   {currentUser?.uid === post.data.uid && !editing && (
@@ -295,7 +293,7 @@ const Post = ({ post, onClickUser }) => {
                   )}
                 </>
               )}
-            </p>
+            </div>
           </div>
 
           <div className="flex flex-wrap items-center justify-between pt-1 pb-0">

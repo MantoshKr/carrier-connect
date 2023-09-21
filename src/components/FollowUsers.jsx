@@ -69,7 +69,7 @@ const FollowUsers = () => {
       <ul>
         {shuffledUsers.slice(0, visibleUsers).map((user) => (
           <li
-            key={user.id}
+            key={user.uid}
             className="rounded-xl border border-gray-100 shadow-md bg-white mb-2  p-4"
           >
             <div className="flex items-center gap-4 mb-2">
@@ -108,7 +108,7 @@ const FollowUsers = () => {
         <div className="flex justify-center">
           <button
             onClick={handleViewMoreClick}
-            class="inline-block rounded border border-indigo-600 px-12 py-3 text-sm font-medium text-indigo-600 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500 m-10"
+            className="inline-block rounded border border-indigo-600 px-12 py-3 text-sm font-medium text-indigo-600 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500 m-10"
           >
             view more
           </button>

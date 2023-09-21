@@ -1,7 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./LeftSidebar.css";
-import sidebarprofile from "../../assets/images/sidebarprofile.jpg";
-import sidebarprofileback from "../../assets/images/sidebarprofileback.jpg";
 import { BsFillBookmarkFill, BsTicketFill } from "react-icons/bs";
 import { AiOutlineFieldTime } from "react-icons/ai";
 import { MdGroups } from "react-icons/md";
@@ -17,6 +15,12 @@ const LeftSidebar = () => {
   const { currentUser } = useContext(AuthContext);
   const [userData, setUserData] = useState(null);
   const { clickedUserId } = useUser();
+  const { setClickedUserId } = useUser();
+
+  const handleUserClick = (userId) => {
+    setClickedUserId(userId);
+    console.log(`User with ID ${userId} clicked.`);
+  };
 
   console.log("clickedUserIdddd", clickedUserId);
 
@@ -62,12 +66,20 @@ const LeftSidebar = () => {
   return (
     <div className="left-sidebar">
       <div className="sidebar-profile-box">
-        <img src={getUserInfo?.bgimg} alt="" width="100%" />
+        <img src={userData?.bgimg} alt="" width="100%" />
         <div className="sidebar-profile-info">
           {clickedUserId ? (
             <img src={userData?.photoURL} alt="" />
           ) : (
-            <img src={getUserInfo?.photoURL} alt="" />
+            <img
+              src={currentUser?.photoURL}
+              alt=""
+              onClick={() => {
+                if (handleUserClick) handleUserClick(currentUser.uid);
+                console.log("inside the imag", currentUser.uid);
+              }}
+              className="cursor-pointer"
+            />
           )}
 
           {clickedUserId ? (
