@@ -29,8 +29,9 @@ import {
   IoChatboxEllipsesOutline,
   IoChatboxEllipsesSharp,
 } from "react-icons/io5";
+import { useUser } from "../../context/UserContext";
 
-const Post = ({ post ,onClickUser }) => {
+const Post = ({ post, onClickUser }) => {
   // console.log( "onClickUser",onClickUser);
   const { currentUser } = useContext(AuthContext);
   const [likes, setLikes] = useState([]);
@@ -47,6 +48,11 @@ const Post = ({ post ,onClickUser }) => {
   const [postText, setPostText] = useState("Your initial post text here");
   const [editedInput, setEditedInput] = useState(postText);
   const [userData, setUserData] = useState(null);
+  const { setClickedUserId } = useUser();
+
+  const handleUserClick = () => {
+    setClickedUserId(post.data.uid);
+  };
 
   useEffect(() => {
     const unSub = onSnapshot(
@@ -181,7 +187,6 @@ const Post = ({ post ,onClickUser }) => {
     setShowModal(false);
   };
 
-
   return (
     <div className="mb-3">
       <div className="flex flex-col max-w-container p-6 space-y-6 overflow-hidden rounded-lg shadow-md dark:bg-white dark:text-gray-900 ">
@@ -191,22 +196,18 @@ const Post = ({ post ,onClickUser }) => {
               alt=""
               src={post.data?.photoURL}
               className="object-cover w-12 h-12 rounded-full shadow dark:bg-gray-500 cursor-pointer"
-              onClick={() => {
-                  if (onClickUser) onClickUser(post.data.uid);
-                  console.log("inside the imag",post.data.uid);
-                }}
-             
-
+              // onClick={() => {
+              //     if (onClickUser) onClickUser(post.data.uid);
+              //     console.log("inside the imag",post.data.uid);
+              //   }}
+              onClick={handleUserClick}
             />
             <div className="flex flex-col space-y-0.5">
               <p
                 rel="noopener noreferrer"
                 href="#"
                 className="text-sm font-semibold cursor-pointer"
-            
-
               >
-                
                 {userData?.name || post.data?.displayName}
               </p>
               <span className="text-xs dark:text-gray-400">
@@ -255,9 +256,8 @@ const Post = ({ post ,onClickUser }) => {
         )}
 
         <div>
-         
           <p className="text-sm dark:text-gray-400 mb-2">{post.data.input}</p>
-          {post.data?.img && ( 
+          {post.data?.img && (
             <>
               <img
                 src={post.data.img}
@@ -298,7 +298,6 @@ const Post = ({ post ,onClickUser }) => {
             </p>
           </div>
 
-         
           <div className="flex flex-wrap items-center justify-between pt-1 pb-0">
             <div className="flex items-center space-x-2">
               <div className="flex -space-x-1">
@@ -319,7 +318,6 @@ const Post = ({ post ,onClickUser }) => {
                 />
               </div>
               <span className="text-sm">
-                
                 <span className="font-semibold">
                   <span>{likes.length + comments.length}</span>
                 </span>
@@ -335,7 +333,7 @@ const Post = ({ post ,onClickUser }) => {
           </div>
         </div>
         <hr />
-       
+
         <div className="flex flex-wrap items-center justify-between">
           <div className="">
             <button
@@ -441,18 +439,16 @@ const Post = ({ post ,onClickUser }) => {
                         <span className="truncate text-sm text-gray-400">
                           2.5k followers{" "}
                           <p href="#" className="font-medium text-gray-500">
-                           works at xyz company
+                            works at xyz company
                           </p>
                         </span>
                       </p>
                     </div>
                   </div>
-                 
+
                   <div className="rounded-lg bg-gray-100 p-2">
                     <p className="mb-1 text-gray-500"></p>
-                    <p className="">
-                    {c.data.comment}
-                    </p>
+                    <p className="">{c.data.comment}</p>
                   </div>
                 </div>
               ))}
