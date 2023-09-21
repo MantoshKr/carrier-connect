@@ -3,11 +3,18 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase";
 import { MdCancel } from "react-icons/md";
 import { IoPersonAddSharp } from "react-icons/io5";
+import { useUser } from "../context/UserContext";
 
 const ConnectToUser = () => {
   const [users, setUsers] = useState([]);
   const [visibleUsers, setVisibleUsers] = useState(5); // Number of users to initially display
   const usersPerPage = 5; // Number of users to load on each "View More" click
+  const { setClickedUserId } = useUser();
+
+  const handleUserClick = (userId) => {
+    setClickedUserId(userId);
+    console.log(`User with ID ${userId} clicked.`);
+  };
 
   useEffect(() => {
     async function fetchUserData() {
@@ -59,6 +66,11 @@ const ConnectToUser = () => {
                 alt="Developer"
                 src={user.photoURL}
                 className="h-16 w-16 rounded-full object-cover"
+                // onClick={handleUserClick(user.uid)}
+                onClick={() => {
+                  if (handleUserClick) handleUserClick(user.uid);
+                  console.log("inside the imag", user.uid);
+                }}
               />
 
               <div>
