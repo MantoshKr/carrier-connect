@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { AiFillSetting } from "react-icons/ai";
 import {
   BsFillBookmarkFill,
@@ -8,8 +8,11 @@ import {
 import { FaBell, FaRegFile } from "react-icons/fa";
 import { IoDocumentText } from "react-icons/io5";
 import { PiNotePencilBold } from "react-icons/pi";
+import { AuthContext } from "../../context/AuthContext";
 
 const Sidebar = () => {
+  const { currentUser } = useContext(AuthContext);
+
   return (
     
       
@@ -17,12 +20,12 @@ const Sidebar = () => {
           <div className="max-h-fit p-3  space-y-2  bg-white text-gray-900 font-bold shadow-md rounded-lg">
             <div className="flex items-center p-2 space-x-4">
               <img
-                src="https://source.unsplash.com/100x100/?portrait"
+                src={currentUser.photoURL}
                 alt=""
-                className="w-12 h-12 rounded-full dark:bg-gray-500"
+                className="w-12 h-12 object-cover rounded-full dark:bg-gray-500"
               />
               <div>
-                <h2 className="text-lg font-semibold">Rahul</h2>
+                <h2 className="text-lg font-semibold">{currentUser.displayName}</h2>
                 <span className="flex items-center space-x-1"></span>
               </div>
             </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import { BsFillPeopleFill } from "react-icons/bs";
 import {
@@ -14,19 +14,22 @@ import { HiUserGroup } from "react-icons/hi2";
 
 import { PiNotePencilBold } from "react-icons/pi";
 import RightSidebar from "../components/RightSidebar/RightSidebar";
+import { AuthContext } from "../context/AuthContext";
 
 const LeftSidebar = () => {
+  const { currentUser } = useContext(AuthContext);
+
   return (
     <div className="  mb-10 mt-10">
       <div className="max-h-fit p-3  space-y-2  bg-white text-gray-900 font-bold shadow-md rounded-lg">
         <div className="flex items-center p-2 space-x-4">
           <img
-            src="https://source.unsplash.com/100x100/?portrait"
+            src={currentUser.photoURL}
             alt=""
-            className="w-12 h-12 rounded-full dark:bg-gray-500"
+            className="w-12 h-12 rounded-full object-cover dark:bg-gray-500"
           />
           <div>
-            <h2 className="text-lg font-semibold">Rahul</h2>
+            <h2 className="text-lg font-semibold">{currentUser.displayName}</h2>
             <span className="flex items-center space-x-1"></span>
           </div>
         </div>

@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import cclogo from "../../assets/images/cclogo.png";
 import { BiBookmark } from "react-icons/bi";
 import { HiSearch } from "react-icons/hi";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
 
 const Main = () => {
+  const { currentUser } = useContext(AuthContext);
+
+
   return (
     
     <div className="flex flex-col gap-6 w-full">
@@ -102,10 +106,10 @@ const Main = () => {
                   className="relative inline-flex items-center justify-center h-12 text-white "
                 >
                   <img
-                    src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                    src={currentUser.photoURL}
                     alt="user name"
                     title="user name"
-                    className="max-w-full rounded-full w-20 "
+                    className="max-w-full object-cover rounded-full w-20 h-20 "
                   />
                 </p>
                 <div>
@@ -113,7 +117,7 @@ const Main = () => {
                     See the full list of jobs where you'd be a top applicant
                   </h3>
                   <div>
-                    <div className="flex items-center justify-center gap-2 m-3">
+                    <div className="flex items-center gap-2 m-3">
                       <div className="flex -space-x-3">
                         <img
                           alt=""
@@ -165,10 +169,10 @@ const Main = () => {
                   className="relative inline-flex items-center justify-center h-12 text-white "
                 >
                   <img
-                    src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                    src={currentUser.photoURL}
                     alt="user"
                     title="user"
-                    className="max-w-full rounded-full w-16 "
+                    className="max-w-full rounded-full w-16 h-16 object-cover "
                   />
                 </p>
                 <div>

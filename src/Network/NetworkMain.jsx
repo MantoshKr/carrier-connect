@@ -1,105 +1,57 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import { MdCancel } from "react-icons/md";
-
-const posts = [
-  {
-    title: "Gaur Gopal Das",
-    desc: "Member’s occupation Carrier Connect's Top Voice, International Life Coach, Wellness Advisor, Author & Motivational Strategist",
-    img: "https://images.unsplash.com/photo-1556155092-490a1ba16284?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-
-    href: "javascript:void(0)",
-    img2: "https://source.unsplash.com/40x40/?portrait?1",
-    followers: "549,948 followers",
-  },
-  {
-    title: "Gaur Gopal Das",
-    desc: "Member’s occupation Carrier Connect's Top Voice, International Life Coach, Wellness Advisor, Author & Motivational Strategist",
-    img: "https://images.unsplash.com/photo-1556155092-490a1ba16284?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-
-    href: "javascript:void(0)",
-    img2: "https://source.unsplash.com/40x40/?portrait?1",
-    followers: "549,948 followers",
-  },
-  {
-    title: "Gaur Gopal Das",
-    desc: "Member’s occupation Carrier Connect's Top Voice, International Life Coach, Wellness Advisor, Author & Motivational Strategist",
-    img: "https://images.unsplash.com/photo-1556155092-490a1ba16284?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-
-    href: "javascript:void(0)",
-    img2: "https://source.unsplash.com/40x40/?portrait?1",
-    followers: "549,948 followers",
-  },
-  {
-    title: "Gaur Gopal Das",
-    desc: "Member’s occupation Carrier Connect's Top Voice, International Life Coach, Wellness Advisor, Author & Motivational Strategist",
-    img: "https://images.unsplash.com/photo-1556155092-490a1ba16284?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-
-    href: "javascript:void(0)",
-    img2: "https://source.unsplash.com/40x40/?portrait?1",
-    followers: "549,948 followers",
-  },
-  {
-    title: "Gaur Gopal Das",
-    desc: "Member’s occupation Carrier Connect's Top Voice, International Life Coach, Wellness Advisor, Author & Motivational Strategist",
-    img: "https://images.unsplash.com/photo-1556155092-490a1ba16284?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-
-    href: "javascript:void(0)",
-    img2: "https://source.unsplash.com/40x40/?portrait?1",
-    followers: "549,948 followers",
-  },
-  {
-    title: "Gaur Gopal Das",
-    desc: "Member’s occupation Carrier Connect's Top Voice, International Life Coach, Wellness Advisor, Author & Motivational Strategist",
-    img: "https://images.unsplash.com/photo-1556155092-490a1ba16284?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-
-    href: "javascript:void(0)",
-    img2: "https://source.unsplash.com/40x40/?portrait?1",
-    followers: "549,948 followers",
-  },
-  {
-    title: "Gaur Gopal Das",
-    desc: "Member’s occupation Carrier Connect's Top Voice, International Life Coach, Wellness Advisor, Author & Motivational Strategist",
-    img: "https://images.unsplash.com/photo-1556155092-490a1ba16284?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-
-    href: "javascript:void(0)",
-    img2: "https://source.unsplash.com/40x40/?portrait?1",
-    followers: "549,948 followers",
-  },
-  {
-    title: "Gaur Gopal Das",
-    desc: "Member’s occupation Carrier Connect's Top Voice, International Life Coach, Wellness Advisor, Author & Motivational Strategist",
-    img: "https://images.unsplash.com/photo-1556155092-490a1ba16284?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-
-    href: "javascript:void(0)",
-    img2: "https://source.unsplash.com/40x40/?portrait?1",
-    followers: "549,948 followers",
-  },
-  {
-    title: "Gaur Gopal Das",
-    desc: "Member’s occupation Carrier Connect's Top Voice, International Life Coach, Wellness Advisor, Author & Motivational Strategist",
-    img: "https://images.unsplash.com/photo-1556155092-490a1ba16284?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-
-    href: "javascript:void(0)",
-    img2: "https://source.unsplash.com/40x40/?portrait?1",
-    followers: "549,948 followers",
-  },
-  {
-    title: "Gaur Gopal Das",
-    desc: "Member’s occupation Carrier Connect's Top Voice, International Life Coach, Wellness Advisor, Author & Motivational Strategist",
-    img: "https://images.unsplash.com/photo-1556155092-490a1ba16284?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-
-    href: "javascript:void(0)",
-    img2: "https://source.unsplash.com/40x40/?portrait?1",
-    followers: "549,948 followers",
-  },
-];
+import { AuthContext } from "../context/AuthContext";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../firebase";
 
 const NetworkMain = () => {
+  const [users, setUsers] = useState([]);
+  const [visibleUsers, setVisibleUsers] = useState(15); // Number of users to initially display
+  const usersPerPage = 15; // Number of users to load on each "View More" click
+  const { currentUser } = useContext(AuthContext);
+
+  useEffect(() => {
+    async function fetchUserData() {
+      const usersCollection = collection(db, "users"); // Replace "users" with your Firestore collection name
+      const querySnapshot = await getDocs(usersCollection);
+
+      const usersArray = [];
+
+      querySnapshot.forEach((doc) => {
+        const userData = doc.data();
+        const user = {
+          uid: doc.id,
+          name: userData.displayName,
+          photoURL: userData.photoURL,
+          company: userData.company,
+          about: userData.about,
+          country: userData.country,
+          email: userData.email,
+          headline: userData.headline,
+          phone: userData.phone,
+          website: userData.website,
+          skills: userData.skills,
+        };
+        usersArray.push(user);
+      });
+
+      setUsers(usersArray);
+    }
+
+    fetchUserData();
+  }, []);
+
+  console.log("users", users);
+
+  const handleViewMoreClick = () => {
+    setVisibleUsers((prevVisibleUsers) => prevVisibleUsers + usersPerPage);
+  };
+
   return (
-    <section className="py-10 rounded-xl  px-6 max-w-fit max-h-fit">
+    <section className="py-10 rounded-xl  px-6 max-w-fit max-h-fit ">
       {/* invitations */}
-      <div className="flex flex-col max-h-fit w-full items-center justify-center overflow-hidden bg-white rounded-lg shadow-lg text-slate-500 shadow-slate-200 sm:flex-row mb-4 ">
+      <div className="flex flex-col max-h-fit w-full items-center justify-center overflow-hidden bg-[white] rounded-lg shadow-lg text-slate-500 shadow-slate-200 sm:flex-row mb-4 ">
         <div className="flex-1 sm:mx-6 sm:px-0">
           <header className="flex justify-between mb-4 mt-6">
             <div className="flex items-center">
@@ -125,10 +77,10 @@ const NetworkMain = () => {
               <div className="flex gap-4 items-center justify-center">
                 <p className="relative inline-flex items-center justify-center h-12 text-white ">
                   <img
-                    src="https://i.pravatar.cc/48?img=24"
+                    src={currentUser.photoURL}
                     alt="user name"
                     title="user name"
-                    className="max-w-full rounded-full w-20 "
+                    className="max-w-full rounded-full w-20 h-20 object-cover "
                   />
                 </p>
                 <div>
@@ -187,25 +139,25 @@ const NetworkMain = () => {
           <p className=" text-2xl text-gray-400 font-bold">see all </p>
         </div>
         <ul className="grid gap-x-8 gap-y-10 mt-16 sm:grid-cols-2 lg:grid-cols-3 ">
-          {posts.map((items, key) => (
+          {users.slice(0, visibleUsers).map((user) => (
             <li
               className="w-full mx-auto group sm:max-w-sm border shadow-lg rounded-xl bg-white transition hover:scale-105 hover:shadow-2xl"
-              key={key}
+              key={user.uid}
             >
-              <a href={items.href}>
+              <a key={user.uid}>
                 <div className="relative">
                   <img
-                    src={items.img}
+                    src={user.photoURL}
                     loading="lazy"
-                    alt={items.title}
+                    alt={user.name}
                     className="w-full h-20 object-cover rounded-lg "
                   />
 
                   <img
-                    src={items.img2}
+                    src={user.photoURL}
                     loading="lazy"
-                    alt={items.title}
-                    className="rounded-full w-20 h-20 absolute -bottom-7 left-4"
+                    alt={user.about}
+                    className="rounded-full w-20 h-20 object-cover absolute -bottom-7 left-4"
                   />
 
                   <MdCancel className="text-4xl absolute top-2 right-2 opacity-60" />
@@ -213,14 +165,12 @@ const NetworkMain = () => {
                 <div className=" space-y-3 px-4">
                   <span className="block text-indigo-600 text-sm">{""}</span>
                   <h3 className="text-lg pt-4 text-gray-800 duration-150 group-hover:text-indigo-600 font-semibold">
-                    {items.title}
+                    {user.about}
                   </h3>
                   <p className="text-gray-600 text-lg duration-150 group-hover:text-gray-800">
-                    {items.desc}
+                    {user.website}
                   </p>
-                  <p className="text-xs text-gray-400 pt-10">
-                    {items.followers}
-                  </p>
+                  <p className="text-xs text-gray-400 pt-10">{user.skills}</p>
                   <div className="pb-10 flex justify-center">
                     <button>
                       <a
@@ -255,6 +205,17 @@ const NetworkMain = () => {
             </li>
           ))}
         </ul>
+
+        {visibleUsers < users.length && (
+          <div className="flex justify-center">
+            <button
+              onClick={handleViewMoreClick}
+              class="inline-block rounded border border-indigo-600 px-12 py-3 text-sm font-medium text-indigo-600 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500 m-10"
+            >
+              view more
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );
