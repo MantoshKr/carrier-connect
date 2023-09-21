@@ -5,6 +5,8 @@ import datascience from '../../assets/images/datascience.jpeg'
 import trading from '../../assets/images/trading.webp'
 import carrierconnectlogo from '../../assets/images/carrier-connect-logo.png'
 import { AuthContext } from '../../context/AuthContext'
+import ConnectToUser from '../ConnectToUser'
+
 
 
 const RightSidebar = () => {
@@ -53,6 +55,8 @@ const RightSidebar = () => {
   <p className='ad2'>Invest Smart: Stock Market Insights and Tips</p>
   <div className='ad-link'>Learn More</div>
 </div>
+
+<ConnectToUser/>
 
 <div className='sidebar-useful-links border  '>
   <p>About</p>
