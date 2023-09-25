@@ -60,7 +60,7 @@ const UserProfile = () => {
       <div className="  border shadow-lg mb-4 rounded-xl bg-white ">
         <div className="relative">
           <img
-            src="https://images.unsplash.com/photo-1426604966848-d7adac402bff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+            src={userData?.bgimg}
             loading="lazy"
             alt=""
             className="w-full h-72 object-cover rounded-lg "

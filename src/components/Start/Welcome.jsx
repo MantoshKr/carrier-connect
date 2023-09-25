@@ -1,13 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import cclogo from "../../assets/images/cclogo1.png";
 import transparentimg1 from "../../assets/images/transparentimg1.png";
 import { BsBriefcaseFill, BsFillPeopleFill } from "react-icons/bs";
 import { AiOutlineMenu } from "react-icons/ai";
 import { FaRegNewspaper } from "react-icons/fa";
 import { GoVideo } from "react-icons/go";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../../firebase';
 
 const Welcome = () => {
+    const [error, setError] = useState(false);
+    const navigate = useNavigate();
+  
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+  
+      const email = e.target[0].value;
+      const password = e.target[1].value;
+  
+      try {
+        await signInWithEmailAndPassword(auth , email, password);
+        navigate("/home");
+      } catch (error) {
+        setError(true);
+      }
+    };
+
+
+
   return (
     <div>
       <div className="min-h-screen bg-[#f0f2f5] text-black">
@@ -77,6 +98,7 @@ const Welcome = () => {
                     noValidate=""
                     action=""
                     className="self-stretch space-y-6 mt-6 2xl:mr-14 "
+                    onSubmit={handleSubmit}
                   >
                     <div>
                       <label
@@ -90,6 +112,7 @@ const Welcome = () => {
                         type="email"
                         placeholder="Please enter your email address"
                         className="w-full rounded-md py-4 focus:ring focus:ri dark:border-gray-700"
+                        required
                       />
                     </div>
                     <div>
@@ -104,6 +127,7 @@ const Welcome = () => {
                         type="password"
                         placeholder="Please enter your password"
                         className="w-full rounded-md py-4 focus:ring focus:ri dark:border-gray-700"
+                        required
                       />
                     </div>
                     <div className="flex flex-start text-green-600 font-bold text-lg">
@@ -121,17 +145,20 @@ const Welcome = () => {
                       Or continue with
                     </p>
                   </div>
+                  
                   <div className="text-left mb-2">
                     By clicking Continue, you agree to CarrrierConnect’s{" "}
                     <span className="font-bold text-green-600 cursor-pointer">
                       User Agreement, Privacy Policy, and Cookie Policy.
                     </span>
                   </div>
+                  <Link to="/signup">
                   <div className="space-y-5 text-md font-bold text-gray-600 mr-10">
                     <button className="w-full flex items-center justify-center gap-x-3 py-3 border  hover:bg-gray-200 duration-150 active:bg-gray-100 border-gray-800 rounded-full text-lg mr-10">
                       New to Carrier Connect? Join Now
                     </button>
                   </div>
+                  </Link>
                 </div>
                 <img
                   src={transparentimg1}

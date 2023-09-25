@@ -1,4 +1,4 @@
-import "./Post.css";
+// import "./Post.css";
 import { FcIdea } from "react-icons/fc";
 import { PiChats,  PiHandsClappingFill } from "react-icons/pi";
 import { AiFillCamera } from "react-icons/ai";
@@ -437,7 +437,7 @@ const Post = ({ post, onClickUser }) => {
                         <span className="truncate text-sm text-gray-400">
                           2.5k followers{" "}
                           <p href="#" className="font-medium text-gray-500">
-                            works at xyz company
+                          
                           </p>
                         </span>
                       </p>

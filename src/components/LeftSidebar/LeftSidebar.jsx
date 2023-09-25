@@ -66,7 +66,9 @@ const LeftSidebar = () => {
   return (
     <div className="left-sidebar">
       <div className="sidebar-profile-box">
-        <img src={userData?.bgimg} alt="" width="100%" />
+      {clickedUserId ? (
+        <img src={userData?.bgimg} alt="" width="100%" />) : (
+          <img src={getUserInfo?.bgimg} alt="" width="100%" />)}
         <div className="sidebar-profile-info">
           {clickedUserId ? (
             <img src={userData?.photoURL} alt="" />

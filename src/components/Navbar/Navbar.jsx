@@ -8,7 +8,6 @@ import { FaUser } from "react-icons/fa";
 import { BiSolidBriefcase } from "react-icons/bi";
 import { IoMdChatboxes } from "react-icons/io";
 import { MdNotificationsActive } from "react-icons/md";
-import styled from "styled-components";
 import { AuthContext } from "../../context/AuthContext";
 import DropDownProfile from "../DropDownMenu/DropDownMenu";
 import user from "../../assets/images/user.png";
@@ -32,7 +31,7 @@ const Navbar = () => {
             </Link>
           ) : (
             <Link to="/signup" className="logo">
-              <img src={CarrierConnect} alt="" />
+              <img src={CarrierConnect} alt=""/>
             </Link>
           )}
 

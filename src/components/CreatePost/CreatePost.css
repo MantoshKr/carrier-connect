@@ -129,3 +129,14 @@
 .photoicon{
     color:green;
 }
+
+
+
+/* media query  */
+
+@media screen and (max-width: 1024px) {
+    .main-content{
+        flex-basis: 100%;
+        
+    }
+}

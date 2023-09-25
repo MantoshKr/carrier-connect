@@ -252,7 +252,48 @@ width: 100%;
     opacity: 100%;
   }
 
+
+
+  /* -------------media query --------------------- */
   
+  @media only screen and (max-width: 1040px){
+    .search-box{
+        background:transparent;
+        width:auto;
+        padding:0;
+    }
+    .search-box input {
+        width:0;
+        padding:0;
+    }
+    .navbar-center ul li a span{
+        display:none;
+
+    }
+    .navbar-center ul li a{
+        padding-right:0;
+        margin:5px;
+    }
+    .nav-profile-img{
+        width:30px;
+        height:30px;
+    }
+    container{
+        padding: 15px 3%;
+    }
+    .left-sidebar, .right-sidebar{
+        flex-basis: 100%;
+        position:relative;
+        top:unset;
+     
+    }
+    main-content{
+        flex-basis: 100%;
+    }
+    .logo{
+        display:none;
+    }
+  }
 
 
 
