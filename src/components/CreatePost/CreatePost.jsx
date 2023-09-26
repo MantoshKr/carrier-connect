@@ -1,5 +1,4 @@
 import "./CreatePost.css";
-import arrow from "../../assets/images/down-arrow.png";
 import { HiPhoto } from "react-icons/hi2";
 import { ImPlay } from "react-icons/im";
 import { BsCalendarDate } from "react-icons/bs";
@@ -109,6 +108,10 @@ const CreatePost = () => {
     }
   };
 
+  const handleClickModal = () => {
+    handlePost();
+  };
+
   const removeImage = () => {
     setImg(null);
   };
@@ -200,7 +203,7 @@ const CreatePost = () => {
                   />
                 )}
               </div>
-              <div className="w-[90%]">
+              <div className="w-[90%] mr-3">
                 <textarea
                   rows={1}
                   type="button"
@@ -217,33 +220,33 @@ const CreatePost = () => {
               </div>
             </div>
 
-            <div className="flex items-center justify-between border-t-2 pt-3 px-16  mt-2">
+            <div className="flex items-center justify-between border-t-2 pt-3 sm:px-16  mt-2">
               <label className="flex items-center justify-center gap-2 ">
                 <span>
                   <HiPhoto style={{ color: "#378FE9", fontSize: "18px" }} />{" "}
                 </span>{" "}
-                <span>Photo</span>
+                <span className="hidden sm:flex">Media</span>
               </label>
-              <label className="flex items-center justify-center gap-2">
+              {/* <label className="flex items-center justify-center gap-2">
                 <span>
                   <ImPlay style={{ color: "green", fontSize: "18px" }} />{" "}
                 </span>{" "}
-                <span>Video</span>
-              </label>
+                <span className="hidden sm:flex">Video</span>
+              </label> */}
               <label className="flex items-center justify-center gap-2">
                 <span>
                   <BsCalendarDate
                     style={{ color: "#C37D16", fontSize: "18px" }}
                   />{" "}
                 </span>{" "}
-                <span>Event</span>
+                <span className="hidden sm:flex">Event</span>
               </label>
 
               <label className="flex items-center justify-center gap-2">
                 <span>
                   <RiArticleFill style={{ color: "red", fontSize: "18px" }} />{" "}
                 </span>{" "}
-                <span>Write article</span>
+                <span className="hidden sm:flex">Write article</span>
               </label>
             </div>
           </div>
@@ -262,7 +265,7 @@ const CreatePost = () => {
               {/*    <!-- Modal --> */}
               <div
                 ref={wrapperRef}
-                className="flex w-[30%] flex-col gap-4 overflow-hidden rounded bg-white p-6 text-slate-500 shadow-xl shadow-slate-700/10"
+                className="flex w-[100%] sm:w-[70%] lg:w-[50%] xl:w-[30%] flex-col gap-4 overflow-hidden rounded bg-white p-6 text-slate-500 shadow-xl shadow-slate-700/10"
                 id="modal"
                 role="document"
               >
@@ -360,7 +363,7 @@ const CreatePost = () => {
                             style={{ color: "#378FE9", fontSize: "18px" }}
                           />{" "}
                         </span>{" "}
-                        <span>Photo</span>
+                        <span className="hidden sm:flex ">Photo</span>
                         <input
                           type="file"
                           id="file"
@@ -369,21 +372,21 @@ const CreatePost = () => {
                           onChange={(e) => setImg(e.target.files[0])}
                         />
                       </label>
-                      <label>
+                      {/* <label>
                         <span>
                           <ImPlay
                             style={{ color: "green", fontSize: "18px" }}
                           />{" "}
                         </span>{" "}
-                        <span>Video</span>
-                      </label>
+                        <span className="hidden sm:flex">Video</span>
+                      </label> */}
                       <label>
                         <span>
                           <BsCalendarDate
                             style={{ color: "#C37D16", fontSize: "18px" }}
                           />{" "}
                         </span>{" "}
-                        <span>Event</span>
+                        <span className="hidden sm:flex">Event</span>
                       </label>
 
                       <label>
@@ -392,14 +395,14 @@ const CreatePost = () => {
                             style={{ color: "red", fontSize: "18px" }}
                           />{" "}
                         </span>{" "}
-                        <span>Write article</span>
+                        <span className="hidden sm:flex">Write article</span>
                       </label>
                     </div>
                   </div>
                 </div>
                 {/*        <!-- Modal actions --> */}
                 <div className="flex justify-center gap-2">
-                  <button className="inline-flex h-10 w-full items-center justify-center gap-2 whitespace-nowrap rounded bg-emerald-500 px-5 text-sm font-medium tracking-wide text-white transition duration-300 hover:bg-emerald-600 focus:bg-emerald-700 focus-visible:outline-none disabled:cursor-not-allowed disabled:border-emerald-300 disabled:bg-emerald-300 disabled:shadow-none">
+                  <button onClick={ handleClickModal} className="inline-flex h-10 w-full items-center justify-center gap-2 whitespace-nowrap rounded bg-emerald-500 px-5 text-sm font-medium tracking-wide text-white transition duration-300 hover:bg-emerald-600 focus:bg-emerald-700 focus-visible:outline-none disabled:cursor-not-allowed disabled:border-emerald-300 disabled:bg-emerald-300 disabled:shadow-none">
                     <span>Post</span>
                   </button>
                 </div>

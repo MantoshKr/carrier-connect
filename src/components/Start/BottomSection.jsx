@@ -6,7 +6,7 @@ const BottomSection = () => {
     {/* story section  */}
       <section className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full bg-white lg:max-w-screen md:px-24 lg:px-8 lg:py-20 xl:py-30">
         <div className="gap-10 flex justify-end relative">
-        <div className="min-h-screen flex items-center justify-center p-10 absolute w-[50%] left-0 -top-32">
+        <div className="min-h-screen flex items-center justify-center p-10 absolute lg:w-[50%] w-[130%] left-0 lg:-top-32 sm:-top-80 -top-52">
               <iframe
               title="video"
                 className="aspect-video w-[90%] rounded-lg shadow-lg shadow-yellow-800/70"
@@ -17,7 +17,7 @@ const BottomSection = () => {
               ></iframe>
             </div>
         
-          <div className="lg:pr-10  bg-sky-50 py-80 pl-36 w-[70%] flex justify-center items-center">
+          <div className="lg:pr-10  md:bg-sky-50 py-80 pl-36 w-[70%] flex justify-center items-center">
           <div>
             <button
               href="/"
@@ -25,10 +25,10 @@ const BottomSection = () => {
               title="Logo"
               className="inline-block mb-5"
             ></button>
-            <h5 className="mb-4 text-5xl text-red-700 leading-none">
+            <h5 className="mb-4 sm:text-5xl text-4xl text-red-700 leading-none">
               Connect to chase my dream
             </h5>
-            <p className="mb-6 text-gray-600 text-4xl">
+            <p className="mb-6 text-gray-600 sm:text-4xl text-2xl">
               Check out Gayatri’s story of  <br /> finding a new job on CarrierConnect
             </p>
             </div>
@@ -43,7 +43,7 @@ const BottomSection = () => {
 
         <div className="relative mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:h-screen lg:items-start lg:px-8">
           <div className=" text-center ltr:sm:text-left rtl:sm:text-right ">
-            <h1 className="text-3xl font-extrabold sm:text-5xl">
+            <h1 className="text-2xl font-extrabold sm:text-5xl">
               Join your colleagues, classmates, and friends on Carrier Connect.
             </h1>
 

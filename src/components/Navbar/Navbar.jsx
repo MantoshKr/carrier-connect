@@ -22,7 +22,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="container">
+    <div className="navcontainer">
       <div className="navbar">
         <div className="navbar-left">
           {currentUser ? (
@@ -43,7 +43,7 @@ const Navbar = () => {
         <div className="navbar-center">
           <ul>
             <li>
-              <Link to="/home" className="icons">
+              <Link to="/home" onClick={handleHomeClick} className="icons">
                 <AiFillHome style={{ color: "#5e5e5e", fontSize: "22px" }} />
 
                 <span>Home</span>

@@ -6,10 +6,10 @@ import RightSidebar from '../components/Jobs/RightSidebar'
 
 const JobsPage = () => {
   return (
-    <div className='gap-10 px-40 bg-[#f0f2f5] xl:flex'>
-    <div className='md:w-1/4 w-full'><Sidebar /></div>
-    <div className='md:w-1/2 w-full'><Main /></div>
-    <div className='md:w-1/4 w-full'><RightSidebar /></div>
+    <div className='md:gap-10 sm:gap-2 gap-1 xl:px-40 md:px-10 sm:px-5 px-2 bg-[#f0f2f5] flex flex-row sm:pt-5 pt-2'>
+    <div className='lg:w-1/4 '><Sidebar /></div>
+    <div className='lg:w-full'><Main /></div>
+    <div className='lg:w-1/4 hidden lg:flex'><RightSidebar /></div>
     
     
     

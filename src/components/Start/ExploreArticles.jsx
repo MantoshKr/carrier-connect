@@ -6,12 +6,12 @@ const ExploreArticles = () => {
     <div>
      <div className="px-4 py-16 bg-white mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen md:px-24 lg:px-8 lg:py-20 xl:py-52">
         <div className="flex flex-col lg:flex-row">
-          <div className="mb-6 lg:mb-0 lg:w-1/2 lg:pr-5">
-            <h2 className="mb-5 font-sans text-3xl 2xl:ml-36  tracking-tight text-gray-800 sm:text-6xl sm:leading-none">
+          <div className="mb-6 lg:mb-0 lg:w-1/2 lg:pr-5 ">
+            <h2 className="mb-5 font-sans text-4xl 2xl:ml-36 tracking-tight text-gray-800 sm:text-6xl sm:leading-none">
               Explore
-              <br className="hidden md:block" />
+              <br className="" />
               collaborative
-              <br className="hidden md:block" />
+              <br className="" />
               articles{" "}
             </h2>
             <button
@@ -29,7 +29,7 @@ const ExploreArticles = () => {
               className="inline-block rounded-full p-[2px] bg-gray-800  hover:text-white focus:outline-none focus:ring active:text-opacity-75 cursor-pointer m-2 "
               href="/download"
             >
-              <span className="block rounded-full bg-white px-8 py-3 text-lg font-medium hover:bg-transparent">
+              <span className="block rounded-full bg-white sm:px-8 sm:py-3 px-4 py-1 sm:text-lg text-md font-medium hover:bg-transparent">
                 Marketing
               </span>
             </p>
@@ -37,7 +37,7 @@ const ExploreArticles = () => {
               className="inline-block rounded-full p-[2px] bg-gray-800  hover:text-white focus:outline-none focus:ring active:text-opacity-75 cursor-pointer m-2"
               href="/download"
             >
-              <span className="block rounded-full bg-white px-8 py-3 text-lg font-medium hover:bg-transparent">
+              <span className="block rounded-full bg-white sm:px-8 sm:py-3 px-4 py-1 sm:text-lg text-md font-medium hover:bg-transparent">
                 Healthcare
               </span>
             </p>
@@ -45,7 +45,7 @@ const ExploreArticles = () => {
               className="inline-block rounded-full p-[2px] bg-gray-800  hover:text-white focus:outline-none focus:ring active:text-opacity-75 cursor-pointer m-2 "
               href="/download"
             >
-              <span className="block rounded-full bg-white px-8 py-3 text-lg font-medium hover:bg-transparent">
+              <span className="block rounded-full bg-white sm:px-8 sm:py-3 px-4 py-1 sm:text-lg text-md font-medium hover:bg-transparent">
                 Engineering
               </span>
             </p>
@@ -53,7 +53,7 @@ const ExploreArticles = () => {
               className="inline-block rounded-full p-[2px] bg-gray-800  hover:text-white focus:outline-none focus:ring active:text-opacity-75 cursor-pointer m-2 "
               href="/download"
             >
-              <span className="block rounded-full bg-white px-8 py-3 text-lg font-medium hover:bg-transparent">
+              <span className="block rounded-full bg-white sm:px-8 sm:py-3 px-4 py-1 sm:text-lg text-md font-medium hover:bg-transparent">
                 Talent Management
               </span>
             </p>
@@ -61,7 +61,7 @@ const ExploreArticles = () => {
               className="inline-block rounded-full p-[2px] bg-gray-800  hover:text-white focus:outline-none focus:ring active:text-opacity-75 cursor-pointer m-2 "
               href="/download"
             >
-              <span className="block rounded-full bg-white px-8 py-3 text-lg font-medium hover:bg-transparent">
+              <span className="block rounded-full bg-white sm:px-8 sm:py-3 px-4 py-1 sm:text-lg text-md font-medium hover:bg-transparent">
                 IT Services
               </span>
             </p>
@@ -69,7 +69,7 @@ const ExploreArticles = () => {
               className="inline-block rounded-full p-[2px] bg-gray-800  hover:text-white focus:outline-none focus:ring active:text-opacity-75 cursor-pointer m-2 "
               href="/download"
             >
-              <span className="block rounded-full bg-white px-8 py-3 text-lg font-medium hover:bg-transparent">
+              <span className="block rounded-full bg-white sm:px-8 sm:py-3 px-4 py-1 sm:text-lg text-md font-medium hover:bg-transparent">
                 Sustainability
               </span>
             </p>
@@ -77,7 +77,7 @@ const ExploreArticles = () => {
               className="inline-block rounded-full p-[2px] bg-gray-800  hover:text-white focus:outline-none focus:ring active:text-opacity-75 cursor-pointer m-2 "
               href="/download"
             >
-              <span className="block rounded-full bg-white px-8 py-3 text-lg font-medium hover:bg-transparent">
+              <span className="block rounded-full bg-white sm:px-8 sm:py-3 px-4 py-1 sm:text-lg text-md font-medium hover:bg-transparent">
                 Business Administration
               </span>
             </p>
@@ -85,7 +85,7 @@ const ExploreArticles = () => {
               className="inline-block rounded-full p-[2px] bg-gray-800  hover:text-white focus:outline-none focus:ring active:text-opacity-75 cursor-pointer m-2 "
               href="/download"
             >
-              <span className="block rounded-full bg-white px-8 py-3 text-lg font-medium hover:bg-transparent">
+              <span className="block rounded-full bg-white sm:px-8 sm:py-3 px-4 py-1 sm:text-lg text-md font-medium hover:bg-transparent">
                 Telecommunications
               </span>
             </p>
@@ -94,7 +94,7 @@ const ExploreArticles = () => {
               className="inline-block rounded-full p-[2px]  text-green-600 bg-green-600  hover:text-white focus:outline-none focus:ring active:text-opacity-75 cursor-pointer m-2 "
               href="/download"
             >
-              <span className="rounded-full font-bold bg-white hover:text-white text-green-600 px-8 py-3 text-lg  hover:bg-transparent flex items-center">
+              <span className="rounded-full font-bold bg-white hover:text-white text-green-600 sm:px-8 sm:py-3 px-4 py-1 sm:text-lg text-md  hover:bg-transparent flex items-center">
                 Show all <span><IoChevronDownOutline /></span>
               </span>
             </p>
@@ -121,7 +121,7 @@ const ExploreArticles = () => {
               className="inline-block rounded-full p-[2px] bg-gray-800  hover:text-white focus:outline-none focus:ring active:text-opacity-75 cursor-pointer m-2 "
               href="/download"
             >
-              <span className="block rounded-full bg-white px-8 py-3 text-lg font-medium hover:bg-transparent">
+              <span className="block rounded-full bg-white sm:px-8 sm:py-3 px-4 py-1 sm:text-lg text-md font-medium hover:bg-transparent">
                 Engineering
               </span>
             </p>
@@ -129,7 +129,7 @@ const ExploreArticles = () => {
               className="inline-block rounded-full p-[2px] bg-gray-800  hover:text-white focus:outline-none focus:ring active:text-opacity-75 cursor-pointer m-2"
               href="/download"
             >
-              <span className="block rounded-full bg-white px-8 py-3 text-lg font-medium hover:bg-transparent">
+              <span className="block rounded-full bg-white sm:px-8 sm:py-3 px-4 py-1 sm:text-lg text-md font-medium hover:bg-transparent">
                 Finance
               </span>
             </p>
@@ -137,7 +137,7 @@ const ExploreArticles = () => {
               className="inline-block rounded-full p-[2px] bg-gray-800  hover:text-white focus:outline-none focus:ring active:text-opacity-75 cursor-pointer m-2 "
               href="/download"
             >
-              <span className="block rounded-full bg-white px-8 py-3 text-lg font-medium hover:bg-transparent">
+              <span className="block rounded-full bg-white sm:px-8 sm:py-3 px-4 py-1 sm:text-lg text-md font-medium hover:bg-transparent">
                 Administrative Assistant
               </span>
             </p>
@@ -145,7 +145,7 @@ const ExploreArticles = () => {
               className="inline-block rounded-full p-[2px] bg-gray-800  hover:text-white focus:outline-none focus:ring active:text-opacity-75 cursor-pointer m-2 "
               href="/download"
             >
-              <span className="block rounded-full bg-white px-8 py-3 text-lg font-medium hover:bg-transparent">
+              <span className="block rounded-full bg-white sm:px-8 sm:py-3 px-4 py-1 sm:text-lg text-md font-medium hover:bg-transparent">
                 Retail Associate
               </span>
             </p>
@@ -153,7 +153,7 @@ const ExploreArticles = () => {
               className="inline-block rounded-full p-[2px] bg-gray-800  hover:text-white focus:outline-none focus:ring active:text-opacity-75 cursor-pointer m-2 "
               href="/download"
             >
-              <span className="block rounded-full bg-white px-8 py-3 text-lg font-medium hover:bg-transparent">
+              <span className="block rounded-full bg-white sm:px-8 sm:py-3 px-4 py-1 sm:text-lg text-md font-medium hover:bg-transparent">
                 Customer Service
               </span>
             </p>
@@ -161,7 +161,7 @@ const ExploreArticles = () => {
               className="inline-block rounded-full p-[2px] bg-gray-800  hover:text-white focus:outline-none focus:ring active:text-opacity-75 cursor-pointer m-2 "
               href="/download"
             >
-              <span className="block rounded-full bg-white px-8 py-3 text-lg font-medium hover:bg-transparent">
+              <span className="block rounded-full bg-white sm:px-8 sm:py-3 px-4 py-1 sm:text-lg text-md font-medium hover:bg-transparent">
                 Operations
               </span>
             </p>
@@ -169,7 +169,7 @@ const ExploreArticles = () => {
               className="inline-block rounded-full p-[2px] bg-gray-800  hover:text-white focus:outline-none focus:ring active:text-opacity-75 cursor-pointer m-2 "
               href="/download"
             >
-              <span className="block rounded-full bg-white px-8 py-3 text-lg font-medium hover:bg-transparent">
+              <span className="block rounded-full bg-white sm:px-8 sm:py-3 px-4 py-1 sm:text-lg text-md font-medium hover:bg-transparent">
                 Information Technology
               </span>
             </p>
@@ -177,7 +177,7 @@ const ExploreArticles = () => {
               className="inline-block rounded-full p-[2px] bg-gray-800  hover:text-white focus:outline-none focus:ring active:text-opacity-75 cursor-pointer m-2 "
               href="/download"
             >
-              <span className="block rounded-full bg-white px-8 py-3 text-lg font-medium hover:bg-transparent">
+              <span className="block rounded-full bg-white sm:px-8 sm:py-3 px-4 py-1 sm:text-lg text-md font-medium hover:bg-transparent">
                 Marketing
               </span>
             </p>
@@ -186,7 +186,7 @@ const ExploreArticles = () => {
               className="inline-block rounded-full p-[2px] bg-black  hover:text-white focus:outline-none focus:ring active:text-opacity-75 cursor-pointer m-2 "
               href="/download"
             >
-              <span className="block rounded-full bg-white px-8 py-3 text-lg font-medium hover:bg-transparent">
+              <span className="block rounded-full bg-white sm:px-8 sm:py-3 px-4 py-1 sm:text-lg text-md font-medium hover:bg-transparent">
                 Human Resources
               </span>
             </p>
@@ -195,7 +195,7 @@ const ExploreArticles = () => {
               className="inline-block rounded-full p-[2px] bg-green-600  hover:text-white  focus:outline-none focus:ring active:text-opacity-75 cursor-pointer m-2 "
               href="/download"
             >
-              <span className="rounded-full text-green-600 hover:text-white bg-white px-8 py-3 text-lg font-bold hover:bg-transparent flex items-center">
+              <span className="rounded-full text-green-600 hover:text-white bg-white sm:px-8 sm:py-3 px-4 py-1 sm:text-lg text-md font-bold hover:bg-transparent flex items-center">
                 Show more <span><IoChevronDownOutline /></span>
               </span>
             </p>
@@ -224,7 +224,7 @@ const ExploreArticles = () => {
               className="inline-block rounded-full p-[2px] bg-gray-800  hover:text-white focus:outline-none focus:ring active:text-opacity-75 cursor-pointer m-2 "
               href="/download"
             >
-              <span className="block rounded-full bg-white px-8 py-3 text-lg font-medium hover:bg-transparent">
+              <span className="block rounded-full bg-white sm:px-8 sm:py-3 px-4 py-1 sm:text-lg text-md font-medium hover:bg-transparent">
                 Post a job
               </span>
             </p>

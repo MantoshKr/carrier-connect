@@ -6,8 +6,8 @@ import NetworkMain from '../Network/NetworkMain'
 const NetworkPage = () => {
   return (
     <div className='flex justify-center bg-[#f0f2f5]'>
-       <div className='w-2/12'><LeftSidebar /></div>
-       <div className='w-8/12/'><NetworkMain /></div>
+       <div className='md:w-1/4 xl:w-2/12'><LeftSidebar /></div>
+       <div className='md:w-3/4 xl:w-8/12 mt-4'><NetworkMain /></div>
        
         
        

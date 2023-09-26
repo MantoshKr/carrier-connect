@@ -102,14 +102,14 @@ const UserProfile = () => {
           <div className="pb-10">
             {clickedUserId === getUserInfo.uid ? (
               <button
-                class="inline-block rounded-full border border-indigo-600 bg-indigo-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500 mr-3"
+                class="inline-block rounded-full border border-indigo-600 bg-indigo-600 md:px-12 md:py-3 sm:px-6 sm:py-2 px-4 py-1 text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500 mr-3 mb-1"
                 href="/download"
               >
                 Open to
               </button>
             ) : (
               <button
-                class="inline-block rounded-full border border-indigo-600 bg-indigo-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500 mr-3"
+                class="inline-block rounded-full border border-indigo-600 bg-indigo-600 md:px-12 md:py-3 sm:px-6 sm:py-2 px-4 py-1 text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500 mr-3 mb-1"
                 href="/download"
               >
                 Connect
@@ -117,13 +117,13 @@ const UserProfile = () => {
             )}
             {clickedUserId === getUserInfo.uid ? (
               <Link to="/editprofile">
-                <button class="inline-block rounded-full border border-bg-green border-green-600 px-12 py-3 text-sm font-medium text-green-600 hover:bg-green-100  focus:outline-none focus:ring active:bg-green-300 mr-2">
+                <button class="inline-block rounded-full border border-bg-green border-green-600 md:px-12 md:py-3 sm:px-6 sm:py-2 px-4 py-1 text-sm font-medium text-green-600 hover:bg-green-100  focus:outline-none focus:ring active:bg-green-300 mr-2 mb-1">
                   Edit Profile
                 </button>
               </Link>
             ) : (
               <button
-                class="inline-block rounded-full border border-bg-green border-green-600 px-12 py-3 text-sm font-medium text-green-600 hover:bg-green-100  focus:outline-none focus:ring active:bg-green-300 mr-2"
+                class="inline-block rounded-full border border-bg-green border-green-600 md:px-12 md:py-3 sm:px-6 sm:py-2 px-4 py-1 text-sm font-medium text-green-600 hover:bg-green-100  focus:outline-none focus:ring active:bg-green-300 mr-2 mb-1"
                 href="/download"
               >
                 Message
@@ -131,7 +131,7 @@ const UserProfile = () => {
             )}
 
             <button
-              class="inline-block rounded-full border border-gray-600 px-12 py-3 text-sm font-medium text-gray-600 hover:bg-gray-200 focus:outline-none focus:ring active:bg-indigo-500"
+              class="inline-block rounded-full border border-gray-600 md:px-12 md:py-3 sm:px-6 sm:py-2 px-4 py-1 text-sm font-medium text-gray-600 hover:bg-gray-200 focus:outline-none focus:ring active:bg-indigo-500 mb-1"
               href="/download"
             >
               More
@@ -141,68 +141,55 @@ const UserProfile = () => {
       </div>
 
       {clickedUserId === getUserInfo.uid &&
-        <div>
-        <div className="flex flex-col max-h-fit w-full items-center justify-center overflow-hidden bg-white rounded-lg shadow-lg text-slate-500 shadow-slate-200 sm:flex-row ">
-          <div className="flex-1 p-6 sm:mx-6 sm:px-0">
-            <header className="flex justify-between mb-4 mt-6">
-              <div>
-                <div className="flex gap-4 items-center justify-center">
-                  <p className="relative inline-flex items-center justify-center h-12 text-white ">
-                    <img
-                      src={currentUser?.photoURL}
-                      loading="lazy"
-                      alt=""
-                      className="rounded-full object-cover w-20 h-20 -bottom-7 left-4"
-                    />
-                  </p>
+        <div className="bg-white rounded-lg shadow-sm">
+              <div className="flex md:gap-4 gap-2  p-2 shadow-lg items-center justify-center">
+                <p
+                  
+                  className="relative inline-flex items-center justify-center h-12 text-white "
+                >
+                  <img
+                    src={currentUser.photoURL}
+                    alt="user name"
+                    title="user name"
+                    className="max-w-full object-cover rounded-full w-20   "
+                  />
+                </p>
+                <div>
+                  <h3 className="sm:text-xl text-sm flex font-bold text-slate-700">
+                    See the full list of jobs where you'd be a top applicant
+                  </h3>
                   <div>
-                    <h3 className="text-xl  font-bold text-slate-700">
-                      See the full list of jobs where you'd be a top applicant
-                    </h3>
-                    <div>
-                      <div className="flex items-center gap-2 m-3">
-                        <div className="flex -space-x-3">
-                          <img
-                            alt=""
-                            className="w-8 h-8 border rounded-full dark:bg-gray-500 dark:border-gray-700"
-                            src="https://source.unsplash.com/40x40/?portrait?1"
-                          />
-                          <img
-                            alt=""
-                            className="w-8 h-8 border rounded-full dark:bg-gray-500 dark:border-gray-700"
-                            src="https://source.unsplash.com/40x40/?portrait?2"
-                          />
-                          <img
-                            alt=""
-                            className="w-8 h-8 border rounded-full dark:bg-gray-500 dark:border-gray-700"
-                            src="https://source.unsplash.com/40x40/?portrait?3"
-                          />
-                          <img
-                            alt=""
-                            className="w-8 h-8 border rounded-full dark:bg-gray-500 dark:border-gray-700"
-                            src="https://source.unsplash.com/40x40/?portrait?4"
-                          />
-                        </div>
-                        <span className="text-sm ">
-                          Millions of members use Premium
-                        </span>
+                    <div className="md:flex items-center gap-2 m-3">
+                      <div className="flex md:-space-x-3 -space-x-2">
+                        <img
+                          alt=""
+                          className="md:w-8 md:h-8 w-7 h-7 border rounded-full dark:bg-gray-500 dark:border-gray-700"
+                          src="https://source.unsplash.com/40x40/?portrait?1"
+                        />
+                        <img
+                          alt=""
+                          className="md:w-8 md:h-8 w-7 h-7 border rounded-full dark:bg-gray-500 dark:border-gray-700"
+                          src="https://source.unsplash.com/40x40/?portrait?2"
+                        />
+                        <img
+                          alt=""
+                          className="md:w-8 md:h-8 w-7 h-7 border rounded-full dark:bg-gray-500 dark:border-gray-700"
+                          src="https://source.unsplash.com/40x40/?portrait?3"
+                        />
+                        <img
+                          alt=""
+                          className="md:w-8 md:h-8 w-7 h-7 border rounded-full dark:bg-gray-500 dark:border-gray-700"
+                          src="https://source.unsplash.com/40x40/?portrait?4"
+                        />
                       </div>
+                      <span className="text-sm ">
+                        Millions of members use Premium
+                      </span>
                     </div>
                   </div>
                 </div>
               </div>
-              <p className="text-xl"></p>
-            </header>
-            <a
-              class="inline-block rounded-full bg-orange-300 px-10 py-1.5 text-xl font-bold text-black transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-orange-400  ml-10"
-              href="/trypremium"
-            >
-              Try Premium for free
-            </a>
-          </div>
-        </div>
-        <div className="flex flex-col max-h-fit w-full items-center justify-center overflow-hidden bg-white rounded shadow-md text-slate-500 shadow-slate-200 sm:flex-row"></div>
-      </div>
+            </div>
       }
       
     </div>

@@ -11,15 +11,15 @@ const Main = () => {
 
   return (
     
-    <div className="flex flex-col gap-6 w-full">
+    <div className="flex flex-col sm:gap-6 gap-2 w-full">
     {/* suggested job searches */}
       <div className="flex flex-col max-h-fit w-full items-center justify-center overflow-hidden bg-white rounded shadow-md text-slate-500 shadow-slate-200 sm:flex-row">
         <div className="flex-1 p-6 sm:mx-6 sm:px-0">
-          <header className="flex justify-between mb-4">
+          <header className="flex justify-between md:mb-4 sm:mb-2 mb-0">
             <div>
               <div className="flex gap-4 items-center justify-center">
                 <div>
-                  <h3 className="text-2xl font-bold text-slate-800">
+                  <h3 className="sm:text-2xl font-bold text-slate-800">
                     Suggested job searches
                   </h3>
                 </div>
@@ -31,63 +31,63 @@ const Main = () => {
           <div className="flex flex-wrap ">
             <button
               type="button"
-              className="px-4 py-1 text-lg font-semibold rounded-full border mt-2 border-green-600 hover:bg-green-100 flex gap-2 ml-2"
+              className="px-4 py-1 md:text-lg text-sm font-semibold rounded-full border mt-2 border-green-600 hover:bg-green-100 flex gap-2 ml-2"
             >
-              <span className="text-2xl text-green-600 flex items-center justify-center font-bold">
+              <span className="md:text-2xl text-sm text-green-600 flex items-center justify-center font-bold">
                 <HiSearch />
               </span>{" "}
               <span className="text-green-600">marketing manager</span>
             </button>
             <button
               type="button"
-              className="px-4 py-1 text-lg font-semibold rounded-full border mt-2 border-green-600 hover:bg-green-100 flex gap-2 ml-2"
+              className="px-4 py-1  md:text-lg text-sm font-semibold rounded-full border mt-2 border-green-600 hover:bg-green-100 flex gap-2 ml-2"
             >
-              <span className="text-2xl text-green-600 flex items-center justify-center font-bold">
+              <span className="md:text-2xl text-sm text-green-600 flex items-center justify-center font-bold">
                 <HiSearch />
               </span>{" "}
               <span className="text-green-600">hr</span>
             </button>
             <button
               type="button"
-              className="px-4 py-1 text-lg font-semibold rounded-full border mt-2 border-green-600 hover:bg-green-100 flex gap-2 ml-2"
+              className="px-4 py-1  md:text-lg text-sm font-semibold rounded-full border mt-2 border-green-600 hover:bg-green-100 flex gap-2 ml-2"
             >
-              <span className="text-2xl text-green-600 flex items-center justify-center font-bold">
+              <span className="md:text-2xl text-sm text-green-600 flex items-center justify-center font-bold">
                 <HiSearch />
               </span>{" "}
               <span className="text-green-600">legal</span>
             </button>
             <button
               type="button"
-              className="px-4 py-1 text-lg font-semibold rounded-full border mt-2 border-green-600 hover:bg-green-100 flex gap-2 ml-2"
+              className="px-4 py-1  md:text-lg text-sm font-semibold rounded-full border mt-2 border-green-600 hover:bg-green-100 flex gap-2 ml-2"
             >
-              <span className="text-2xl text-green-600 flex items-center justify-center font-bold">
+              <span className="md:text-2xl text-sm text-green-600 flex items-center justify-center font-bold">
                 <HiSearch />
               </span>{" "}
               <span className="text-green-600">sales</span>
             </button>
             <button
               type="button"
-              className="px-4 py-1 text-lg font-semibold rounded-full border mt-2 border-green-600 hover:bg-green-100 flex gap-2 ml-2"
+              className="px-4 py-1  md:text-lg text-sm font-semibold rounded-full border mt-2 border-green-600 hover:bg-green-100 flex gap-2 ml-2"
             >
-              <span className="text-2xl text-green-600 flex items-center justify-center font-bold">
+              <span className="md:text-2xl text-sm text-green-600 flex items-center justify-center font-bold">
                 <HiSearch />
               </span>{" "}
               <span className="text-green-600">amazon</span>
             </button>
             <button
               type="button"
-              className="px-4 py-1 text-lg font-semibold rounded-full border mt-2 border-green-600 hover:bg-green-100 flex gap-2 ml-2"
+              className="px-4 py-1  md:text-lg text-sm font-semibold rounded-full border mt-2 border-green-600 hover:bg-green-100 sm:flex hidden gap-2 ml-2"
             >
-              <span className="text-2xl text-green-600 flex items-center justify-center font-bold">
+              <span className="md:text-2xl text-sm text-green-600 flex items-center justify-center font-bold">
                 <HiSearch />
               </span>{" "}
               <span className="text-green-600">google</span>
             </button>
             <button
               type="button"
-              className="px-4 py-1 text-lg font-semibold rounded-full border mt-2 border-green-600 hover:bg-green-100 flex gap-2 ml-2"
+              className="px-4 py-1  md:text-lg text-sm font-semibold rounded-full border mt-2 border-green-600 hover:bg-green-100 sm:flex hidden gap-2 ml-2"
             >
-              <span className="text-2xl text-green-600 flex items-center justify-center font-bold">
+              <span className="md:text-2xl text-sm text-green-600 flex items-center justify-center font-bold">
                 <HiSearch />
               </span>{" "}
               <span className="text-green-600">analyst</span>
@@ -100,7 +100,7 @@ const Main = () => {
         <div className="flex-1 p-6 sm:mx-6 sm:px-0">
           <header className="flex justify-between mb-4 mt-6">
             <div>
-              <div className="flex gap-4 items-center justify-center">
+              <div className="flex md:gap-4 gap-2 items-center justify-center">
                 <p
                   
                   className="relative inline-flex items-center justify-center h-12 text-white "
@@ -109,34 +109,34 @@ const Main = () => {
                     src={currentUser.photoURL}
                     alt="user name"
                     title="user name"
-                    className="max-w-full object-cover rounded-full w-20 h-20 "
+                    className="max-w-full object-cover rounded-full w-20   "
                   />
                 </p>
                 <div>
-                  <h3 className="text-xl  font-bold text-slate-700">
+                  <h3 className="sm:text-xl text-sm flex font-bold text-slate-700">
                     See the full list of jobs where you'd be a top applicant
                   </h3>
                   <div>
-                    <div className="flex items-center gap-2 m-3">
-                      <div className="flex -space-x-3">
+                    <div className="md:flex items-center gap-2 m-3">
+                      <div className="flex md:-space-x-3 -space-x-2">
                         <img
                           alt=""
-                          className="w-8 h-8 border rounded-full dark:bg-gray-500 dark:border-gray-700"
+                          className="md:w-8 md:h-8 w-7 h-7 border rounded-full dark:bg-gray-500 dark:border-gray-700"
                           src="https://source.unsplash.com/40x40/?portrait?1"
                         />
                         <img
                           alt=""
-                          className="w-8 h-8 border rounded-full dark:bg-gray-500 dark:border-gray-700"
+                          className="md:w-8 md:h-8 w-7 h-7 border rounded-full dark:bg-gray-500 dark:border-gray-700"
                           src="https://source.unsplash.com/40x40/?portrait?2"
                         />
                         <img
                           alt=""
-                          className="w-8 h-8 border rounded-full dark:bg-gray-500 dark:border-gray-700"
+                          className="md:w-8 md:h-8 w-7 h-7 border rounded-full dark:bg-gray-500 dark:border-gray-700"
                           src="https://source.unsplash.com/40x40/?portrait?3"
                         />
                         <img
                           alt=""
-                          className="w-8 h-8 border rounded-full dark:bg-gray-500 dark:border-gray-700"
+                          className="md:w-8 md:h-8 w-7 h-7 border rounded-full dark:bg-gray-500 dark:border-gray-700"
                           src="https://source.unsplash.com/40x40/?portrait?4"
                         />
                       </div>
@@ -151,7 +151,7 @@ const Main = () => {
             <p className="text-xl"></p>
           </header>
           <a
-            className="inline-block rounded-full bg-orange-300 px-10 py-1.5 text-xl font-bold text-black transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-orange-400  ml-10"
+            className="inline-block rounded-full bg-orange-300 md:px-10 px-3 py-1.5 md:text-xl text-sm font-bold text-black transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-orange-400  sm:ml-10"
             href="/trypremium"
           >
             Try Premium for free
@@ -172,11 +172,11 @@ const Main = () => {
                     src={currentUser.photoURL}
                     alt="user"
                     title="user"
-                    className="max-w-full rounded-full w-16 h-16 object-cover "
+                    className="max-w-full rounded-full md:w-16  w-16 object-cover "
                   />
                 </p>
                 <div>
-                  <h3 className="text-xl font-medium text-slate-700">
+                  <h3 className="md:text-xl text-md font-medium text-slate-700">
                     Complete profiles receive 40x more opportunities
                   </h3>
                 </div>
@@ -186,7 +186,7 @@ const Main = () => {
           </header>
           <Link to="/editprofile">
           <button
-            className="inline-block rounded-full bg-white border border-green-600 px-10 py-1.5 text-xl font-bold text-green-600 hover:bg-green-100  "
+            className="inline-block rounded-full bg-white border border-green-600 px-10 py-1.5 md:text-xl text-sm font-bold text-green-600 hover:bg-green-100  "
             
           >
             Update Profile

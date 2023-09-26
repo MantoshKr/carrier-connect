@@ -6,19 +6,19 @@ const Footer = () => {
   return (
     <footer>
       <div className="bg-[#F3F2F0]">
-        <div className="mx-auto max-w-screen px-4 pb-10 sm:px-6 lg:px-8 xl:pt-16 relative">
+        <div className="mx-auto max-w-screen px-4 pb-10 sm:px-6 lg:px-8 xl:pt-16 lg:pt-10 pt-6 relative">
           <div className="">
             <img
               src={cclogo1}
               alt=""
-              className="h-16 absolute top-16 left-20"
+              className="h-16 absolute top-16 left-20 md:flex hidden"
             />
 
-            <div className="flex justify-around px-40">
+            <div className="flex justify-around md:px-40">
               <div className="col-span-2 sm:col-span-1">
-                <p className="font-bold text-lg text-gray-900">General</p>
+                <p className="font-bold md:text-lg text-md text-gray-900">General</p>
 
-                <ul className="mt-4 space-y-2 text-md font-bold cursor-pointer">
+                <ul className="mt-4 space-y-2 md:text-md text-sm font-bold cursor-pointer">
                   <li>
                     <p
                       href="#"
@@ -81,11 +81,11 @@ const Footer = () => {
               </div>
 
               <div className="col-span-2 sm:col-span-1">
-                <p className="font-bold text-lg text-gray-900">
-                  Browse Connect
+                <p className="font-bold md:text-lg text-md text-gray-900">
+                  Browse  <span className="md:flex hidden">Connect</span> 
                 </p>
 
-                <ul className="mt-4 space-y-2 text-md font-bold cursor-pointer">
+                <ul className="mt-4 space-y-2 md:text-md text-sm font-bold cursor-pointer">
                   <li>
                     <p
                       href="#"
@@ -140,11 +140,11 @@ const Footer = () => {
               </div>
 
               <div className="col-span-2 sm:col-span-1">
-                <p className="font-bold text-lg text-gray-900">
-                  Business Solutions
+                <p className="font-bold md:text-lg text-md text-gray-900">
+                  Business <span className="md:flex hidden">Solutions</span>
                 </p>
 
-                <ul className="mt-4 space-y-2 text-md font-bold cursor-pointer">
+                <ul className="mt-4 space-y-2 md:text-md text-sm font-bold cursor-pointer">
                   <li>
                     <p
                       href="#"
@@ -183,9 +183,9 @@ const Footer = () => {
               </div>
 
               <div className="col-span-2 sm:col-span-1">
-                <p className="font-bold text-lg text-gray-900">Directories</p>
+                <p className="font-bold md:text-lg text-md text-gray-900">Directories</p>
 
-                <ul className="mt-4 space-y-2 text-md font-bold cursor-pointer">
+                <ul className="mt-4 space-y-2 md:text-md text-sm font-bold cursor-pointer">
                   <li>
                     <p
                       href="#"
@@ -307,8 +307,8 @@ const Footer = () => {
         </div>
       </div>
       <div className="mt-4 mb-8  border-gray-100 ">
-        <div className="sm:flex sm:items-center sm:justify-center gap-4 group-hover:cursor-pointer ">
-          <p className="text-sm text-gray-500 flex gap-1 ml-4">
+        <div className="flex flex-wrap items-center justify-center md:gap-4 gap-2 md:text-md text-xs group-hover:cursor-pointer ">
+          <p className="text-sm  text-gray-500 flex gap-1 ml-4">
             Connect
             <img src={cclogo1} alt="" className="h-4" />
             &copy; 2023

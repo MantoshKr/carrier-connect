@@ -1,4 +1,4 @@
-// import "./Post.css";
+import "./Post.css";
 import { FcIdea } from "react-icons/fc";
 import { PiChats,  PiHandsClappingFill } from "react-icons/pi";
 import { AiFillCamera } from "react-icons/ai";
@@ -394,7 +394,7 @@ const Post = ({ post, onClickUser }) => {
             <button type="button" className="flex items-center p-1 space-x-1.5">
               <BsSend className="w-6 h-6 fill-current text-gray-600" />
 
-              <span>283</span>
+              <span></span>
             </button>
           </div>
         </div>

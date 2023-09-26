@@ -25,7 +25,7 @@ const LeftSidebar = () => {
             className="w-12 h-12 rounded-full object-cover dark:bg-gray-500"
           />
           <div>
-            <h2 className="text-lg font-semibold">{currentUser.displayName}</h2>
+            <h2 className="text-lg font-semibold md:flex hidden">{currentUser.displayName}</h2>
             <span className="flex items-center space-x-1"></span>
           </div>
         </div>
@@ -35,14 +35,14 @@ const LeftSidebar = () => {
               <p className="flex items-center p-2 space-x-3 rounded-md ">
                 <BsFillPeopleFill className="w-5 h-5 fill-current dark:text-gray-700 " />
 
-                <span>Connections</span>
+                <span className="md:flex hidden">Connections</span>
               </p>
             </li>
             <li className=" text-gray-900  cursor-pointer">
               <p className="flex items-center p-2 space-x-3 rounded-md">
                 <FaUserAlt className="w-5 h-5 fill-current dark:text-gray-700" />
 
-                <span>Following & followers</span>
+                <span className="md:flex hidden" >Following & followers</span>
               </p>
             </li>
 
@@ -50,40 +50,40 @@ const LeftSidebar = () => {
               <p className="flex items-center p-2 space-x-3 rounded-md">
                 <HiUserGroup className="w-5 h-5 fill-current dark:text-gray-700" />
 
-                <span>Groups</span>
+                <span className="md:flex hidden">Groups</span>
               </p>
             </li>
             <li className=" text-gray-900  cursor-pointer">
               <p className="flex items-center p-2 space-x-3 rounded-md">
                 <FaRegCalendarAlt className="w-5 h-5 fill-current dark:text-gray-700" />
 
-                <span>Events</span>
+                <span className="md:flex hidden">Events</span>
               </p>
             </li>
             <li className=" text-gray-900  cursor-pointer">
               <p className="flex items-center p-2 space-x-3 rounded-md">
                 <FaRegFile className="w-5 h-5 fill-current dark:text-gray-700" />
 
-                <span>Page</span>
+                <span className="md:flex hidden">Page</span>
               </p>
             </li>
             <li className=" text-gray-900  cursor-pointer">
               <p className="flex items-center p-2 space-x-3 rounded-md">
                 <FaRegNewspaper className="w-5 h-5 fill-current dark:text-gray-700" />
 
-                <span>Newsletters</span>
+                <span className="md:flex hidden">Newsletters</span>
               </p>
             </li>
             <li className=" text-gray-900  cursor-pointer">
               <p className="flex items-center p-2 space-x-3 rounded-md">
                 <FiHash className="w-5 h-5 fill-current dark:text-gray-700" />
 
-                <span>Hashtags</span>
+                <span className="md:flex hidden">Hashtags</span>
               </p>
             </li>
             <li className=" text-gray-900  cursor-pointer">
               <p className="flex items-center p-2 space-x-3 rounded-md">
-                <span>Showless</span>
+                <span className="md:flex hidden">Showless</span>
                 <FaAngleUp className="w-5 h-5 fill-current dark:text-gray-700" />
               </p>
             </li>
