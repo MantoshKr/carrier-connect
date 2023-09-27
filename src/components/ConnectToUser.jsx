@@ -75,7 +75,7 @@ const ConnectToUser = () => {
               <div>
                 <h3 className="text-lg font-medium ">{user.name}</h3>
 
-                <div className="text-gray-500 font-medium">{user.skills}</div>
+                <div className="text-gray-500 font-medium">{user.headline}</div>
               </div>
             </div>
 

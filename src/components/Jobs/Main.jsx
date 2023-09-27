@@ -109,7 +109,7 @@ const Main = () => {
                     src={currentUser.photoURL}
                     alt="user name"
                     title="user name"
-                    className="max-w-full object-cover rounded-full w-20   "
+                    className="max-w-full object-cover rounded-full w-20 h-20  "
                   />
                 </p>
                 <div>
@@ -172,7 +172,7 @@ const Main = () => {
                     src={currentUser.photoURL}
                     alt="user"
                     title="user"
-                    className="max-w-full rounded-full md:w-16  w-16 object-cover "
+                    className="max-w-full rounded-full md:w-16 md:h-16 w-16 h-16 object-cover "
                   />
                 </p>
                 <div>

@@ -82,7 +82,7 @@ const ChangeImage = () => {
   return (
     <div>
       <div>
-        <div className="mx-auto w-64 text-center">
+        <div className="mx-auto w-64 text-center ">
           <div
             className="relative w-64"
             onClick={() => document.getElementById("fileInput").click()}
@@ -92,12 +92,13 @@ const ChangeImage = () => {
               src={currentUser?.photoURL}
               alt=""
             />
-            <div className="w-64 h-64 group hover:bg-gray-200 opacity-60 rounded-full absolute flex justify-center items-center cursor-pointer transition duration-500 ">
+            <div className="w-64 h-64 group border border-black hover:bg-gray-300 bg-gray-200 opacity-60 rounded-full absolute flex justify-center items-center cursor-pointer transition duration-500 ">
               <img
                 className="hidden group-hover:block w-12 cover"
                 src="https://www.svgrepo.com/show/33565/upload.svg"
                 alt=""
               />
+              <p className="font-bold">Change image</p>
             </div>
             <input
               type="file"

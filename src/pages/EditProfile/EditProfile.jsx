@@ -178,7 +178,7 @@ export default function NewEditProfile() {
   return (
     <>
 <div className="flex  relative">
-    <div className="absolute left-28 top-52">
+    <div className="absolute left-28 top-52 ">
       <ChangeImage />
      
     </div>

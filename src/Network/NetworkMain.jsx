@@ -32,6 +32,7 @@ const NetworkMain = () => {
           phone: userData.phone,
           website: userData.website,
           skills: userData.skills,
+          bgimg: userData.bgimg,
         };
         usersArray.push(user);
       });
@@ -147,7 +148,7 @@ const NetworkMain = () => {
               <div key={user.uid}>
                 <div className="relative">
                   <img
-                    src={user.photoURL}
+                    src={user.bgimg}
                     loading="lazy"
                     alt={user.name}
                     className="w-full h-20 object-cover rounded-lg "
@@ -159,16 +160,17 @@ const NetworkMain = () => {
                     alt={user.about}
                     className="rounded-full w-20 h-20 object-cover absolute -bottom-7 left-4"
                   />
+                  
 
                   <MdCancel className="text-4xl absolute top-2 right-2 opacity-60" />
                 </div>
                 <div className=" space-y-3 px-4">
                   <span className="block text-indigo-600 text-sm">{""}</span>
                   <h3 className="text-lg pt-4 text-gray-800 duration-150 group-hover:text-indigo-600 font-semibold">
-                    {user.about}
+                    {user.name}
                   </h3>
                   <p className="text-gray-600 text-lg duration-150 group-hover:text-gray-800">
-                    {user.website}
+                    {user.headline}
                   </p>
                   <p className="text-xs text-gray-400 pt-10">{user.skills}</p>
                   <div className="pb-3 flex justify-center">

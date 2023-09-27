@@ -48,6 +48,7 @@ const FollowUsers = () => {
           phone: userData.phone,
           website: userData.website,
           skills: userData.skills,
+          followers: userData.followers,
         };
         usersArray.push(user);
       });
@@ -88,7 +89,10 @@ const FollowUsers = () => {
                   <p>{user.name}</p>
                 </h3>
 
-                <div className="text-gray-500 font-medium">{user.skills}</div>
+                <div className="text-gray-500 font-medium">{user.headline}</div>
+                 {user.followers !== undefined &&(
+                <div className="text-gray-500 text-xs">{user.followers} followers</div>
+                )}
               </div>
             </div>
 

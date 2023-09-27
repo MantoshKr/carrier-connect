@@ -47,6 +47,21 @@ const Post = ({ post, onClickUser }) => {
   const [editedInput, setEditedInput] = useState(postText);
   const [userData, setUserData] = useState(null);
   const { setClickedUserId } = useUser();
+  const [getUserInfo, setGetUserInfo] = useState({});
+
+
+
+  useEffect(() => {
+    const getInfo = () => {
+      const unSub = onSnapshot(doc(db, "users", currentUser.uid), (doc) => {
+        setGetUserInfo(doc.data());
+      });
+      return () => {
+        unSub();
+      };
+    };
+    currentUser.uid && getInfo();
+  }, [currentUser.uid]);
 
   const handleUserClick = () => {
     setClickedUserId(post.data.uid);
@@ -209,7 +224,7 @@ const Post = ({ post, onClickUser }) => {
                 {userData?.name || post.data?.displayName}
               </p>
               <span className="text-xs dark:text-gray-400">
-                Textile designer and UI/UX designer
+              {/* SDE at walmart */}
               </span>
               <span className="text-xs dark:text-gray-400">
                 {new Date(post.data?.timestamp?.toDate()).toLocaleString()}
@@ -300,19 +315,19 @@ const Post = ({ post, onClickUser }) => {
             <div className="flex items-center space-x-2">
               <div className="flex -space-x-1">
                 <div className="flex">
-                  <AiFillLike className="w-5 h-5 border rounded-full dark:bg-gray-500 dark:border-gray-800" />
+                  <AiFillLike className="w-6 h-6 border text-blue-50 rounded-full dark:bg-blue-600 dark:border-blue-900 transition hover:scale-150" />
                 </div>
                 <FcIdea
                   alt=""
-                  className="w-5 h-5 border rounded-full dark:bg-gray-500 dark:border-gray-800"
+                  className="w-6 h-6 border rounded-full dark:bg-gray-500 dark:border-gray-800 transition hover:scale-150"
                 />
                 <PiHandsClappingFill
                   alt=""
-                  className="w-5 h-5 border rounded-full dark:bg-gray-500 dark:border-gray-800"
+                  className="w-6 h-6 border text-green-100 rounded-full dark:bg-green-700 dark:border-green-900 transition hover:scale-150"
                 />
                 <PiChats
                   alt=""
-                  className="w-5 h-5 border rounded-full dark:bg-gray-500 dark:border-gray-800"
+                  className="w-6 h-6 border text-orange-800 rounded-full dark:bg-orange-200 dark:border-gray-800 transition hover:scale-150"
                 />
               </div>
               <span className="text-sm">
@@ -343,9 +358,9 @@ const Post = ({ post, onClickUser }) => {
               }}
             >
               {liked ? (
-                <AiFillLike className="w-7 h-7  text-gray-600" />
+                <AiFillLike className="w-7 h-7  text-blue-600 transition hover:scale-150"  />
               ) : (
-                <AiOutlineLike className="w-7 h-7 text-gray-600" />
+                <AiOutlineLike className="w-7 h-7 text-gray-600 transition hover:scale-150" />
               )}
               {likes.length > 0 && <span>{likes.length}</span>}
             </button>
@@ -361,7 +376,7 @@ const Post = ({ post, onClickUser }) => {
                   setCommentBoxVisible(!commentBoxVisible);
                 }}
               >
-                <IoChatboxEllipsesSharp className="w-7 h-7  text-gray-600" />
+                <IoChatboxEllipsesSharp className="w-7 h-7  text-orange-300 transition hover:scale-150" />
                 <span>
                   {comments.length > 0 && <span>{comments.length} </span>}
                 </span>
@@ -376,7 +391,7 @@ const Post = ({ post, onClickUser }) => {
                   setCommentBoxVisible(!commentBoxVisible);
                 }}
               >
-                <IoChatboxEllipsesOutline className="w-7 h-7  text-gray-600" />
+                <IoChatboxEllipsesOutline className="w-7 h-7  text-gray-600 transition hover:scale-150" />
                 <span>
                   {comments.length > 0 && <span>{comments.length} </span>}
                 </span>

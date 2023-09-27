@@ -60,7 +60,7 @@ const UserProfile = () => {
       <div className="  border shadow-lg mb-4 rounded-xl bg-white ">
         <div className="relative">
           <img
-            src={userData?.bgimg}
+            src={userData?.bgimg || 'https://images.unsplash.com/photo-1561736778-92e52a7769ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80'}
             loading="lazy"
             alt=""
             className="w-full h-72 object-cover rounded-lg "
@@ -91,6 +91,20 @@ const UserProfile = () => {
               <h1>{getUserInfo?.displayName?.toUpperCase()}</h1>
             )}
           </h3>
+          <p>
+          {clickedUserId ? (
+              <h1>{userData?.headline}</h1>
+            ) : (
+              <h1>{getUserInfo?.headline}</h1>
+            )}
+          </p>
+          <p>
+          {clickedUserId ? (
+              <h1>skills: {userData?.skills}</h1>
+            ) : (
+              <h1>skills:{getUserInfo?.skills}</h1>
+            )}
+          </p>
           <p className="text-gray-600 text-lg duration-150 group-hover:text-gray-800">
             Member’s occupation Carrier Connect's Top Voice, International Life
             Coach, Wellness Advisor, Author & Motivational Strategist
@@ -151,7 +165,7 @@ const UserProfile = () => {
                     src={currentUser.photoURL}
                     alt="user name"
                     title="user name"
-                    className="max-w-full object-cover rounded-full w-20   "
+                    className="max-w-full object-cover rounded-full w-20 h-20  "
                   />
                 </p>
                 <div>

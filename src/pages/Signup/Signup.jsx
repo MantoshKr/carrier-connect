@@ -122,6 +122,7 @@ const Signup = () => {
                     accept=".png,.jpeg,.jpg"
                     style={{ display: "none" }}
                     onChange={(e) => setImg(e.target.files[0])}
+                    required
                   />
                 </label>
               </div>

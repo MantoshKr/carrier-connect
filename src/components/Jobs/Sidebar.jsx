@@ -20,7 +20,7 @@ const Sidebar = () => {
           <img
             src={currentUser.photoURL}
             alt=""
-            className="lg:w-12 w-16 object-cover rounded-full dark:bg-gray-500"
+            className="lg:w-12 lg:h-12 w-16 h-16 object-cover rounded-full dark:bg-gray-500"
           />
           <div>
             <h2 className="text-lg font-semibold lg:flex hidden">
