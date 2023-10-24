@@ -12,7 +12,6 @@ import TryPremium from "./pages/TryPremium";
 import JobsPage from "./pages/JobsPage";
 import NetworkPage from "./pages/NetworkPage";
 
-
 function App() {
   return (
     <>
@@ -49,7 +48,7 @@ function App() {
                   </>
                 }
               />
-               <Route
+              <Route
                 path="/networkpage"
                 element={
                   <>
@@ -59,13 +58,16 @@ function App() {
                 }
               />
               <Route path="/trypremium" element={<TryPremium />} />
-              <Route path="/jobspage" element={
+              <Route
+                path="/jobspage"
+                element={
                   <>
                     <Navbar />
                     <JobsPage />
                   </>
-                } />
-              
+                }
+              />
+
               <Route path="/" element={<StartPage />} />
             </Routes>
           </UserProvider>

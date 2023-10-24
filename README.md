@@ -11,9 +11,9 @@ Carrier Connect is a social networking platform Like LinkedIn .
 - [Getting Started](#getting-started)
 - [Usage](#usage)
 
-## About 
-Carrier Connect is a social networking app like LinkedIn that leverages Firebase for user authentication and real-time data updates. Users can seamlessly create, manage, like, and comment on posts, enhancing engagement. The platform offers easy profile viewing and management. With efficient state management and a user-friendly layout.
+## About
 
+Carrier Connect is a social networking app like LinkedIn that leverages Firebase for user authentication and real-time data updates. Users can seamlessly create, manage, like, and comment on posts, enhancing engagement. The platform offers easy profile viewing and management. With efficient state management and a user-friendly layout.
 
 ## Features
 
@@ -25,8 +25,6 @@ Carrier Connect is a social networking app like LinkedIn that leverages Firebase
 - **Profile Updates:** Users can update their profile images and other academic and career details in settings.
 - **Efficient State Management:** User context is used for efficient state management.
 - **Layout Components:** The app includes various layout components for different pages, such as Start Page, Home Page, Network Page, and Jobs Page.
-
-
 
 ## Demo
 
@@ -48,8 +46,6 @@ To run Carrier Connect locally, follow these steps:
 2. Install project dependencies: `yarn install`
 3. Start the development server: `yarn start`
 
-
 ## Usage
 
 After following the setup steps, you can access the Mega Mart website at `http://localhost:3000` in your web browser. Explore the various features and functionalities of the project!
-

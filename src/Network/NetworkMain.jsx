@@ -137,7 +137,9 @@ const NetworkMain = () => {
           <h1 className="text-gray-800 text-lg font-semibold sm:text-2xl">
             People who are in India also follow these people
           </h1>
-          <p className=" text-md sm:text-2xl text-gray-400 font-bold">see all </p>
+          <p className=" text-md sm:text-2xl text-gray-400 font-bold">
+            see all{" "}
+          </p>
         </div>
         <ul className="grid gap-x-8 sm:gap-y-10 gap-y-4 mt-16 sm:grid-cols-2 lg:grid-cols-3 ">
           {users.slice(0, visibleUsers).map((user) => (
@@ -160,7 +162,6 @@ const NetworkMain = () => {
                     alt={user.about}
                     className="rounded-full w-20 h-20 object-cover absolute -bottom-7 left-4"
                   />
-                  
 
                   <MdCancel className="text-4xl absolute top-2 right-2 opacity-60" />
                 </div>

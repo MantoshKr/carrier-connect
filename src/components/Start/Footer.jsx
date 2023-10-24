@@ -16,7 +16,9 @@ const Footer = () => {
 
             <div className="flex justify-around md:px-40">
               <div className="col-span-2 sm:col-span-1">
-                <p className="font-bold md:text-lg text-md text-gray-900">General</p>
+                <p className="font-bold md:text-lg text-md text-gray-900">
+                  General
+                </p>
 
                 <ul className="mt-4 space-y-2 md:text-md text-sm font-bold cursor-pointer">
                   <li>
@@ -82,7 +84,7 @@ const Footer = () => {
 
               <div className="col-span-2 sm:col-span-1">
                 <p className="font-bold md:text-lg text-md text-gray-900">
-                  Browse  <span className="md:flex hidden">Connect</span> 
+                  Browse <span className="md:flex hidden">Connect</span>
                 </p>
 
                 <ul className="mt-4 space-y-2 md:text-md text-sm font-bold cursor-pointer">
@@ -183,7 +185,9 @@ const Footer = () => {
               </div>
 
               <div className="col-span-2 sm:col-span-1">
-                <p className="font-bold md:text-lg text-md text-gray-900">Directories</p>
+                <p className="font-bold md:text-lg text-md text-gray-900">
+                  Directories
+                </p>
 
                 <ul className="mt-4 space-y-2 md:text-md text-sm font-bold cursor-pointer">
                   <li>
@@ -314,33 +318,60 @@ const Footer = () => {
             &copy; 2023
           </p>
 
-          <p href="#" className="text-gray-500 transition hover:underline hover:text-sky-600 cursor-pointer">
+          <p
+            href="#"
+            className="text-gray-500 transition hover:underline hover:text-sky-600 cursor-pointer"
+          >
             About
           </p>
 
-          <p href="#" className="text-gray-500 transition hover:underline hover:text-sky-600 cursor-pointer">
+          <p
+            href="#"
+            className="text-gray-500 transition hover:underline hover:text-sky-600 cursor-pointer"
+          >
             Accessibility
           </p>
 
-          <p href="#" className="text-gray-500 transition hover:underline hover:text-sky-600 cursor-pointer">
+          <p
+            href="#"
+            className="text-gray-500 transition hover:underline hover:text-sky-600 cursor-pointer"
+          >
             User Agreement
           </p>
-          <p href="#" className="text-gray-500 transition hover:underline hover:text-sky-600 cursor-pointer">
+          <p
+            href="#"
+            className="text-gray-500 transition hover:underline hover:text-sky-600 cursor-pointer"
+          >
             Privacy Policy
           </p>
-          <p href="#" className="text-gray-500 transition hover:underline hover:text-sky-600 cursor-pointer">
+          <p
+            href="#"
+            className="text-gray-500 transition hover:underline hover:text-sky-600 cursor-pointer"
+          >
             Cookie Policy
           </p>
-          <p href="#" className="text-gray-500 transition hover:underline hover:text-sky-600 cursor-pointer">
+          <p
+            href="#"
+            className="text-gray-500 transition hover:underline hover:text-sky-600 cursor-pointer"
+          >
             Copyright Policy
           </p>
-          <p href="#" className="text-gray-500 transition hover:underline hover:text-sky-600 cursor-pointer">
+          <p
+            href="#"
+            className="text-gray-500 transition hover:underline hover:text-sky-600 cursor-pointer"
+          >
             Brand Policy
           </p>
-          <p href="#" className="text-gray-500 transition hover:underline hover:text-sky-600 cursor-pointer">
+          <p
+            href="#"
+            className="text-gray-500 transition hover:underline hover:text-sky-600 cursor-pointer"
+          >
             Guest Controls
           </p>
-          <p href="#" className="text-gray-500 transition hover:underline hover:text-sky-600 cursor-pointer">
+          <p
+            href="#"
+            className="text-gray-500 transition hover:underline hover:text-sky-600 cursor-pointer"
+          >
             Community Guidelines
           </p>
           <p

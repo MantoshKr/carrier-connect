@@ -8,19 +8,18 @@ const ConnectPeople = () => {
       <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full bg-gray-50 lg:max-w-screen md:px-24 lg:px-8 lg:py-20 xl:py-96 ">
         <div className="grid gap-10 lg:grid-cols-2">
           <div className="lg:pr-10 items-center flex justify-between">
-          <div className="2xl:ml-36">
-            
-            <h5 className="mb-4 md:text-5xl text-4xl text-red-900 leading-none">
-              Let the right people know
-              <br className="block" />
-              you’re open to work{" "}
-            </h5>
-            <p className="mb-6 text-gray-600 md:text-3xl text-2xl leading-10">
-              With the Open To Work feature, you can privately tell recruiters
-              or publicly share with the Connect's community that you are looking
-              for new job opportunities.
-            </p>
-          </div>
+            <div className="2xl:ml-36">
+              <h5 className="mb-4 md:text-5xl text-4xl text-red-900 leading-none">
+                Let the right people know
+                <br className="block" />
+                you’re open to work{" "}
+              </h5>
+              <p className="mb-6 text-gray-600 md:text-3xl text-2xl leading-10">
+                With the Open To Work feature, you can privately tell recruiters
+                or publicly share with the Connect's community that you are
+                looking for new job opportunities.
+              </p>
+            </div>
           </div>
           <div>
             <img
@@ -71,8 +70,6 @@ const ConnectPeople = () => {
               <h5 className="mb-2 text-xl  text-gray-700 leading-none sm:text-5xl">
                 Learn the skills you need to succeed
               </h5>
-
-             
 
               <button
                 className="group flex items-center justify-between gap-4 mt-8 rounded-lg border border-current px-16 py-4 text-green-600 transition-colors hover:bg-green-600 focus:outline-none focus:ring active:bg-green-500 hover:text-white"

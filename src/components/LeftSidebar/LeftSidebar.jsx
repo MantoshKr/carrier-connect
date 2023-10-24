@@ -62,13 +62,28 @@ const LeftSidebar = () => {
     }
   }, [clickedUserId]);
 
-
   return (
     <div className="left-sidebar">
       <div className="sidebar-profile-box">
-      {clickedUserId ? (
-        <img src={userData?.bgimg || 'https://images.unsplash.com/photo-1561736778-92e52a7769ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80'} alt="" width="100%" />) : (
-          <img src={getUserInfo?.bgimg || 'https://images.unsplash.com/photo-1561736778-92e52a7769ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80'} alt="" width="100%"  />)}
+        {clickedUserId ? (
+          <img
+            src={
+              userData?.bgimg ||
+              "https://images.unsplash.com/photo-1561736778-92e52a7769ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+            }
+            alt=""
+            width="100%"
+          />
+        ) : (
+          <img
+            src={
+              getUserInfo?.bgimg ||
+              "https://images.unsplash.com/photo-1561736778-92e52a7769ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+            }
+            alt=""
+            width="100%"
+          />
+        )}
         <div className="sidebar-profile-info">
           {clickedUserId ? (
             <img src={userData?.photoURL} alt="" />
@@ -97,6 +112,7 @@ const LeftSidebar = () => {
           )}
           {/* {getUserInfo.displayName} */}
           <ul>
+            <li>{getUserInfo?.skills}</li>
             <li>
               Your profile views <span>234</span>
             </li>
@@ -106,7 +122,6 @@ const LeftSidebar = () => {
             <li>
               Your connections<span>456</span>
             </li>
-            <li>{getUserInfo?.skills}</li>
           </ul>
         </div>
         <div className="sidebar-profile-link">

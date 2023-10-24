@@ -1,10 +1,10 @@
-import React from 'react'
-import { IoChevronDownOutline } from 'react-icons/io5'
+import React from "react";
+import { IoChevronDownOutline } from "react-icons/io5";
 
 const ExploreArticles = () => {
   return (
     <div>
-     <div className="px-4 py-16 bg-white mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen md:px-24 lg:px-8 lg:py-20 xl:py-52">
+      <div className="px-4 py-16 bg-white mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen md:px-24 lg:px-8 lg:py-20 xl:py-52">
         <div className="flex flex-col lg:flex-row">
           <div className="mb-6 lg:mb-0 lg:w-1/2 lg:pr-5 ">
             <h2 className="mb-5 font-sans text-4xl 2xl:ml-36 tracking-tight text-gray-800 sm:text-6xl sm:leading-none">
@@ -95,7 +95,10 @@ const ExploreArticles = () => {
               href="/download"
             >
               <span className="rounded-full font-bold bg-white hover:text-white text-green-600 sm:px-8 sm:py-3 px-4 py-1 sm:text-lg text-md  hover:bg-transparent flex items-center">
-                Show all <span><IoChevronDownOutline /></span>
+                Show all{" "}
+                <span>
+                  <IoChevronDownOutline />
+                </span>
               </span>
             </p>
           </div>
@@ -196,7 +199,10 @@ const ExploreArticles = () => {
               href="/download"
             >
               <span className="rounded-full text-green-600 hover:text-white bg-white sm:px-8 sm:py-3 px-4 py-1 sm:text-lg text-md font-bold hover:bg-transparent flex items-center">
-                Show more <span><IoChevronDownOutline /></span>
+                Show more{" "}
+                <span>
+                  <IoChevronDownOutline />
+                </span>
               </span>
             </p>
           </div>
@@ -232,7 +238,7 @@ const ExploreArticles = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ExploreArticles
+export default ExploreArticles;

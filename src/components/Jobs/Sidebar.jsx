@@ -83,17 +83,15 @@ const Sidebar = () => {
           </ul>
         </div>
         <button
-        type="button"
-        className="lg:px-8 lg:py-2 px-2 py-2 text-md font-semibold rounded-full lg:border mt-4 border-green-600  hover:bg-green-100 flex  gap-2  "
-      >
-        <span className="text-2xl text-green-600">
-          <PiNotePencilBold />
-        </span>{" "}
-        <span className="text-green-600 hidden lg:flex">post a free job</span>
-      </button>
+          type="button"
+          className="lg:px-8 lg:py-2 px-2 py-2 text-md font-semibold rounded-full lg:border mt-4 border-green-600  hover:bg-green-100 flex  gap-2  "
+        >
+          <span className="text-2xl text-green-600">
+            <PiNotePencilBold />
+          </span>{" "}
+          <span className="text-green-600 hidden lg:flex">post a free job</span>
+        </button>
       </div>
-
-      
     </div>
   );
 };

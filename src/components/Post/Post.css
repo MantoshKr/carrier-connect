@@ -1,264 +1,250 @@
 .Post-author {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 .Post-author img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-right: 10px;
-    margin-top: 5px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+  margin-top: 5px;
 }
 
 .Post {
-    position: relative;
-    
-  }
-  
-  .postdelete {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    z-index: 1; 
-  }
-  
-  .deleteButton {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    font-size: 1rem;
-    color: red;
-  }
+  position: relative;
+}
 
-  .postedit {
-    position: absolute;
-    top: 10px;
-    right: 45px;
-    z-index: 1; 
-  }
-  
-  .editButton {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    font-size: 1rem;
-    color: rgb(10, 10, 10);
-  }
+.postdelete {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1;
+}
 
+.deleteButton {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  color: red;
+}
+
+.postedit {
+  position: absolute;
+  top: 10px;
+  right: 45px;
+  z-index: 1;
+}
+
+.editButton {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  color: rgb(10, 10, 10);
+}
 
 /* Existing CSS for .Post and other classes/elements */
 
 .main-img-container {
-    position: relative;
-    display: inline-block;
-  }
-  
-  .postimg {
-    max-width: 100%;
-    height: auto;
-    max-height: 90vh;;
-    display: block;
-  }
-  
-  .img-update {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-  }
-  
-  .changeImageButton {
-    background-color: transparent;
-    color: #fff;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    display: flex;
-    align-items: center;
-  }
-  
-  .changeImageButton:hover {
-    background-color: rgba(95, 94, 94, 0.8);
-  }
-
-  .refreshicon{
-    margin-right: 5px;
-  }
-  
-  
-  
-  
+  position: relative;
+  display: inline-block;
+}
 
 .postimg {
-    width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: 90vh;
+  display: block;
+}
+
+.img-update {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.changeImageButton {
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+.changeImageButton:hover {
+  background-color: rgba(95, 94, 94, 0.8);
+}
+
+.refreshicon {
+  margin-right: 5px;
+}
+
+.postimg {
+  width: 100%;
 }
 
 .Post-author h1 {
-    font-size: 18px;
-    font-weight: 600;
+  font-size: 18px;
+  font-weight: 600;
 }
 
 .post-author label {
-    display: block;
-    margin-bottom: -2px;
+  display: block;
+  margin-bottom: -2px;
 }
 
 .post p {
-    font-size: 14px;
-    margin-top: 15px;
+  font-size: 14px;
+  margin-top: 15px;
 }
 
 .post-stats {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    align-items: center;
-    font-size: 12px;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 6px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  font-size: 12px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 6px;
 }
 
 .post-stats div {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .poststatsicon {
-    width: 15px;
-    margin-right: -3px;
+  width: 15px;
+  margin-right: -3px;
 }
 
 .postBottomRight .postCommentText {
-
-    font-size: 15px;
-    cursor: pointer;
-
+  font-size: 15px;
+  cursor: pointer;
 }
 
-
-
 .liked-users {
-    margin-left: 10px;
+  margin-left: 10px;
 }
 
 .post-activity {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 0;
-    font-size: 14px;
-    font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .post-activity div {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .post-activity-user-icon {
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    object-fit: cover;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .post-activity-arrow-icon {
-    width: 12px;
-    margin-left: 5px;
-
+  width: 12px;
+  margin-left: 5px;
 }
 
 .post-activity-link-icon {
-    width: 18px;
-    margin-right: 8px;
+  width: 18px;
+  margin-right: 8px;
 }
 
-
-
 .commentBox {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .commentInput {
-    flex: 1;
-    width: 75%;
-    background: transparent;
-    color: black;
-    border: 1px solid #011631;
-    padding: 10px 5px 0 5px;
-    margin: 0 0 20px 20px;
-    outline: none;
+  flex: 1;
+  width: 75%;
+  background: transparent;
+  color: black;
+  border: 1px solid #011631;
+  padding: 10px 5px 0 5px;
+  margin: 0 0 20px 20px;
+  outline: none;
 }
 
 .commentPost {
-    padding: 10px 25px;
-    background-color: #011631;
-    color: white;
-    font-size: 14px;
-    font-weight: 500;
-    margin: 0 20px 20px 0;
-    border: none;
-    cursor: pointer;
-    margin-left:20px;
+  padding: 10px 25px;
+  background-color: #011631;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0 20px 20px 0;
+  border: none;
+  cursor: pointer;
+  margin-left: 20px;
 }
 
 .commentPost:disabled {
-    cursor: not-allowed;
-    background-color: #011631a4;
+  cursor: not-allowed;
+  background-color: #011631a4;
 }
 
 .comment {
-    width: 100%;
-    max-height: 250px;
-    overflow-y: scroll;
+  width: 100%;
+  max-height: 250px;
+  overflow-y: scroll;
 }
 
 .commentWrapper {
-    display: flex;
-    align-items: center;
-    border-top: 1px dashed #011631;
-    width: 90%;
-    margin: auto;
+  display: flex;
+  align-items: center;
+  border-top: 1px dashed #011631;
+  width: 90%;
+  margin: auto;
 }
 
 .commentProfileImg {
-    margin: 20px 7px 20px 10px;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    border: 2px solid #011631;
-    object-fit: cover;
-    cursor: pointer;
+  margin: 20px 7px 20px 10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid #011631;
+  object-fit: cover;
+  cursor: pointer;
 }
 
 .commentInfo {
-    padding: 20px 0;
-    max-width: 80%;
-    margin-top: 25px;
+  padding: 20px 0;
+  max-width: 80%;
+  margin-top: 25px;
 }
 
 .commentUsername {
-    font-weight: 600;
-    cursor: pointer;
-    font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 15px;
 }
 
 .commentText {
-    background-color: #5a5a5a;
-    color: white;
-    padding: 5px;
-    margin-top: 3px;
-    border-radius: 30px;
+  background-color: #5a5a5a;
+  color: white;
+  padding: 5px;
+  margin-top: 3px;
+  border-radius: 30px;
 }
 
 .commentPost {
-    width: 120px;
+  width: 120px;
 }
-
 
 /* --------------modal css ------------------- */
 /* Styles for the modal container */
@@ -272,7 +258,7 @@
   justify-content: center;
   align-items: center;
   /* backdrop-filter: blur(4px);  */
-  z-index: 1; 
+  z-index: 1;
 }
 
 /* Styles for the modal content */
@@ -309,8 +295,3 @@
 .modalContent button:last-child {
   margin-right: 0;
 }
-
-
-
-
-

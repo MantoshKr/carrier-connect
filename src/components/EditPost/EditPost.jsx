@@ -34,4 +34,3 @@ const EditPost = ({ originalInput, onSave, onCancel }) => {
 };
 
 export default EditPost;
-

@@ -31,7 +31,7 @@ const Navbar = () => {
             </Link>
           ) : (
             <Link to="/signup" className="logo">
-              <img src={CarrierConnect} alt=""/>
+              <img src={CarrierConnect} alt="" />
             </Link>
           )}
 

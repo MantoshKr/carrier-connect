@@ -1,61 +1,55 @@
-.profile-menu-wrap{
-    position:absolute;
-    top:100%;
-    right:5%;
-    width: 270px;
-    max-height: 0;
-    /* overflow:hidden;
+.profile-menu-wrap {
+  position: absolute;
+  top: 100%;
+  right: 5%;
+  width: 270px;
+  max-height: 0;
+  /* overflow:hidden;
     transition: max-height 0.5s; */
-    display:none;
+  display: none;
 }
 
-.profile-menu-wrap .open-menu{
-    max-height: 400px;
-   
+.profile-menu-wrap .open-menu {
+  max-height: 400px;
 }
 
-.profile-menu{
-    background:#fff;
-    color:black;
-    padding:20px;
-    margin:10px;
+.profile-menu {
+  background: #fff;
+  color: black;
+  padding: 20px;
+  margin: 10px;
 }
 
-.user-info{
-    display:flex;
-    align-items:center;
-   
+.user-info {
+  display: flex;
+  align-items: center;
 }
 
-.user-info img{
-    width:50px;
-    height:50px;
-    border-radius:50%;
-    object-fit:cover;
-    margin-right:15px;
+.user-info img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 15px;
 }
 
-.user-info h3{
-    font-weight:500;
-    margin-bottom:-7px;
-    
+.user-info h3 {
+  font-weight: 500;
+  margin-bottom: -7px;
 }
 
-.user-info label{
-    color:#c9dbf8;
-    font-size:13px;
-   
-
+.user-info label {
+  color: #c9dbf8;
+  font-size: 13px;
 }
 
-.profile-menu hr{
-    border:0;
-    height: 0.5px ;
-    width: 100%;
-    background: #fff;
-    margin: 10px 0 10px;
+.profile-menu hr {
+  border: 0;
+  height: 0.5px;
+  width: 100%;
+  background: #fff;
+  margin: 10px 0 10px;
 }
-
 
 /* .profile-menu hr:last-child{
     border:0;
@@ -65,22 +59,21 @@
     margin: 10px 0 10px;
 } */
 
-.profile-menu-link{
-    display: flex;
-    align-items: center;
-    color:#fff;
-    margin: 12px 0;
-    font-size: 14px;
-    cursor: pointer;
-   
+.profile-menu-link {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  margin: 12px 0;
+  font-size: 14px;
+  cursor: pointer;
 }
 
-.profile-menu-link p{
-    width: 100%;
+.profile-menu-link p {
+  width: 100%;
 }
 
-.feedbackicon{
-    width: 35px;
-    margin-right: 15px;
-    border-radius: 50%;
+.feedbackicon {
+  width: 35px;
+  margin-right: 15px;
+  border-radius: 50%;
 }

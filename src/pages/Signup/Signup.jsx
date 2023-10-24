@@ -19,12 +19,10 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-
     if (!agreedToTerms) {
       alert("Please agree to the terms and conditions to sign up.");
       return; // Prevent form submission
     }
-
 
     const displayName = document.getElementById("displayName").value;
     const email = document.getElementById("email").value;
@@ -42,9 +40,7 @@ const Signup = () => {
 
       console.log("Image upload task:", uploadTask);
 
-
-      
-    // alert("Creating user. Please wait...");
+      // alert("Creating user. Please wait...");
 
       uploadTask.on(
         "state_changed",
@@ -74,25 +70,21 @@ const Signup = () => {
 
             await setDoc(doc(db, "usersPosts", res.user.uid), { messages: [] });
             console.log("User created successfully:", res.user);
-             window.location.reload();
+            window.location.reload();
           });
-        }
+        },
       );
     } catch (error) {
       setError(true);
       console.log("Error:", error.message);
     }
 
-
     // localStorage.setItem("userSignedUp", "true");
     navigate("/home");
-   
   };
   return (
     <>
       <div className="main">
-   
-
         <div className="sign-up-form">
           <img src={userImage} alt="user" className="userlogo" />
           <h1>Create a new account</h1>

@@ -130,25 +130,25 @@ const Welcome = () => {
                     <div className="flex flex-start text-green-600 font-bold text-lg">
                       Forgot password?
                     </div>
-                    <button className="w-full py-4 text-lg rounded-full font-semibold  dark:bg-green-600 dark:text-white hover:bg-green-700">
+                    <button className="w-full py-4 text-lg rounded-full font-semibold  dark:bg-green-600 dark:text-white hover:bg-green-700 mb-1">
                       Sign in
                     </button>
                   </form>
                   {/* sign up option */}
 
-                  <div className="relative flex items-center justify-center m-16 ">
-                    <span className="block w-full h-px bg-gray-500"></span>
-                    <p className="inline-block w-fit text-lg bg-[#f0f2f5] px-2 absolute -top-[14px] inset-x-0 mx-auto ">
-                      Or continue with
-                    </p>
-                  </div>
-
-                  <div className="text-left mb-2">
-                    By clicking Continue, you agree to CarrrierConnect’s{" "}
+                  <div className="text-left mt-3 mb-10">
+                    By clicking Sign In, you agree to CarrrierConnect’s{" "}
                     <span className="font-bold text-green-600 cursor-pointer">
                       User Agreement, Privacy Policy, and Cookie Policy.
                     </span>
                   </div>
+                  {/* <div className="relative flex items-center justify-center m-16 ">
+                    <span className="block w-full h-px bg-gray-500"></span>
+                    <p className="inline-block w-fit text-lg bg-[#f0f2f5] px-2 absolute -top-[14px] inset-x-0 mx-auto ">
+                      Or 
+                    </p>
+                  </div> */}
+
                   <Link to="/signup">
                     <div className="space-y-5 text-md font-bold text-gray-600 mr-10">
                       <button className="w-full flex items-center justify-center gap-x-3 py-3 border  hover:bg-gray-200 duration-150 active:bg-gray-100 border-gray-800 rounded-full text-lg mr-10">

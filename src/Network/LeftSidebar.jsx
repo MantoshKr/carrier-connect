@@ -25,7 +25,9 @@ const LeftSidebar = () => {
             className="w-12 h-12 rounded-full object-cover dark:bg-gray-500"
           />
           <div>
-            <h2 className="text-lg font-semibold md:flex hidden">{currentUser.displayName}</h2>
+            <h2 className="text-lg font-semibold md:flex hidden">
+              {currentUser.displayName}
+            </h2>
             <span className="flex items-center space-x-1"></span>
           </div>
         </div>
@@ -42,7 +44,7 @@ const LeftSidebar = () => {
               <p className="flex items-center p-2 space-x-3 rounded-md">
                 <FaUserAlt className="w-5 h-5 fill-current dark:text-gray-700" />
 
-                <span className="md:flex hidden" >Following & followers</span>
+                <span className="md:flex hidden">Following & followers</span>
               </p>
             </li>
 
@@ -91,10 +93,7 @@ const LeftSidebar = () => {
         </div>
       </div>
 
-      
-      <div className="max-w-container mt-4">
-      
-      </div>
+      <div className="max-w-container mt-4"></div>
     </div>
   );
 };

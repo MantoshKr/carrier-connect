@@ -42,14 +42,12 @@ const Login = () => {
 
           <form onSubmit={handleSubmit}>
             <input
-              
               type="email"
               placeholder="Enter your email"
               className="input-box"
               required
             />
             <input
-              
               type="password"
               placeholder="Choose your password"
               className="input-box"

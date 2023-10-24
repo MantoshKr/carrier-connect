@@ -60,7 +60,10 @@ const UserProfile = () => {
       <div className="  border shadow-lg mb-4 rounded-xl bg-white ">
         <div className="relative">
           <img
-            src={userData?.bgimg || 'https://images.unsplash.com/photo-1561736778-92e52a7769ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80'}
+            src={
+              userData?.bgimg ||
+              "https://images.unsplash.com/photo-1561736778-92e52a7769ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+            }
             loading="lazy"
             alt=""
             className="w-full h-72 object-cover rounded-lg "
@@ -92,14 +95,14 @@ const UserProfile = () => {
             )}
           </h3>
           <p>
-          {clickedUserId ? (
+            {clickedUserId ? (
               <h1>{userData?.headline}</h1>
             ) : (
               <h1>{getUserInfo?.headline}</h1>
             )}
           </p>
           <p>
-          {clickedUserId ? (
+            {clickedUserId ? (
               <h1>skills: {userData?.skills}</h1>
             ) : (
               <h1>skills:{getUserInfo?.skills}</h1>
@@ -154,58 +157,54 @@ const UserProfile = () => {
         </div>
       </div>
 
-      {clickedUserId === getUserInfo.uid &&
+      {clickedUserId === getUserInfo.uid && (
         <div className="bg-white rounded-lg shadow-sm">
-              <div className="flex md:gap-4 gap-2  p-2 shadow-lg items-center justify-center">
-                <p
-                  
-                  className="relative inline-flex items-center justify-center h-12 text-white "
-                >
-                  <img
-                    src={currentUser.photoURL}
-                    alt="user name"
-                    title="user name"
-                    className="max-w-full object-cover rounded-full w-20 h-20  "
-                  />
-                </p>
-                <div>
-                  <h3 className="sm:text-xl text-sm flex font-bold text-slate-700">
-                    See the full list of jobs where you'd be a top applicant
-                  </h3>
-                  <div>
-                    <div className="md:flex items-center gap-2 m-3">
-                      <div className="flex md:-space-x-3 -space-x-2">
-                        <img
-                          alt=""
-                          className="md:w-8 md:h-8 w-7 h-7 border rounded-full dark:bg-gray-500 dark:border-gray-700"
-                          src="https://source.unsplash.com/40x40/?portrait?1"
-                        />
-                        <img
-                          alt=""
-                          className="md:w-8 md:h-8 w-7 h-7 border rounded-full dark:bg-gray-500 dark:border-gray-700"
-                          src="https://source.unsplash.com/40x40/?portrait?2"
-                        />
-                        <img
-                          alt=""
-                          className="md:w-8 md:h-8 w-7 h-7 border rounded-full dark:bg-gray-500 dark:border-gray-700"
-                          src="https://source.unsplash.com/40x40/?portrait?3"
-                        />
-                        <img
-                          alt=""
-                          className="md:w-8 md:h-8 w-7 h-7 border rounded-full dark:bg-gray-500 dark:border-gray-700"
-                          src="https://source.unsplash.com/40x40/?portrait?4"
-                        />
-                      </div>
-                      <span className="text-sm ">
-                        Millions of members use Premium
-                      </span>
-                    </div>
+          <div className="flex md:gap-4 gap-2  p-2 shadow-lg items-center justify-center">
+            <p className="relative inline-flex items-center justify-center h-12 text-white ">
+              <img
+                src={currentUser.photoURL}
+                alt="user name"
+                title="user name"
+                className="max-w-full object-cover rounded-full w-20 h-20  "
+              />
+            </p>
+            <div>
+              <h3 className="sm:text-xl text-sm flex font-bold text-slate-700">
+                See the full list of jobs where you'd be a top applicant
+              </h3>
+              <div>
+                <div className="md:flex items-center gap-2 m-3">
+                  <div className="flex md:-space-x-3 -space-x-2">
+                    <img
+                      alt=""
+                      className="md:w-8 md:h-8 w-7 h-7 border rounded-full dark:bg-gray-500 dark:border-gray-700"
+                      src="https://source.unsplash.com/40x40/?portrait?1"
+                    />
+                    <img
+                      alt=""
+                      className="md:w-8 md:h-8 w-7 h-7 border rounded-full dark:bg-gray-500 dark:border-gray-700"
+                      src="https://source.unsplash.com/40x40/?portrait?2"
+                    />
+                    <img
+                      alt=""
+                      className="md:w-8 md:h-8 w-7 h-7 border rounded-full dark:bg-gray-500 dark:border-gray-700"
+                      src="https://source.unsplash.com/40x40/?portrait?3"
+                    />
+                    <img
+                      alt=""
+                      className="md:w-8 md:h-8 w-7 h-7 border rounded-full dark:bg-gray-500 dark:border-gray-700"
+                      src="https://source.unsplash.com/40x40/?portrait?4"
+                    />
                   </div>
+                  <span className="text-sm ">
+                    Millions of members use Premium
+                  </span>
                 </div>
               </div>
             </div>
-      }
-      
+          </div>
+        </div>
+      )}
     </div>
   );
 };

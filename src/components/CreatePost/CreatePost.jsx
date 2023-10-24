@@ -70,7 +70,7 @@ const CreatePost = () => {
               }),
             });
           });
-        }
+        },
       );
     } else {
       await addDoc(collection(db, "posts"), {
@@ -402,13 +402,16 @@ const CreatePost = () => {
                 </div>
                 {/*        <!-- Modal actions --> */}
                 <div className="flex justify-center gap-2">
-                  <button onClick={ handleClickModal} className="inline-flex h-10 w-full items-center justify-center gap-2 whitespace-nowrap rounded bg-emerald-500 px-5 text-sm font-medium tracking-wide text-white transition duration-300 hover:bg-emerald-600 focus:bg-emerald-700 focus-visible:outline-none disabled:cursor-not-allowed disabled:border-emerald-300 disabled:bg-emerald-300 disabled:shadow-none">
+                  <button
+                    onClick={handleClickModal}
+                    className="inline-flex h-10 w-full items-center justify-center gap-2 whitespace-nowrap rounded bg-emerald-500 px-5 text-sm font-medium tracking-wide text-white transition duration-300 hover:bg-emerald-600 focus:bg-emerald-700 focus-visible:outline-none disabled:cursor-not-allowed disabled:border-emerald-300 disabled:bg-emerald-300 disabled:shadow-none"
+                  >
                     <span>Post</span>
                   </button>
                 </div>
               </div>
             </div>,
-            document.body
+            document.body,
           )
         : null}
     </>

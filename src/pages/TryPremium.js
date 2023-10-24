@@ -51,9 +51,13 @@ const plans = [
 const TryPremium = () => {
   return (
     <section className="py-32 relative">
-  <Link to="/home">
-    <img src={cclogo1} alt="" className="absolute inset-0  w-20 top-5 left-20 cursor-pointer" />
-    </Link>
+      <Link to="/home">
+        <img
+          src={cclogo1}
+          alt=""
+          className="absolute inset-0  w-20 top-5 left-20 cursor-pointer"
+        />
+      </Link>
       <div className="max-w-screen-xl mx-auto px-4 text-gray-600 md:px-8">
         <div className="relative  mx-auto sm:text-center">
           <h3 className="text-gray-800 text-3xl right-0 font-semibold sm:text-4xl">
@@ -106,19 +110,20 @@ const TryPremium = () => {
                   {item.name}
                 </span>
                 <div className="mt-2 mb-2 text-gray-800 text-3xl font-semibold flex justify-center">
-                  <span className="text-xl text-gray-600 font-medium">Rs {item.price}* / month</span>
+                  <span className="text-xl text-gray-600 font-medium">
+                    Rs {item.price}* / month
+                  </span>
                 </div>
               </div>
               <hr />
               <ul className="py-8 space-y-3">
                 {item.features.map((featureItem, idx) => (
                   <li key={idx} className="flex gap-5">
-                   <span> <RxDotFilled
-                      className=" text-gray-800 text-xl"
-                      
-                    />
-                     </span>
-                    
+                    <span>
+                      {" "}
+                      <RxDotFilled className=" text-gray-800 text-xl" />
+                    </span>
+
                     {featureItem}
                   </li>
                 ))}

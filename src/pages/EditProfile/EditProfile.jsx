@@ -7,8 +7,6 @@ import { AuthContext } from "../../context/AuthContext";
 import { db } from "../../firebase";
 import ChangeImage from "../../components/ChangeImage";
 
-
-
 export default function NewEditProfile() {
   const [isShowing, setIsShowing] = useState(false);
 
@@ -177,19 +175,18 @@ export default function NewEditProfile() {
 
   return (
     <>
-<div className="flex  relative">
-    <div className="absolute left-28 top-52 ">
-      <ChangeImage />
-     
-    </div>
-    <p className="">{""}</p>
-  
-      <button
-        onClick={() => setIsShowing(true)}
-        className="inline-flex h-10 items-center justify-center gap-2 whitespace-nowrap rounded bg-emerald-500 px-5 text-sm font-medium tracking-wide text-white transition duration-300 hover:bg-emerald-600 focus:bg-emerald-700 focus-visible:outline-none disabled:cursor-not-allowed disabled:border-emerald-300 disabled:bg-emerald-300 disabled:shadow-none ml-44 mt-20"
-      >
-        <span>Edit Profile</span>
-      </button>
+      <div className="flex  relative">
+        <div className="absolute left-28 top-52 ">
+          <ChangeImage />
+        </div>
+        <p className="">{""}</p>
+
+        <button
+          onClick={() => setIsShowing(true)}
+          className="inline-flex h-10 items-center justify-center gap-2 whitespace-nowrap rounded bg-emerald-500 px-5 text-sm font-medium tracking-wide text-white transition duration-300 hover:bg-emerald-600 focus:bg-emerald-700 focus-visible:outline-none disabled:cursor-not-allowed disabled:border-emerald-300 disabled:bg-emerald-300 disabled:shadow-none ml-44 mt-20"
+        >
+          <span>Edit Profile</span>
+        </button>
       </div>
 
       {isShowing && typeof document !== "undefined"
@@ -218,12 +215,14 @@ export default function NewEditProfile() {
                     action=""
                     className="container flex flex-col mx-auto space-y-0"
                   >
-
-                  <h3 className="font-bold text-lg ">
-                    Hello <span className="font-bold text-lg text-green-600 capitalize">{currentUser?.displayName} </span> , you can edit your setting below .
-                   
-                  </h3>
-                  <div> * means required field</div>
+                    <h3 className="font-bold text-lg ">
+                      Hello{" "}
+                      <span className="font-bold text-lg text-green-600 capitalize">
+                        {currentUser?.displayName}{" "}
+                      </span>{" "}
+                      , you can edit your setting below .
+                    </h3>
+                    <div> * means required field</div>
                     <fieldset className="grid grid-cols-4 gap-6 p-6 rounded-md  f0f2f5': '#f0f2f5">
                       <div className="space-y-2 col-span-full lg:col-span-1">
                         <p className="font-medium">{""}</p>
@@ -472,24 +471,20 @@ export default function NewEditProfile() {
                       </div>
                     </fieldset>
                     <div className="flex justify-center">
-                        <div>
-                           {""}
-                        </div>
-                        <button
-                      type="submit"
-                      class="flex w-20 rounded-full justify-center border border-indigo-600 bg-indigo-600 px-12 py-2 text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500"
-                    >
-                      save
-                    </button>
-
+                      <div>{""}</div>
+                      <button
+                        type="submit"
+                        class="flex w-20 rounded-full justify-center border border-indigo-600 bg-indigo-600 px-12 py-2 text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500"
+                      >
+                        save
+                      </button>
                     </div>
-                    
                   </form>
                 </section>
                 {/*        <!-- Modal actions --> */}
               </div>
             </div>,
-            document.body
+            document.body,
           )
         : null}
     </>

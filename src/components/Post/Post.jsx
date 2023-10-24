@@ -1,6 +1,6 @@
 import "./Post.css";
 import { FcIdea } from "react-icons/fc";
-import { PiChats,  PiHandsClappingFill } from "react-icons/pi";
+import { PiChats, PiHandsClappingFill } from "react-icons/pi";
 import { AiFillCamera } from "react-icons/ai";
 import { PiShareFat } from "react-icons/pi";
 import { BsSend } from "react-icons/bs";
@@ -49,8 +49,6 @@ const Post = ({ post, onClickUser }) => {
   const { setClickedUserId } = useUser();
   const [getUserInfo, setGetUserInfo] = useState({});
 
-
-
   useEffect(() => {
     const getInfo = () => {
       const unSub = onSnapshot(doc(db, "users", currentUser.uid), (doc) => {
@@ -70,7 +68,7 @@ const Post = ({ post, onClickUser }) => {
   useEffect(() => {
     const unSub = onSnapshot(
       collection(db, "posts", post.id, "likes"),
-      (snapshot) => setLikes(snapshot.docs)
+      (snapshot) => setLikes(snapshot.docs),
     );
     return () => {
       unSub();
@@ -101,9 +99,9 @@ const Post = ({ post, onClickUser }) => {
           snapshot.docs.map((snapshot) => ({
             id: snapshot.id,
             data: snapshot.data(),
-          }))
+          })),
         );
-      }
+      },
     );
     return () => {
       unSub();
@@ -165,7 +163,7 @@ const Post = ({ post, onClickUser }) => {
       const storage = getStorage();
       const imageRef = ref(
         storage,
-        `post_images/${post.id}/${selectedFile.name}`
+        `post_images/${post.id}/${selectedFile.name}`,
       );
 
       const snapshot = await uploadBytes(imageRef, selectedFile);
@@ -224,7 +222,7 @@ const Post = ({ post, onClickUser }) => {
                 {userData?.name || post.data?.displayName}
               </p>
               <span className="text-xs dark:text-gray-400">
-              {/* SDE at walmart */}
+                {/* SDE at walmart */}
               </span>
               <span className="text-xs dark:text-gray-400">
                 {new Date(post.data?.timestamp?.toDate()).toLocaleString()}
@@ -358,7 +356,7 @@ const Post = ({ post, onClickUser }) => {
               }}
             >
               {liked ? (
-                <AiFillLike className="w-7 h-7  text-blue-600 transition hover:scale-150"  />
+                <AiFillLike className="w-7 h-7  text-blue-600 transition hover:scale-150" />
               ) : (
                 <AiOutlineLike className="w-7 h-7 text-gray-600 transition hover:scale-150" />
               )}
@@ -451,9 +449,7 @@ const Post = ({ post, onClickUser }) => {
                         </span>
                         <span className="truncate text-sm text-gray-400">
                           2.5k followers{" "}
-                          <p href="#" className="font-medium text-gray-500">
-                          
-                          </p>
+                          <p href="#" className="font-medium text-gray-500"></p>
                         </span>
                       </p>
                     </div>

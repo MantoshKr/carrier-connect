@@ -8,11 +8,9 @@ import { AuthContext } from "../../context/AuthContext";
 const Main = () => {
   const { currentUser } = useContext(AuthContext);
 
-
   return (
-    
     <div className="flex flex-col sm:gap-6 gap-2 w-full">
-    {/* suggested job searches */}
+      {/* suggested job searches */}
       <div className="flex flex-col max-h-fit w-full items-center justify-center overflow-hidden bg-white rounded shadow-md text-slate-500 shadow-slate-200 sm:flex-row">
         <div className="flex-1 p-6 sm:mx-6 sm:px-0">
           <header className="flex justify-between md:mb-4 sm:mb-2 mb-0">
@@ -101,10 +99,7 @@ const Main = () => {
           <header className="flex justify-between mb-4 mt-6">
             <div>
               <div className="flex md:gap-4 gap-2 items-center justify-center">
-                <p
-                  
-                  className="relative inline-flex items-center justify-center h-12 text-white "
-                >
+                <p className="relative inline-flex items-center justify-center h-12 text-white ">
                   <img
                     src={currentUser.photoURL}
                     alt="user name"
@@ -164,10 +159,7 @@ const Main = () => {
           <header className="flex justify-between mb-4">
             <div>
               <div className="flex gap-4 items-center justify-center">
-                <p
-                  
-                  className="relative inline-flex items-center justify-center h-12 text-white "
-                >
+                <p className="relative inline-flex items-center justify-center h-12 text-white ">
                   <img
                     src={currentUser.photoURL}
                     alt="user"
@@ -185,12 +177,9 @@ const Main = () => {
             <p className="text-xl"></p>
           </header>
           <Link to="/editprofile">
-          <button
-            className="inline-block rounded-full bg-white border border-green-600 px-10 py-1.5 md:text-xl text-sm font-bold text-green-600 hover:bg-green-100  "
-            
-          >
-            Update Profile
-          </button>
+            <button className="inline-block rounded-full bg-white border border-green-600 px-10 py-1.5 md:text-xl text-sm font-bold text-green-600 hover:bg-green-100  ">
+              Update Profile
+            </button>
           </Link>
         </div>
       </div>
@@ -201,10 +190,7 @@ const Main = () => {
             <header className="flex justify-between mb-0">
               <div>
                 <div className="flex gap-4 items-center justify-center">
-                  <p
-                    
-                    className="relative inline-flex items-center justify-center h-12 text-white "
-                  >
+                  <p className="relative inline-flex items-center justify-center h-12 text-white ">
                     <img
                       src="https://png.pngtree.com/png-vector/20190612/ourmid/pngtree-hospitalbuildingclinicmedical--flat-color-icon--vector-ico-png-image_1339045.jpg"
                       alt="user name"
@@ -327,10 +313,7 @@ const Main = () => {
             <header className="flex justify-between mb-0">
               <div>
                 <div className="flex gap-4 items-center justify-center">
-                  <p
-                    
-                    className="relative inline-flex items-center justify-center h-12 text-white "
-                  >
+                  <p className="relative inline-flex items-center justify-center h-12 text-white ">
                     <img
                       src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/2048px-Microsoft_logo.svg.png"
                       alt="user name"

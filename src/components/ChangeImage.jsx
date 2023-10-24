@@ -74,7 +74,7 @@ const ChangeImage = () => {
             setError(true);
             console.error("Error getting download URL:", error);
           }
-        }
+        },
       );
     }
   };

@@ -90,8 +90,10 @@ const FollowUsers = () => {
                 </h3>
 
                 <div className="text-gray-500 font-medium">{user.headline}</div>
-                 {user.followers !== undefined &&(
-                <div className="text-gray-500 text-xs">{user.followers} followers</div>
+                {user.followers !== undefined && (
+                  <div className="text-gray-500 text-xs">
+                    {user.followers} followers
+                  </div>
                 )}
               </div>
             </div>
