@@ -104,12 +104,18 @@ const CreatePost = () => {
         alert("Please enter some text before submitting.");
       } else {
         handlePost();
+        setIsShowing(false);
       }
     }
   };
 
   const handleClickModal = () => {
-    handlePost();
+    if (!input.trim()) {
+      alert("Please enter some text before submitting.");
+    } else {
+      handlePost();
+      setIsShowing(false);
+    }
   };
 
   const removeImage = () => {
