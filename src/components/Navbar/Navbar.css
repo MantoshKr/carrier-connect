@@ -234,6 +234,24 @@
   opacity: 100%;
 }
 
+
+.profile-menu-link {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  
+  font-size: 14px;
+  cursor: pointer;
+}
+
+
+
+.navbar-right{
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
 /* -------------media query --------------------- */
 
 @media only screen and (max-width: 1024px) {

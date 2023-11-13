@@ -1,9 +1,9 @@
 import React, { useContext, useState } from "react";
 import "./Navbar.css";
 import CarrierConnect from "../../assets/images/cclogo1.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import searchicon from "../../assets/images/searchicon.png";
-import { AiFillHome } from "react-icons/ai";
+import { AiFillHome, AiOutlineLogout } from "react-icons/ai";
 import { FaUser } from "react-icons/fa";
 import { BiSolidBriefcase } from "react-icons/bi";
 import { IoMdChatboxes } from "react-icons/io";
@@ -12,13 +12,29 @@ import { AuthContext } from "../../context/AuthContext";
 import DropDownProfile from "../DropDownMenu/DropDownMenu";
 import user from "../../assets/images/user.png";
 import { useUser } from "../../context/UserContext";
+import { signOut } from "firebase/auth";
+import { auth } from "../../firebase";
 
 const Navbar = () => {
   const { currentUser } = useContext(AuthContext);
   const { setClickedUserId } = useUser();
+  const navigate = useNavigate();
 
   const handleHomeClick = () => {
     setClickedUserId(null);
+  };
+
+  const handleSignOut = async () => {
+    try {
+      // Sign out the user using Firebase Authentication
+      await signOut(auth);
+      // handleCloseMenu();
+      // After the sign-out process is complete, navigate to the Home page
+      navigate("/");
+    } catch (error) {
+      // Handle sign-out error, if any
+      console.error("Error signing out:", error.message);
+    }
   };
 
   return (
@@ -100,7 +116,12 @@ const Navbar = () => {
                 <DropDownProfile />
               </div>
             )}
+           
           </div>
+          <div className="profile-menu-link">
+              
+              <p onClick={handleSignOut} className="text-red-500 font-semibold">Sign Out</p>
+            </div>
         </div>
         <div></div>
       </div>
