@@ -56,6 +56,8 @@ const LeftSidebar = () => {
         .catch((error) => {
           console.error("Error fetching user data:", error);
         });
+
+      window.scrollTo(0, 0);
     } else {
       // Clear user data when no user is clicked
       setUserData(null);
@@ -108,21 +110,81 @@ const LeftSidebar = () => {
           {clickedUserId ? (
             <p className="capitalize ">{userData?.headline}</p>
           ) : (
-            <p className="capitalize ">{getUserInfo?.headline}</p>
+            <p className="capitalize font-medium">{getUserInfo?.headline}</p>
           )}
-          {/* {getUserInfo.displayName} */}
           <ul>
-            <li>{getUserInfo?.skills}</li>
-            <li>
-              Your profile views <span>234</span>
-            </li>
-            <li>
-              Your Post views<span>567</span>
-            </li>
-            <li>
-              Your connections<span>456</span>
-            </li>
+            {clickedUserId ? (
+              <li>
+                {userData?.followers ? (
+                  <>
+                    Followers <span>{userData.followers}</span>
+                  </>
+                ) : (
+                  <>
+                    Followers <span>2</span>
+                  </>
+                )}
+              </li>
+            ) : (
+              <li>
+                {getUserInfo?.followers ? (
+                  <>
+                    Followers <span>{getUserInfo.followers}</span>
+                  </>
+                ) : (
+                  <>
+                    Followers <span>2</span>
+                  </>
+                )}
+              </li>
+            )}
+
+            {clickedUserId ? (
+              <li>
+                {userData?.connections ? (
+                  <>
+                    Connections <span>{userData.connections}</span>
+                  </>
+                ) : (
+                  <>
+                    Connections <span>2</span>
+                  </>
+                )}
+              </li>
+            ) : (
+              <li>
+                {getUserInfo?.connections ? (
+                  <>
+                    Connections <span>{getUserInfo.connections}</span>
+                  </>
+                ) : (
+                  <>
+                    Connections <span>1</span>
+                  </>
+                )}
+              </li>
+            )}
           </ul>
+
+          {/* {getUserInfo.displayName} */}
+          {/* <ul>
+           
+            <li>
+              {userData?.followers && (
+                <>
+                  Followers <span>{userData.followers}</span>
+                </>
+              )}
+            </li>
+           
+            <li>
+              {userData?.connections && (
+                <>
+                  Connections <span>{userData.connections}</span>
+                </>
+              )}
+            </li>
+          </ul> */}
         </div>
         <div className="sidebar-profile-link">
           <Link to="/trypremium" className="hover:bg-[#f0f2f5] ">
@@ -137,77 +199,82 @@ const LeftSidebar = () => {
             </label>
           </Link>
           <hr />
-          <Link to="/myitems" className="hover:bg-[#f0f2f5] ">
-            <label>
-              <div className="p-2 flex items-center cursor-pointer">
-                <BsFillBookmarkFill className="BsFillBookmarkFill" />
-                My items
-              </div>
-            </label>
-          </Link>
+          {clickedUserId ? null : (
+            <Link to="/myitems" className="hover:bg-[#f0f2f5] ">
+              <label>
+                <div className="p-2 flex items-center cursor-pointer">
+                  <BsFillBookmarkFill className="BsFillBookmarkFill" />
+                  My items
+                </div>
+              </label>
+            </Link>
+          )}
         </div>
       </div>
-      <div className="sidebar-activity">
-        <h3>RECENT</h3>
-        <label>
-          <AiOutlineFieldTime className="icons2" />
-          Front End Development
-        </label>
-        <label>
-          <AiOutlineFieldTime className="icons2" />
-          React
-        </label>
-        <label>
-          <AiOutlineFieldTime className="icons2" />
-          Bootstrap
-        </label>
-        <label>
-          <AiOutlineFieldTime className="icons2" />
-          Learn Online
-        </label>
-        <label>
-          <AiOutlineFieldTime className="icons2" />
-          SAAS
-        </label>
-        <label>
-          <AiOutlineFieldTime className="icons2" />
-          Python
-        </label>
 
-        <h3>GROUPS</h3>
-        <label>
-          <MdGroups className="icons4" />
-          Web Development Group
-        </label>
-        <label>
-          <MdGroups className="icons4" />
-          React and Angular Group
-        </label>
-        <label>
-          <MdGroups className="icons4" />
-          Python and game Development
-        </label>
-        <label>
-          <MdGroups className="icons4" />
-          Robotics
-        </label>
-        <h3>HASHTAG</h3>
-        <label>
-          <FaHashtag className="icons3" />
-          fontenddev
-        </label>
-        <label>
-          <FaHashtag className="icons3" />
-          ui/ux
-        </label>
-        <label>
-          <FaHashtag className="icons3" />
-          react
-        </label>
-        <div className="discover-more-link">
-          <label>Discover more</label>
+      {clickedUserId ? null : (
+        <div className="sidebar-activity">
+          <h3>RECENT</h3>
+          <label>
+            <AiOutlineFieldTime className="icons2" />
+            Front End Development
+          </label>
+          <label>
+            <AiOutlineFieldTime className="icons2" />
+            React
+          </label>
+          <label>
+            <AiOutlineFieldTime className="icons2" />
+            Bootstrap
+          </label>
+          <label>
+            <AiOutlineFieldTime className="icons2" />
+            Learn Online
+          </label>
+          <label>
+            <AiOutlineFieldTime className="icons2" />
+            SAAS
+          </label>
+          <label>
+            <AiOutlineFieldTime className="icons2" />
+            Python
+          </label>
+
+          <h3>GROUPS</h3>
+          <label>
+            <MdGroups className="icons4" />
+            Web Development Group
+          </label>
+          <label>
+            <MdGroups className="icons4" />
+            React and Angular Group
+          </label>
+          <label>
+            <MdGroups className="icons4" />
+            Python and game Development
+          </label>
+          <label>
+            <MdGroups className="icons4" />
+            Robotics
+          </label>
+          <h3>HASHTAG</h3>
+          <label>
+            <FaHashtag className="icons3" />
+            fontenddev
+          </label>
+          <label>
+            <FaHashtag className="icons3" />
+            ui/ux
+          </label>
+          <label>
+            <FaHashtag className="icons3" />
+            react
+          </label>
+          <div className="discover-more-link">
+            <label>Discover more</label>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

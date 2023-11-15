@@ -96,25 +96,66 @@ const UserProfile = () => {
           </h3>
           <p>
             {clickedUserId ? (
-              <h1>{userData?.headline}</h1>
+              <h1 className="font-semibold">{userData?.headline}</h1>
             ) : (
               <h1>{getUserInfo?.headline}</h1>
             )}
           </p>
           <p>
             {clickedUserId ? (
-              <h1>skills: {userData?.skills}</h1>
+              <h1>
+                {userData?.talksabout && `Talks about: ${userData.talksabout}`}
+              </h1>
             ) : (
-              <h1>skills:{getUserInfo?.skills}</h1>
+              <h1>
+                {getUserInfo?.talksabout &&
+                  `Talks about: ${getUserInfo.talksabout}`}
+              </h1>
             )}
           </p>
-          <p className="text-gray-600 text-lg duration-150 group-hover:text-gray-800">
+
+          <p>
+            {clickedUserId ? (
+              <h1>
+                {userData?.place && ` ${userData.place}`}
+              </h1>
+            ) : (
+              <h1>
+                {getUserInfo?.place &&
+                  ` ${getUserInfo.place}`}
+              </h1>
+            )}
+          </p>
+
+          <p>
+            {clickedUserId ? (
+              <>
+                {userData?.followers && (
+                  <span>{userData.followers} followers&middot;</span>
+                )}
+                {userData?.connections && (
+                  <span>{userData.connections} connections</span>
+                )}
+              </>
+            ) : (
+              <>
+                {getUserInfo?.followers && (
+                  <span>{getUserInfo.followers} followers&middot;</span>
+                )}
+                {getUserInfo?.connections && (
+                  <span>{getUserInfo.connections} connections</span>
+                )}
+              </>
+            )}
+          </p>
+
+          {/* <p className="text-gray-600 text-lg duration-150 group-hover:text-gray-800">
             Member’s occupation Carrier Connect's Top Voice, International Life
             Coach, Wellness Advisor, Author & Motivational Strategist
           </p>
           <p className="text-gray-600 text-lg duration-150 group-hover:text-gray-800">
             Visualizer & Lifestyle Stylist
-          </p>
+          </p> */}
 
           <div className="pb-10">
             {clickedUserId === getUserInfo.uid ? (
@@ -157,54 +198,52 @@ const UserProfile = () => {
         </div>
       </div>
 
-      {clickedUserId === getUserInfo.uid && (
-        <div className="bg-white rounded-lg shadow-sm">
-          <div className="flex md:gap-4 gap-2  p-2 shadow-lg items-center justify-center">
-            <p className="relative inline-flex items-center justify-center h-12 text-white ">
-              <img
-                src={currentUser.photoURL}
-                alt="user name"
-                title="user name"
-                className="max-w-full object-cover rounded-full w-20 h-20  "
-              />
-            </p>
+      <div className="bg-white rounded-lg shadow-sm">
+        <div className="flex md:gap-4 gap-2  p-2 shadow-lg items-center justify-center">
+          <p className="relative inline-flex items-center justify-center h-12 text-white ">
+            <img
+              src={currentUser.photoURL}
+              alt="user name"
+              title="user name"
+              className="max-w-full object-cover rounded-full w-20 h-20  "
+            />
+          </p>
+          <div>
+            <h3 className="sm:text-xl text-sm flex font-bold text-slate-700">
+              See the full list of jobs where you'd be a top applicant
+            </h3>
             <div>
-              <h3 className="sm:text-xl text-sm flex font-bold text-slate-700">
-                See the full list of jobs where you'd be a top applicant
-              </h3>
-              <div>
-                <div className="md:flex items-center gap-2 m-3">
-                  <div className="flex md:-space-x-3 -space-x-2">
-                    <img
-                      alt=""
-                      className="md:w-8 md:h-8 w-7 h-7 border rounded-full dark:bg-gray-500 dark:border-gray-700"
-                      src="https://source.unsplash.com/40x40/?portrait?1"
-                    />
-                    <img
-                      alt=""
-                      className="md:w-8 md:h-8 w-7 h-7 border rounded-full dark:bg-gray-500 dark:border-gray-700"
-                      src="https://source.unsplash.com/40x40/?portrait?2"
-                    />
-                    <img
-                      alt=""
-                      className="md:w-8 md:h-8 w-7 h-7 border rounded-full dark:bg-gray-500 dark:border-gray-700"
-                      src="https://source.unsplash.com/40x40/?portrait?3"
-                    />
-                    <img
-                      alt=""
-                      className="md:w-8 md:h-8 w-7 h-7 border rounded-full dark:bg-gray-500 dark:border-gray-700"
-                      src="https://source.unsplash.com/40x40/?portrait?4"
-                    />
-                  </div>
-                  <span className="text-sm ">
-                    Millions of members use Premium
-                  </span>
+              <div className="md:flex items-center gap-2 m-3">
+                <div className="flex md:-space-x-3 -space-x-2">
+                  <img
+                    alt=""
+                    className="md:w-8 md:h-8 w-7 h-7 border rounded-full dark:bg-gray-500 dark:border-gray-700"
+                    src="https://source.unsplash.com/40x40/?portrait?1"
+                  />
+                  <img
+                    alt=""
+                    className="md:w-8 md:h-8 w-7 h-7 border rounded-full dark:bg-gray-500 dark:border-gray-700"
+                    src="https://source.unsplash.com/40x40/?portrait?2"
+                  />
+                  <img
+                    alt=""
+                    className="md:w-8 md:h-8 w-7 h-7 border rounded-full dark:bg-gray-500 dark:border-gray-700"
+                    src="https://source.unsplash.com/40x40/?portrait?3"
+                  />
+                  <img
+                    alt=""
+                    className="md:w-8 md:h-8 w-7 h-7 border rounded-full dark:bg-gray-500 dark:border-gray-700"
+                    src="https://source.unsplash.com/40x40/?portrait?4"
+                  />
                 </div>
+                <span className="text-sm ">
+                  Millions of members use Premium
+                </span>
               </div>
             </div>
           </div>
         </div>
-      )}
+      </div>
     </div>
   );
 };
