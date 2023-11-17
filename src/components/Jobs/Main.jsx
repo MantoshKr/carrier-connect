@@ -192,7 +192,7 @@ const Main = () => {
                 <div className="flex gap-4 items-center justify-center">
                   <p className="relative inline-flex items-center justify-center h-12 text-white ">
                     <img
-                      src="https://png.pngtree.com/png-vector/20190612/ourmid/pngtree-hospitalbuildingclinicmedical--flat-color-icon--vector-ico-png-image_1339045.jpg"
+                      src="https://media.licdn.com/dms/image/D560BAQGEPXDEIb7QDA/company-logo_100_100/0/1682334528377/virtusa_logo?e=1708560000&v=beta&t=ylDLp0LEhFkUFm4Argj6F916zwGRH2X725eNOUAQaCg"
                       alt="user name"
                       title="user name"
                       className="max-w-full w-16 "
@@ -200,14 +200,14 @@ const Main = () => {
                   </p>
                   <div>
                     <h3 className="text-xl font-bold text-sky-500 ">
-                      Dermatologist
+                    React Redux Developer
                     </h3>
                     <h3 className="text-lg font-medium text-slate-600">
-                      Satya Skin & Hair care pvt ltd
+                    Virtusa
                     </h3>
                     <p className="text-lg font-medium text-slate-400">
                       {" "}
-                      Gurugram, Haryana, India (On-site)
+                      Andhra Pradesh, India (Hybrid)
                     </p>
                   </div>
                 </div>
@@ -234,7 +234,7 @@ const Main = () => {
                     className="relative inline-flex items-center justify-center h-12 text-white "
                   >
                     <img
-                      src="https://png.pngtree.com/png-vector/20190612/ourmid/pngtree-hospitalbuildingclinicmedical--flat-color-icon--vector-ico-png-image_1339045.jpg"
+                      src="https://media.licdn.com/dms/image/D560BAQGiz5ecgpCtkA/company-logo_100_100/0/1688684715866/ibm_logo?e=1708560000&v=beta&t=A2-83AP0Yu2cOvOo0tkI8h5-q5E9Wx5YZ0AT4DkAMDY"
                       alt="job"
                       title="user "
                       className="max-w-full w-16 h-16 "
@@ -242,14 +242,14 @@ const Main = () => {
                   </p>
                   <div>
                     <h3 className="text-xl font-bold text-sky-500 ">
-                      Dermatologist
+                    Advisory Software Engineer
                     </h3>
                     <h3 className="text-lg font-medium text-slate-600">
-                      Satya Skin & Hair care pvt ltd
+                      IBM
                     </h3>
                     <p className="text-lg font-medium text-slate-400">
                       {" "}
-                      Gurugram, Haryana, India (On-site)
+                      Kochi, Kerala, India (On-site)
                     </p>
                   </div>
                 </div>
@@ -276,7 +276,7 @@ const Main = () => {
                     className="relative inline-flex items-center justify-center h-12 text-white "
                   >
                     <img
-                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/2048px-Microsoft_logo.svg.png"
+                      src="https://media.licdn.com/dms/image/C4D0BAQGawpstfOj8Hw/company-logo_100_100-alternative/0/1630478166087/thryve_digital_health_logo?e=1708560000&v=beta&t=XQaEejU5XTLIvVd7QijBKIJu12mXJiH6pc-xo34111Y"
                       alt="user name"
                       title="user name"
                       className="max-w-full w-16 "
@@ -284,10 +284,10 @@ const Main = () => {
                   </p>
                   <div>
                     <h3 className="text-xl font-bold text-sky-500 ">
-                      Dermatologist
+                    Web Developer
                     </h3>
                     <h3 className="text-lg font-medium text-slate-600">
-                      Satya Skin & Hair care pvt ltd
+                    Thryve Digital Health LLP
                     </h3>
                     <p className="text-lg font-medium text-slate-400">
                       {" "}
@@ -315,7 +315,7 @@ const Main = () => {
                 <div className="flex gap-4 items-center justify-center">
                   <p className="relative inline-flex items-center justify-center h-12 text-white ">
                     <img
-                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/2048px-Microsoft_logo.svg.png"
+                      src="https://media.licdn.com/dms/image/C560BAQG6KMZp1zAiTA/company-logo_100_100/0/1630605289074/weareuplers_logo?e=1708560000&v=beta&t=yDWyXMwBTUmDsZtjeqabvWFWAm2cZCxCiwhC_htAR2E"
                       alt="user name"
                       title="user name"
                       className="max-w-full w-16 "
@@ -323,14 +323,14 @@ const Main = () => {
                   </p>
                   <div>
                     <h3 className="text-xl font-bold text-sky-500 ">
-                      Dermatologist
+                    Full Stack Developer - MERN
                     </h3>
                     <h3 className="text-lg font-medium text-slate-600">
-                      Satya Skin & Hair care pvt ltd
+                    Uplers
                     </h3>
                     <p className="text-lg font-medium text-slate-400">
                       {" "}
-                      Gurugram, Haryana, India (On-site)
+                      Maharashtra, India (On-site)
                     </p>
                   </div>
                 </div>
